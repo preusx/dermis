@@ -1,0 +1,7 @@
+@function map-path($map, $path...)
+  $current: $map
+
+  @each $key in $path
+    $current: map-get($current, $key)
+
+  @return $current
