@@ -1,6 +1,6 @@
 {
   "name": "@dermis/base",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.sass",
   "files": [
     "src",
@@ -11,7 +11,12 @@
     "url": "git+https://github.com/preusx/dermis.git"
   },
   "keywords": [
-    "sass", "dermis", "design", "utility", "style", "css"
+    "sass",
+    "dermis",
+    "design",
+    "utility",
+    "style",
+    "css"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",
