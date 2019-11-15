@@ -1,0 +1,7 @@
+@function list-join($list, $separator: ' ')
+  $joined: ''
+
+  @each $n in $list
+    $joined: '#{$joined}#{$separator}#{$n}'
+
+  @return str-slice($joined, str-length($separator) + 1)

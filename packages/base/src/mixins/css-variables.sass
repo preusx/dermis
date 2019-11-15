@@ -1,0 +1,22 @@
+@mixin cssvar-definition()
+  @at-root :root
+    @content
+
+  @content
+
+@mixin cssvar-print-map($map, $prefix: '', $separator: '-')
+  @each $key, $value in $map
+    $k: if($prefix, #{$prefix}#{$separator}#{$key}, $key)
+
+    @if type-of($value) == 'map'
+      +cssvar-print-map($value, $k, $separator: $separator)
+    @else
+      --#{$k}: #{$value}
+
+@mixin cssvar-expose-map($map, $prefix: '', $separator: '-')
+  $context: '#{&}'
+
+  @at-root #{if($context != '', $context, ':root')}
+    +cssvar-print-map($map, $prefix: $prefix, $separator: $separator)
+
+    @content
