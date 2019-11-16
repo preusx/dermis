@@ -1,0 +1,105 @@
+@mixin mq-xs
+  @media ($mq-query-xs)
+    @content
+
+@mixin mq-sm
+  @media ($mq-query-sm)
+    @content
+
+@mixin mq-md
+  @media ($mq-query-md)
+    @content
+
+@mixin mq-lg
+  @media ($mq-query-lg)
+    @content
+
+@mixin mq-xl
+  @media ($mq-query-xl)
+    @content
+
+
+@mixin mq-till-xs
+  @media ($mq-query-till-xs)
+    @content
+
+@mixin mq-till-sm
+  @media ($mq-query-till-sm)
+    @content
+
+@mixin mq-till-md
+  @media ($mq-query-till-md)
+    @content
+
+@mixin mq-till-lg
+  @media ($mq-query-till-lg)
+    @content
+
+@mixin mq-till-xl
+  @media ($mq-query-till-xl)
+    @content
+
+
+@mixin mq-adaptive($separator: '-', $with-initial: true)
+  @if $with-initial
+    @content
+
+  @if $MQ_INCLUDE_XS
+    &#{$separator}xs
+      +mq-xs
+        @content
+
+  &#{$separator}sm
+    +mq-sm
+      @content
+
+  &#{$separator}md
+    +mq-md
+      @content
+
+  &#{$separator}lg
+    +mq-lg
+      @content
+
+  @if $MQ_INCLUDE_XL
+    &#{$separator}xl
+      +mq-xl
+        @content
+
+
+@mixin mq-adaptive-till($separator: '-till-', $with-initial: true)
+  @if $with-initial
+    @content
+
+  @if $MQ_INCLUDE_XS
+    &#{$separator}xs
+      +mq-till-xs
+        @content
+
+  &#{$separator}sm
+    +mq-till-sm
+      @content
+
+  &#{$separator}md
+    +mq-till-md
+      @content
+
+  &#{$separator}lg
+    +mq-till-lg
+      @content
+
+  @if $MQ_INCLUDE_XL
+    &#{$separator}xl
+      +mq-till-xl
+        @content
+
+
+@mixin mq-both-adaptive($with-initial: true)
+  @if $with-initial
+    @content
+
+  +mq-adaptive($with-initial: false)
+    @content
+
+  +mq-adaptive-till($with-initial: false)
+    @content
