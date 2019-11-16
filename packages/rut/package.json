@@ -1,0 +1,34 @@
+{
+  "name": "@dermis/rut",
+  "version": "0.2.0",
+  "main": "index.sass",
+  "files": [
+    "src",
+    "index.sass"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preusx/dermis.git"
+  },
+  "keywords": [
+    "sass",
+    "dermis",
+    "design",
+    "utility",
+    "style",
+    "css",
+    "space"
+  ],
+  "author": "Alex Tkachenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/preusx/dermis/issues"
+  },
+  "homepage": "https://github.com/preusx/dermis/tree/master/packages/rut",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@dermis/base": "0.2.0"
+  }
+}
