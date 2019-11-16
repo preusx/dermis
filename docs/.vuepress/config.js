@@ -33,7 +33,7 @@ module.exports = {
       lang: 'en-US'
     },
     '/ru/': {
-      lang: 'ru',
+      lang: 'ru-RU',
       title: 'Dermis',
       description: 'Набор утилит для стилизации приложения',
     }
@@ -45,44 +45,27 @@ module.exports = {
     logo: '/logo.svg',
     editLinks: true,
     sidebarDepth: 2,
-    sidebar: 'auto',
-    // sidebar: {
-    //   '/guide/': [
-    //     '',
-    //     'getting-started',
-    //     'basic-validation',
-    //     'applying-rules',
-    //     'displaying-errors',
-    //     'validation-provider',
-    //     'validation-observer',
-    //     'interaction-and-ux',
-    //     'styling',
-    //     'a11y',
-    //     'html5-validation',
-    //     'advanced-validation',
-    //     'localization',
-    //     'testing'
-    //   ],
-    //   '/api/': ['', 'rules'],
-    //   '/examples/': ['ui-libraries', 'i18n', 'multiple-forms', 'backend', 'nuxt']
-    // },
+    sidebar: {
+      '/guide/': [
+        '',
+        // 'getting-started'
+      ]
+    },
     locales: {
       '/': {
-        link: '/',
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
         nav: [
-          // { text: 'Guide', link: '/guide/' }
+          { text: 'Guide', link: '/ru/guide/' }
         ]
       },
       '/ru/': {
-        link: '/ru/',
         label: 'Русский',
         selectText: 'Языки',
         editLinkText: 'Помогите нам исправить эту страницу!',
         nav: [
-          // { text: 'Guide', link: '/guide/' }
+          { text: 'Гайд', link: '/ru/guide/' }
         ]
       }
     }
