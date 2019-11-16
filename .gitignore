@@ -1,2 +1,13 @@
+node_modules
+.nyc_output
+npm-debug.log
+coverage
+.idea
+.vscode
+.vs
+yarn-error.log
+.rpt2_cache
 .sass-cache/
 *.css.map
+.DS_Store
+dist
