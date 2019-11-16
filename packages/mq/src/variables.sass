@@ -1,0 +1,26 @@
+$MQ_INCLUDE_XS: false !default
+$MQ_INCLUDE_XL: false !default
+
+$mq-size-xs: 320px !default
+$mq-size-sm: 567px !default
+$mq-size-md: 768px !default
+$mq-size-lg: 992px !default
+$mq-size-xl: 1200px !default
+
+$mq-size-map: () !default
+$mq-size-map: map-merge($mq-size-map, ('xs': $mq-size-xs))
+$mq-size-map: map-merge($mq-size-map, ('sm': $mq-size-sm))
+$mq-size-map: map-merge($mq-size-map, ('md': $mq-size-md))
+$mq-size-map: map-merge($mq-size-map, ('lg': $mq-size-lg))
+$mq-size-map: map-merge($mq-size-map, ('xl': $mq-size-xl))
+
+$mq-query-xs: unquote("min-width: #{$mq-size-xs}") !default
+$mq-query-sm: unquote("min-width: #{$mq-size-sm}") !default
+$mq-query-md: unquote("min-width: #{$mq-size-md}") !default
+$mq-query-lg: unquote("min-width: #{$mq-size-lg}") !default
+$mq-query-xl: unquote("min-width: #{$mq-size-xl}") !default
+$mq-query-till-xs: unquote("max-width: #{$mq-size-xs - 1}") !default
+$mq-query-till-sm: unquote("max-width: #{$mq-size-sm - 1}") !default
+$mq-query-till-md: unquote("max-width: #{$mq-size-md - 1}") !default
+$mq-query-till-lg: unquote("max-width: #{$mq-size-lg - 1}") !default
+$mq-query-till-xl: unquote("max-width: #{$mq-size-xl - 1}") !default
