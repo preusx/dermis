@@ -1,0 +1,162 @@
+.#{$PREFIX}type
+  color: inherit
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    font-family: var(--type-face-heading)
+
+  h1,
+  h2
+    font-weight: 400
+
+  h3,
+  h4,
+  h5,
+  h6
+    font-weight: 600
+
+  h1
+    +type-line('3xl', 'display')
+    letter-spacing: var(--type-letter-spacing-display)
+  h2
+    +type-line('2xl', 'display')
+    letter-spacing: var(--type-letter-spacing-display)
+  h3
+    +type-line('xl', 'heading')
+  h4
+    +type-line('lg', 'heading')
+  h5
+    +type-line('md', 'heading')
+    letter-spacing: var(--type-letter-spacing-wide)
+  h6
+    +type-line('sm', 'heading')
+    letter-spacing: var(--type-letter-spacing-3xl)
+    text-transform: uppercase
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl,
+  table,
+  blockquote,
+  pre,
+  address,
+  figure
+    margin-top: 0
+    margin-bottom: var(--type-space-1)
+
+    &:last-child
+      margin-bottom: 0
+
+  * +
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      margin-top: var(--type-space-2)
+
+  address
+    font-style: normal
+
+  ul,
+  ol
+    padding-left: var(--space-lg)
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol
+    margin-top: 0
+    margin-bottom: 0
+
+  li
+    line-height: inherit
+
+  dt
+    font-weight: 600
+
+  dd
+    margin-left: 0
+
+    & + dt
+      margin-top: var(--type-space-1)
+
+  hr
+    margin-top: var(--type-space-1)
+    margin-bottom: var(--type-space-1)
+    border: 0
+    border-top: 1px dashed currentColor
+
+  small
+    +type-line('xs')
+
+  sub,
+  sup
+    +type-line('xs')
+
+  mark
+    // background: rgba(var(--color-warning), 0.3)
+    padding: 0 0.2em
+
+  b,
+  strong
+    font-weight: bolder
+
+  abbr[title]
+    text-decoration: underline dotted
+
+  blockquote
+    padding: 0
+    margin-left: 0
+    margin-right: 0
+
+    p
+      +type-line('lg')
+
+  code,
+  kbd,
+  pre,
+  samp
+    font-family: var(--type-face-monospace)
+
+  code
+    padding: 0 0.3em
+    color: inherit
+
+  kbd
+    padding: 0 0.3em
+    color: inherit
+
+    kbd
+      padding: 0
+
+  pre
+    display: block
+    width: 100%
+    overflow-x: auto
+    tab-size: 2
+
+
+.#{$PREFIX}words
+  &--
+    &fill_
+      &sm
+        max-width: 20em
+
+      &md
+        max-width: 30em
+
+      &lg
+        max-width: 42em
