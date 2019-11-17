@@ -28,7 +28,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "@dermis/base": "0.2.0"
   }
 }
