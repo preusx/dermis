@@ -1,6 +1,6 @@
 {
   "name": "@dermis/grid",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "index.sass",
   "files": [
     "src",
