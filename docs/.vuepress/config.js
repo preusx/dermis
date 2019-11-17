@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Dermis',
   description: 'Set of tools for application styling',
-  theme: './theme',
+  // theme: './theme',
   base: '/dermis/',
   plugins: [
     '@vuepress/back-to-top',
