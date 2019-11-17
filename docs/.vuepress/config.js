@@ -54,6 +54,7 @@ module.exports = {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
+        lastUpdated: 'Last Updated',
         nav: [
           { text: 'Guide', link: '/ru/guide/' },
           { text: 'Modules', link: '/ru/modules/grid/' }
@@ -63,6 +64,7 @@ module.exports = {
         label: 'Русский',
         selectText: 'Языки',
         editLinkText: 'Помогите нам исправить эту страницу!',
+        lastUpdated: 'Изменено',
         nav: [
           { text: 'Гайд', link: '/ru/guide/' },
           { text: 'Модули', link: '/ru/modules/grid/' }
