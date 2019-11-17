@@ -1,0 +1,24 @@
+.#{$GRID_CONTAINER_PREFIX}container
+  +grid-container(var(--grid-cell-space-half))
+
+  &--
+    &fit_
+      &auto
+        +mq-adaptive
+          max-width: auto
+
+      @each $key, $value in $grid-container-widths-map
+        @if $value > 0
+          &#{$key}
+            +mq-adaptive
+              max-width: $value
+
+    &space_
+      &none
+        +mq-both-adaptive
+          --grid-cell-space-half: 0
+
+      @each $size, $value in $grid-row-space-map
+        &#{$size}
+          +mq-both-adaptive
+            --grid-cell-space-half: #{$value / 2}

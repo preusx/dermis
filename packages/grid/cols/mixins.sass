@@ -1,0 +1,4 @@
+@function grid-cols($count, $total: $grid-cols-columns-count, $error: $grid-cols-calculation-error)
+  $percent: 100% * $count / $total
+
+  @return $percent - if($percent % 1 > 0, $error, 0)

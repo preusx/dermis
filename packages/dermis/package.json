@@ -1,0 +1,36 @@
+{
+  "name": "@dermis/dermis",
+  "version": "0.2.0",
+  "main": "index.sass",
+  "files": [
+    "index.sass"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preusx/dermis.git"
+  },
+  "keywords": [
+    "sass",
+    "dermis",
+    "design",
+    "utility",
+    "style",
+    "css",
+    "media-query"
+  ],
+  "author": "Alex Tkachenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/preusx/dermis/issues"
+  },
+  "homepage": "https://github.com/preusx/dermis/tree/master/packages/dermis",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dermis/base": "0.2.0",
+    "@dermis/mq": "0.2.0",
+    "@dermis/rut": "0.2.0",
+    "@dermis/grid": "0.2.0"
+  }
+}

@@ -1,0 +1,24 @@
+.#{$GRID_COLS_PREFIX}cols
+  min-width: 0
+
+  &--
+    &auto
+      +mq-both-adaptive
+        max-width: none
+        width: auto
+        flex-basis: 0
+        flex-grow: 1
+        flex-shrink: 1
+
+    &narrow
+      +mq-both-adaptive
+        width: auto
+        flex: none
+
+    @for $i from 1 through $grid-cols-columns-count
+      &#{$i}
+        $columns: grid-cols($i, $total: $grid-cols-columns-count)
+
+        +mq-both-adaptive
+          width: $columns
+          flex: none

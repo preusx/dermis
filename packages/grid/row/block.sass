@@ -1,0 +1,61 @@
+.#{$GRID_ROW_PREFIX}row
+  +cssvar-definition
+    --grid-space: #{$grid-row-space}
+    --grid-space-vertical: var(--grid-space)
+    --grid-space-horizontal: var(--grid-space)
+    --grid-row-space: 0
+    --grid-cell-space: var(--grid-space-horizontal)
+    --grid-cell-space-half: calc(0.5 * var(--grid-cell-space))
+    --grid-row-space-half: calc(var(--grid-row-space) * 0.5)
+
+  +grid-row(var(--grid-cell-space-half), var(--grid-row-space-half))
+
+  &--
+    &appearance_
+      &inline
+        display: inline-flex
+
+      &nowrap
+        flex-wrap: nowrap
+
+      &spaced
+        --grid-row-space: var(--grid-space-vertical)
+
+    &justification_
+      &center
+        justify-content: center
+
+    &alignment_
+      &center
+        align-items: center
+
+      &top
+        align-items: flex-start
+
+      &bottom
+        align-items: flex-end
+
+    &space_
+      &none
+        +mq-both-adaptive
+          --grid-space: 0
+
+      @each $size, $value in $grid-row-space-map
+        &#{$size}
+          +mq-both-adaptive
+            --grid-space: #{$value}
+
+
+.#{$GRID_ROW_PREFIX}cell
+  +grid-cell(var(--grid-cell-space-half), var(--grid-row-space-half))
+
+  &--
+    &alignment_
+      &center
+        align-self: center
+
+      &top
+        align-self: flex-start
+
+      &bottom
+        align-self: flex-end
