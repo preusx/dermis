@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/preusx/dermis/issues"
   },
-  "homepage": "https://github.com/preusx/dermis/tree/master/packages/dermis",
+  "homepage": "https://preusx.github.io/dermis/",
   "publishConfig": {
     "access": "public"
   },

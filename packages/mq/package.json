@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/preusx/dermis/issues"
   },
-  "homepage": "https://github.com/preusx/dermis/tree/master/packages/mq",
+  "homepage": "https://preusx.github.io/dermis/",
   "publishConfig": {
     "access": "public"
   },
