@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "./scripts/deploy-documentation.sh"
   },
   "workspaces": [
     "packages/*"
