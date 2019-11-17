@@ -29,6 +29,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "0.2.0"
+    "@dermis/base": "0.3.3"
   }
 }

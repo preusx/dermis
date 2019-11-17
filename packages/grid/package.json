@@ -29,8 +29,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "0.2.0",
-    "@dermis/mq": "0.2.0",
-    "@dermis/rut": "0.2.0"
+    "@dermis/base": "0.3.3",
+    "@dermis/mq": "0.3.3",
+    "@dermis/rut": "0.3.3"
   }
 }
