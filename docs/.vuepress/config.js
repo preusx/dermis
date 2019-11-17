@@ -1,11 +1,15 @@
 module.exports = {
   title: 'Dermis',
   description: 'Set of tools for application styling',
+  theme: './theme',
   base: '/dermis/',
   plugins: [
     '@vuepress/back-to-top',
     'demo-block'
   ],
+  chainWebpack(config) {
+    config.resolve.alias.set('vue$', 'vue/dist/vue.common');
+  },
   head: [
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -28,7 +32,7 @@ module.exports = {
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
 
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
+    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
 
   ],
@@ -77,6 +81,7 @@ module.exports = {
             'base',
             'rut',
             'mq',
+            'type',
             'grid'
           ],
         },

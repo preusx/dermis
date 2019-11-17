@@ -1,4 +1,8 @@
-.#{$PREFIX}type
+.#{$TYPE_PREFIX}content
+  font-family: var(--type-face-body)
+  +type-line('body', 'body')
+
+  -webkit-font-smoothing: antialiased
   color: inherit
 
   h1,
@@ -149,7 +153,7 @@
     tab-size: 2
 
 
-.#{$PREFIX}words
+.#{$TYPE_PREFIX}words
   &--
     &fill_
       &sm
