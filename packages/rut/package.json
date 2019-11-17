@@ -1,6 +1,6 @@
 {
   "name": "@dermis/rut",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "index.sass",
   "files": [
     "src",
