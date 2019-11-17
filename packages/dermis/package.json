@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "index.sass",
   "files": [
     "index.sass"
@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@dermis/base": "^0.3.0",
-    "@dermis/grid": "^0.3.0",
-    "@dermis/mq": "^0.3.0",
-    "@dermis/rut": "^0.3.0"
+    "@dermis/grid": "^0.3.1",
+    "@dermis/mq": "^0.3.1",
+    "@dermis/rut": "^0.3.1"
   }
 }
