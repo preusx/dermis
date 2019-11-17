@@ -15,4 +15,6 @@ git commit -m "Documentation v${PACKAGE_VERSION} deploy"
 git push -f git@github.com:preusx/dermis.git master:gh-pages
 cd -
 
+rm -rf docs/.vuepress/dist
+
 echo "Deployed!"
