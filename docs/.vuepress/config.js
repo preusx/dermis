@@ -57,7 +57,7 @@ module.exports = {
         lastUpdated: 'Last Updated',
         nav: [
           { text: 'Guide', link: '/ru/guide/' },
-          { text: 'Modules', link: '/ru/modules/grid/' }
+          { text: 'Modules', link: '/ru/modules/base/' }
         ]
       },
       '/ru/': {
@@ -67,13 +67,16 @@ module.exports = {
         lastUpdated: 'Изменено',
         nav: [
           { text: 'Гайд', link: '/ru/guide/' },
-          { text: 'Модули', link: '/ru/modules/grid/' }
+          { text: 'Модули', link: '/ru/modules/base/' }
         ],
         sidebar: {
           '/ru/guide/': [
             '',
           ],
           '/ru/modules/': [
+            'base',
+            'rut',
+            'mq',
             'grid'
           ],
         },
