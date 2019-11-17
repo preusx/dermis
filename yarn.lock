@@ -3313,6 +3313,14 @@ css-loader@^2.1.1:
     postcss-value-parser "^3.3.0"
     schema-utils "^1.0.0"
 
+css-mqpacker@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/css-mqpacker/-/css-mqpacker-7.0.0.tgz#48f4a0ff45b81ec661c4a33ed80b9db8a026333b"
+  integrity sha512-temVrWS+sB4uocE2quhW8ru/KguDmGhCU7zN213KxtDvWOH3WS/ZUStfpF4fdCT7W8fPpFrQdWRFqtFtPPfBLA==
+  dependencies:
+    minimist "^1.2.0"
+    postcss "^7.0.0"
+
 css-parse@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/css-parse/-/css-parse-2.0.0.tgz#a468ee667c16d81ccf05c58c38d2a97c780dbfd4"
@@ -9535,6 +9543,11 @@ vuepress-plugin-container@^2.0.2:
   integrity sha512-i4p7S1cqYUrg/3pt+xSghZtKSHVI3VXMQNept8ILxA+lMK1XJkdRkjNovZzwpXlrErQssvrUOTWBV0hdBv7eXQ==
   dependencies:
     markdown-it-container "^2.0.0"
+
+vuepress-plugin-demo-block@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-demo-block/-/vuepress-plugin-demo-block-0.7.2.tgz#02fc4f0ef764052981accf41f1403fdb9f794c0d"
+  integrity sha512-0k7z7bTjXoXgdAMVFIVn3RFSQpKOM0yvD0hf/CA0gMCLBih77mCALtEpH9b+bEvijHmLLIq+BUtS2TQHXpkbNA==
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"

@@ -4,7 +4,7 @@ home: true
 description: Набор утилит для стилизации приложения
 heroImage: /logo.svg
 actionText: Начнем »
-actionLink: ./ru/guide/
+actionLink: /ru/guide/
 features:
   - title: Простой
     details: Легко использовать и установить. Не требует усилий для абаптации под проект.

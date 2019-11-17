@@ -10,9 +10,12 @@
   ],
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
+    "css-mqpacker": "^7.0.0",
     "lerna": "^3.18.4",
     "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.0.0",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.2.0",
+    "vuepress-plugin-demo-block": "^0.7.2"
   }
 }

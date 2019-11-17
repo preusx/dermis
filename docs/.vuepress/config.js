@@ -3,6 +3,7 @@ module.exports = {
   description: 'Set of tools for application styling',
   plugins: [
     '@vuepress/back-to-top',
+    'demo-block'
   ],
   base: '/',
   head: [
@@ -27,6 +28,9 @@ module.exports = {
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
 
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
+
   ],
   locales: {
     '/': {
@@ -45,19 +49,14 @@ module.exports = {
     logo: '/logo.svg',
     editLinks: true,
     sidebarDepth: 2,
-    sidebar: {
-      '/guide/': [
-        '',
-        // 'getting-started'
-      ]
-    },
     locales: {
       '/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
         nav: [
-          { text: 'Guide', link: '/ru/guide/' }
+          { text: 'Guide', link: '/ru/guide/' },
+          { text: 'Modules', link: '/ru/modules/grid/' }
         ]
       },
       '/ru/': {
@@ -65,9 +64,26 @@ module.exports = {
         selectText: 'Языки',
         editLinkText: 'Помогите нам исправить эту страницу!',
         nav: [
-          { text: 'Гайд', link: '/ru/guide/' }
-        ]
+          { text: 'Гайд', link: '/ru/guide/' },
+          { text: 'Модули', link: '/ru/modules/grid/' }
+        ],
+        sidebar: {
+          '/ru/guide/': [
+            '',
+          ],
+          '/ru/modules/': [
+            'grid'
+          ],
+        },
       }
     }
+  },
+  postcss: {
+    plugins: [
+      require('autoprefixer')({}),
+      require('css-mqpacker')({
+        sort: true,
+      }),
+    ]
   }
 };

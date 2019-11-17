@@ -3,7 +3,7 @@ lang: en-US
 home: true
 heroImage: /logo.svg
 actionText: Get started »
-actionLink: ./guide/
+actionLink: /ru/guide/
 features:
   - title: Simple
     details: Easy to use and setup. With minimal overwriting involved.
