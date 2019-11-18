@@ -1,0 +1,91 @@
+$TYPE_PREFIX: 't-' !default
+
+// FONT SIZES:
+$type-font-size-2xs: 10px !default;
+$type-font-size-xs: 12px !default;
+$type-font-size-sm: 14px !default;
+$type-font-size-md: 16px !default;
+$type-font-size-lg: 20px !default;
+$type-font-size-xl: 24px !default;
+$type-font-size-2xl: 34px !default;
+$type-font-size-3xl: 48px !default;
+$type-font-size-4xl: 60px !default;
+$type-font-size-5xl: 96px !default;
+
+$type-font-size-body: $type-font-size-md !default;
+
+$type-font-size-map: () !default
+$type-font-size-map: map-merge($type-font-size-map, ('2xs': $type-font-size-2xs))
+$type-font-size-map: map-merge($type-font-size-map, ('xs': $type-font-size-xs))
+$type-font-size-map: map-merge($type-font-size-map, ('sm': $type-font-size-sm))
+$type-font-size-map: map-merge($type-font-size-map, ('md': $type-font-size-md))
+$type-font-size-map: map-merge($type-font-size-map, ('lg': $type-font-size-lg))
+$type-font-size-map: map-merge($type-font-size-map, ('xl': $type-font-size-xl))
+$type-font-size-map: map-merge($type-font-size-map, ('2xl': $type-font-size-2xl))
+$type-font-size-map: map-merge($type-font-size-map, ('3xl': $type-font-size-3xl))
+$type-font-size-map: map-merge($type-font-size-map, ('4xl': $type-font-size-4xl))
+$type-font-size-map: map-merge($type-font-size-map, ('5xl': $type-font-size-5xl))
+$type-font-size-map: map-merge($type-font-size-map, ('body': $type-font-size-body))
+
+// LETTER SPACING:
+$type-letter-spacing-2xs: -0.05em !default;
+$type-letter-spacing-xs: -0.025em !default;
+$type-letter-spacing-sm: -0.015em !default;
+$type-letter-spacing-md: 0 !default;
+$type-letter-spacing-lg: 0.015em !default;
+$type-letter-spacing-xl: 0.025em !default;
+$type-letter-spacing-2xl: 0.05em !default;
+$type-letter-spacing-3xl: 0.1em !default;
+
+$type-letter-spacing-display: $type-letter-spacing-2xs !default;
+$type-letter-spacing-heading: $type-letter-spacing-sm !default;
+$type-letter-spacing-body: $type-letter-spacing-md !default;
+$type-letter-spacing-wide: $type-letter-spacing-2xl !default;
+
+$type-letter-spacing-map: () !default
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('2xs': $type-letter-spacing-2xs))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('xs': $type-letter-spacing-xs))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('sm': $type-letter-spacing-sm))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('md': $type-letter-spacing-md))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('lg': $type-letter-spacing-lg))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('xl': $type-letter-spacing-xl))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('2xl': $type-letter-spacing-2xl))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('3xl': $type-letter-spacing-3xl))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('display': $type-letter-spacing-display))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('heading': $type-letter-spacing-heading))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('body': $type-letter-spacing-body))
+$type-letter-spacing-map: map-merge($type-letter-spacing-map, ('wide': $type-letter-spacing-wide))
+
+// LINE HEIGHTS:
+$type-line-height-xs: 1 !default;
+$type-line-height-sm: 1.35 !default;
+$type-line-height-md: 1.5 !default;
+
+$type-line-height-display: $type-line-height-xs !default;
+$type-line-height-heading: $type-line-height-sm !default;
+$type-line-height-body: $type-line-height-md !default;
+
+$type-line-height-map: () !default
+$type-line-height-map: map-merge($type-line-height-map, ('xs': $type-line-height-xs))
+$type-line-height-map: map-merge($type-line-height-map, ('sm': $type-line-height-sm))
+$type-line-height-map: map-merge($type-line-height-map, ('md': $type-line-height-md))
+$type-line-height-map: map-merge($type-line-height-map, ('display': $type-line-height-display))
+$type-line-height-map: map-merge($type-line-height-map, ('heading': $type-line-height-heading))
+$type-line-height-map: map-merge($type-line-height-map, ('body': $type-line-height-body))
+
+// TYPEFACES:
+$type-face-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default
+$type-face-heading: $type-face-body !default
+$type-face-monospace: SFMono-Regular, 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace !default
+
+$type-face-map: () !default
+$type-face-map: map-merge($type-face-map, ('monospace': $type-face-monospace))
+$type-face-map: map-merge($type-face-map, ('heading': $type-face-heading))
+$type-face-map: map-merge($type-face-map, ('body': $type-face-body))
+
+// SPACES:
+$type-space-base: $space-md !default
+$type-space-1: $type-space-base
+$type-space-2: $type-space-base * 2
+$type-space-3: $type-space-base * 3
+$type-space-4: $type-space-base * 4

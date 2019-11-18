@@ -1,0 +1,17 @@
++cssvar-expose-map($type-font-size-map, $prefix: 'type-font-size')
++cssvar-expose-map($type-letter-spacing-map, $prefix: 'type-letter-spacing')
++cssvar-expose-map($type-line-height-map, $prefix: 'type-line-height')
++cssvar-expose-map($type-face-map, $prefix: 'type-face')
+
+@at-root :root
+  --type-space-base: #{$type-space-base}
+  --type-space-1: var(--type-space-base)
+  --type-space-2: calc(var(--type-space-base) * 2)
+  --type-space-3: calc(var(--type-space-base) * 3)
+  --type-space-4: calc(var(--type-space-base) * 4)
+
+@at-root body
+  font-family: var(--type-face-body)
+  +type-line('body', 'body')
+
+  -webkit-font-smoothing: antialiased

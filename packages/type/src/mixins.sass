@@ -1,0 +1,8 @@
+@function type-line-height($size: 'body', $line: 'body')
+  $font-size: map-get($type-font-size-map, $size)
+
+  @return rut-floor($font-size * map-get($type-line-height-map, $line)) / $font-size
+
+@mixin type-line($size: 'body', $line: 'body')
+  font-size: var(--type-font-size-#{$size})
+  line-height: type-line-height($size: $size, $line: $line)

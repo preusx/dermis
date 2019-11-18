@@ -1,3 +1,5 @@
 import './index.sass';
 
-export default ({  }) => {};
+export default ({ Vue }) => {
+  window.Vue = Vue;
+};

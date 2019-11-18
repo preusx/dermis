@@ -1,7 +1,27 @@
-.vuepress-plugin-demo-block__app
-  @import '../../packages/dermis/index'
+// SUPER DIRTY DIRTY hack
+// Do not use this cind of things on production
+.vuepress-plugin-demo-block__app.vuepress-plugin-demo-block__app.vuepress-plugin-demo-block__app
+  all: initial
+  display: block
 
-  @import 'styles/helpers/highlight-cell'
+  *
+    all: unset
+
+  @import 'styles/helpers/default-styles'
+
+  div.vuepress-plugin-demo-block__wrapper div.vuepress-plugin-demo-block__display &.vuepress-plugin-demo-block__app.vuepress-plugin-demo-block__app
+    @import '../../packages/dermis/index'
+
+    @import 'styles/helpers/highlight-cell'
+
+    @extend body
+
+    box-sizing: border-box
+
+    *,
+    *::before,
+    *::after
+      box-sizing: inherit
 
 .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__display.vuepress-plugin-demo-block__display
   max-height: none

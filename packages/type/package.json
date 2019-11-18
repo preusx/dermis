@@ -1,8 +1,9 @@
 {
-  "name": "@dermis/dermis",
+  "name": "@dermis/type",
   "version": "0.3.4",
   "main": "index.sass",
   "files": [
+    "src",
     "index.sass"
   ],
   "repository": {
@@ -27,11 +28,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
+  "devDependencies": {
     "@dermis/base": "0.3.4",
-    "@dermis/grid": "0.3.4",
-    "@dermis/mq": "0.3.4",
-    "@dermis/rut": "0.3.4",
-    "@dermis/type": "0.3.4"
+    "@dermis/rut": "0.3.4"
   }
 }
