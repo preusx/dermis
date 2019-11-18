@@ -1,6 +1,6 @@
 {
   "name": "@dermis/grid",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "index.sass",
   "repository": {
     "type": "git",
@@ -25,8 +25,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "0.3.4",
-    "@dermis/mq": "0.3.4",
-    "@dermis/rut": "0.3.4"
+    "@dermis/base": "0.3.5",
+    "@dermis/mq": "0.3.5",
+    "@dermis/rut": "0.3.5"
   }
 }
