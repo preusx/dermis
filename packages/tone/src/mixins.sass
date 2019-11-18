@@ -1,2 +1,51 @@
-$steps = 0 5 10 20 30 40 50 60 70 80 90 100
-$hue-range = 0 359
+// $steps = 0 5 10 20 30 40 50 60 70 80 90 100
+$HUE_RANGE: 0 359
+$SATURATION_RANGE: 0 100%
+$LIGHTNESS_RANGE: 0 100%
+
+$SATURATION_RATE: 130
+
+@function tone-change-linear($step)
+  @return $step
+
+@function tone-change-ease-in-out-quad($step)
+  @return if($step < 0.5, 2 * $step * $step, (4 - 2 * $step) * $step - 1)
+
+@function tone-range-value($value, $base, $current)
+  $shift: $value - nth($base, 1)
+  $base-diff: nth($base, 2) - nth($base, 1)
+  $current-diff: nth($current, 2) - nth($current, 1)
+
+  $result: nth($current, 1) + $shift / $base-diff * $current-diff
+
+  @return min(max($result, nth($current, 1)), nth($current, 2))
+
+@function tone-color-shift($color, $mark, $hue-shift: $HUE_SHIFT, $saturation-shift: $SATURATION_SHIFT, $lightness-shift: null)
+  $hue: hue($color)
+  $saturation: saturation($color)
+  $lightness: lightness($color)
+  $position: tone-change-ease-in-out-quad($mark / 100) * 100
+
+  @if $lightness-shift == null
+    $lightness-shift: 50 - abs($lightness - 50)
+
+  $hue-current: tone-range-value($position, $HUE_RANGE, $hue - $hue-shift $hue + $hue-shift)
+  $saturation-current: tone-range-value($position, $SATURATION_RANGE, $saturation - $saturation-shift $saturation + $saturation-shift)
+  $lightness-current: tone-range-value(100 - $position, $LIGHTNESS_RANGE, $lightness - $lightness-shift $lightness + $lightness-shift)
+
+  @return hsl($hue-current, $saturation-current, $lightness-current)
+
+@function tone-color-in-range($mark, $hue-range, $saturation-range, $lightness-range)
+  $position: tone-change-linear($mark / 100) * 100
+  $position-reverse: tone-change-linear((100 - $mark) / 100) * 100
+  $saturation-rate: $SATURATION_RATE
+
+  @if length($saturation-range) >= 3
+    $saturation-rate: nth($saturation-range, 3)
+
+  $hue-current: tone-range-value($position, $HUE_RANGE, $hue-range)
+  $saturation-current: tone-range-value($position, $SATURATION_RANGE, $saturation-range) * $saturation-rate / 100
+  $lightness-current: tone-range-value($position-reverse, $LIGHTNESS_RANGE, $lightness-range)
+  // @error $position $position-reverse $hue-current $saturation-current $lightness-current
+
+  @return hsl($hue-current, strip-unit($saturation-current), strip-unit($lightness-current))
