@@ -31,6 +31,7 @@
     "@dermis/base": "0.3.4",
     "@dermis/grid": "0.3.4",
     "@dermis/mq": "0.3.4",
-    "@dermis/rut": "0.3.4"
+    "@dermis/rut": "0.3.4",
+    "@dermis/type": "0.3.4"
   }
 }

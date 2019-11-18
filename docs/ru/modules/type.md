@@ -1,6 +1,51 @@
 # Типографика
 
-**`type`**
+**`type`** - Библиотека для урегулирования отображения обычной верстки. И упрощает настройку типографики проекта.
+
+Базовый префикс(**`$GRID_PREFIX`**) блоков типографики: `t-`.
+
+Для настройки и работы с типографикой есть большое количество переменных. Изучите их: `@dermis/typo/src/variables.sass`. Как и все остальные переменные - их нужно использовать в разработке. Также большинство из них есть в виде css custom properties.
+
+## Размеры контента
+
+Отображения контента, для более удобного чтения желательно ограничивать в занимаемой им ширине.
+
+::: demo
+```html
+<template>
+  <div>
+    <section class="t-content t-words t-words--fill_sm">
+      <h4>Малый контейнер(sm)</h4>
+      <p>
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+      </p>
+    </section>
+    <section class="t-content t-words t-words--fill_md">
+      <h4>Средний контейнер(md)</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <p>
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+      </p>
+    </section>
+    <section class="t-content t-words t-words--fill_lg">
+      <h4>Большой контейнер(lg)</h4>
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      </p>
+    </section>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+## "Чистые" элементы
+
+Это пример стилизации частой верстки в случае когда применение к ним классов достаточно сложно(контент из админ панели, например).
+
+По умолчанию стилизации для html элементов в проекте нет, дабы не нарушать стилизацию конкретных блоков. Для их стилизации они должны находится в `t-content` блоке.
 
 ::: demo
 ```html
@@ -12,7 +57,7 @@
     </header>
 
     <header>
-      <a href="" title="Site title"><h1>Site title</h1></a>
+      <h1><a href="" title="Site title">Site title</a></h1>
       <nav>
         <ul>
           <li> <a href="#" title="Home">Home</a> </li>
@@ -170,90 +215,12 @@
       </dl>
     </section>
 
-    <section>
-      <h1>Forms</h1>
-      <form>
-        <fieldset>
-          <legend>Legend Example</legend>
-
-          <div>
-            <label>Text Input Label</label>
-            <input type="text" />
-            <p>Helper text if necessary.</p>
-          </div>
-
-          <div>
-            <label>Password</label>
-            <input type="password" />
-            <p>Error messages when appropriate.</p>
-          </div>
-
-          <div>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" />
-          </div>
-
-          <div>
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" />
-          </div>
-
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" />
-          </div>
-
-
-          <div>
-            <label for="gender">Dropdown</label>
-            <select>
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-            </select>
-          </div>
-
-          <div>
-            <label>Radio Buttons</label>
-            <ul>
-              <li><label><input type="radio" /> Label 1</label></li>
-              <li><label><input type="radio" /> Label 2</label></li>
-              <li><label><input type="radio" /> Label 3</label></li>
-            </ul>
-          </div>
-
-          <div>
-            <label for="url">URL Input</label>
-            <input type="url" placeholder="http://mrmrs.cc" />
-          </div>
-
-          <div>
-            <label>Text area</label>
-            <textarea></textarea>
-          </div>
-
-          <div>
-            <label><input type="checkbox" /> This is a checkbox.</label>
-          </div>
-
-          <div>
-            <input type="submit" value="Submit" />
-          </div>
-
-        </fieldset>
-      </form>
-    </section>
-    <section>
-      <h1>Buttons</h1>
-      <button>A button</button>
-      <button>A button</button>
-      <button>A large button</button>
-    </section>
     <hr />
+
     <section>
-      <h1>An Example Article</h1>
+      <h6>An Example Article</h6>
       <article>
-        <h1>Title</h1>
+        <h1 class="t-words t-words--sm">Some very long article title to describe content</h1>
         <p>
           Lorem ipsum dolor sit amet, <b>consectetur adipisicing elit</b>, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -266,7 +233,7 @@
           <p>
             This is a GREAT pull quote.
           </p>
-          <cite><a href="#">- Author</a></cite>
+          &mdash; <a href="#">Author</a>
         </blockquote>
         <p>
           Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
@@ -290,12 +257,8 @@
 
     <section>
       <h1>Code examples</h1>
-      <code>
-        <pre>
-sudo ipfw pipe 1 config bw 256KByte/s
-sudo ipfw add 1 pipe 1 src-port 3000
-        </pre>
-      </code>
+      <pre><code>sudo ipfw pipe 1 config bw 256KByte/s
+sudo ipfw add 1 pipe 1 src-port 3000</code></pre>
     </section>
     <hr />
     <section>
@@ -334,12 +297,6 @@ sudo ipfw add 1 pipe 1 src-port 3000
     </section>
 
   <section>
-    <h1>New hawtness</h1>
-    <progress value="80" max="100">80 %</progress>
-    <p>We are this close to the goal: <meter min="0" max="1000" value="824">$824</meter>.</p>
-  </section>
-
-  <section>
     <header>
       <h1>Random Stuff</h1>
     </header>
@@ -369,8 +326,7 @@ sudo ipfw add 1 pipe 1 src-port 3000
     http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-samp-element
     -->
     <samp>
-      <pre>
-/Sites/html master  ☠ ☢
+      <pre>/Sites/html master  ☠ ☢
 $  <kbd>ls -gto</kbd>
 
 total 104
@@ -389,8 +345,7 @@ drwxr-xr-x   3     102 Jun  4 15:59 css
 -rw-r--r--   1    1250 Jun  4 15:59 touch-icon-ipad-precomposed.png
 -rw-r--r--   1    2203 Jun  4 15:59 touch-icon-ipad-retina-precomposed.png
 -rw-r--r--   1    1046 Jun  4 15:59 touch-icon-iphone-precomposed.png
--rw-r--r--   1    1779 Jun  4 15:59 touch-icon-iphone-retina-precomposed.png
-        </pre>
+-rw-r--r--   1    1779 Jun  4 15:59 touch-icon-iphone-retina-precomposed.png</pre>
       </samp>
     </section>
     <section>
