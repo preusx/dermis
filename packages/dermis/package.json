@@ -2,9 +2,6 @@
   "name": "@dermis/dermis",
   "version": "0.3.4",
   "main": "index.sass",
-  "files": [
-    "index.sass"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/preusx/dermis.git"
