@@ -5,3 +5,11 @@
     $joined: '#{$joined}#{$separator}#{$n}'
 
   @return str-slice($joined, str-length($separator) + 1)
+
+@function list-reverse($list)
+  $result: ()
+
+  @for $i from length($list) through 1
+    $result: append($result, nth($list, $i))
+
+  @return $result
