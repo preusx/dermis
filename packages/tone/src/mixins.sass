@@ -8,7 +8,7 @@
 
   @return min(max($result, nth($current, 1)), nth($current, 2))
 
-@function tone-color-in-range($mark, $specs: ())
+@function tone-color-from-range($mark, $specs: ())
   $position: $mark / 100
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
   $saturation-rate: map-get($specs, saturation-rate)
@@ -26,3 +26,11 @@
   $brightness-current: tone-range-value($position-brightness, 0 1, $brightness-range)
 
   @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
+
+@function tone-color-palette-range($marks, $specs: ())
+  $result: ()
+
+  @each $mark in $marks
+    $result: map-merge($result, ($mark: tone-color-from-range($mark, $specs)))
+
+  @return $result

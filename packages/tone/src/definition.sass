@@ -1,0 +1,6 @@
+@each $mark, $color in $palette-green
+  .g-cell:nth-child(#{$mark / 10}) .d-cell
+    background-color: $color
+    mark: $mark
+    luminance: luminance($color)
+    color: if(luminance($color) > 3.8, black, white)

@@ -6,6 +6,8 @@ $TONE_HUE_RANGE: 0 $TONE_HUE_MAX;
 $TONE_SATURATION_RANGE: 0 $TONE_SATURATION_MAX;
 $TONE_BRIGHTNESS_RANGE: 0 $TONE_BRIGHTNESS_MAX;
 
+$TONE_PALETTE_MARKS: 0 5 10 20 30 40 50 60 70 80 90 100;
+
 $TONE_DEFAULT_SPECS: (
   steps: 11,
 
@@ -15,7 +17,16 @@ $TONE_DEFAULT_SPECS: (
 
   hue-range: $TONE_HUE_RANGE,
   saturation-range: 4 90,
-  brightness-range: 53 100,
+  brightness-range: 53 105,
 
   saturation-rate: 130
-);
+) !default;
+
+$palette-red: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 18 0));
+$palette-orange: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 34 44));
+$palette-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 68 72));
+$palette-cyan: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 190 200));
+$palette-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 214 204));
+$palette-deep-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 238 242));
+$palette-violet: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 270 280));
+$palette-purple: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 320 326));
