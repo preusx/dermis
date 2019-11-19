@@ -1,17 +1,21 @@
-$TONE_HUE_RANGE: 0 359 !default;
-$TONE_SATURATION_RANGE: 0 100% !default;
-$TONE_LIGHTNESS_RANGE: 0 100% !default;
+$TONE_HUE_MAX: 359;
+$TONE_SATURATION_MAX: 100;
+$TONE_BRIGHTNESS_MAX: 100;
+
+$TONE_HUE_RANGE: 0 $TONE_HUE_MAX;
+$TONE_SATURATION_RANGE: 0 $TONE_SATURATION_MAX;
+$TONE_BRIGHTNESS_RANGE: 0 $TONE_BRIGHTNESS_MAX;
 
 $TONE_DEFAULT_SPECS: (
   steps: 11,
 
   hue-curve: 'ease-in-quad',
   saturation-curve: 'ease-out-quad',
-  lightness-curve: 'ease-out-quad',
+  brightness-curve: 'ease-out-quad',
 
   hue-range: $TONE_HUE_RANGE,
   saturation-range: 4 90,
-  lightness-range: 53 100,
+  brightness-range: 53 100,
 
   saturation-rate: 130
 );

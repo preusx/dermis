@@ -1,0 +1,11 @@
+@function linear($step)
+  @return $step
+
+@function ease-out-quad($step)
+  @return $step * (2 - $step)
+
+@function ease-in-quad($step)
+  @return $step * $step
+
+@function ease-in-out-quad($step)
+  @return if($step < 0.5, 2 * $step * $step, (4 - 2 * $step) * $step - 1)

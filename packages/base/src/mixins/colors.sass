@@ -1,0 +1,32 @@
+@function hsv-to-hsl($hue, $saturation, $brightness)
+  $lightness: (200 - $saturation) * $brightness / 100
+
+  @if not ($lightness == 0 or $lightness == 200)
+    $saturation: $saturation * $brightness / if($lightness <= 100, $lightness, 200 - $lightness)
+  @else
+    $saturation: 0
+
+  @return $hue $saturation $lightness * 5 / 10
+
+@function hsl-to-hsv($hue, $saturation, $lightness)
+  $saturation: strip-unit($saturation / 100 * if($lightness < 50, $lightness, 100 - $lightness))
+
+  @return strip-unit($hue) strip-unit(2 * $saturation / ($lightness + $saturation) * 100) strip-unit($lightness + $saturation)
+
+// Relative color luminance: https://en.wikipedia.org/wiki/Relative_luminance
+@function luminance($color)
+  $red: luminance-rgb-chanel-adgust(red($color))
+  $green: luminance-rgb-chanel-adgust(green($color))
+  $blue: luminance-rgb-chanel-adgust(blue($color))
+
+  @return red * 0.2126 + $green * 0.7152 + $blue * 0.0722
+
+@function luminance-rgb-chanel-adgust($value)
+  $value: $value / 255
+
+  @if $value < 0.03928
+    $value: $value / 12.92
+  @else
+    $value: pow(($value + .055) / 1.055, 2.4)
+
+  @return $value

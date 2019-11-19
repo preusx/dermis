@@ -1,19 +1,4 @@
-// $steps = 0 5 10 20 30 40 50 60 70 80 90 100
-
-$SATURATION_RATE: 130
-
-@function linear($step)
-  @return $step
-
-@function ease-out-quad($step)
-  @return $step * (2 - $step)
-
-@function ease-in-quad($step)
-  @return $step * $step
-
-@function ease-in-out-quad($step)
-  @return if($step < 0.5, 2 * $step * $step, (4 - 2 * $step) * $step - 1)
-
+// Algorythm from https://www.colorbox.io/
 @function tone-range-value($value, $base, $current)
   $shift: $value - nth($base, 1)
   $base-diff: nth($base, 2) - nth($base, 1)
@@ -23,130 +8,21 @@ $SATURATION_RATE: 130
 
   @return min(max($result, nth($current, 1)), nth($current, 2))
 
-@function tone-color-shift($color, $mark, $hue-shift: $HUE_SHIFT, $saturation-shift: $SATURATION_SHIFT, $lightness-shift: null)
-  $hue: hue($color)
-  $saturation: saturation($color)
-  $lightness: lightness($color)
-  $position: ease-in-out-quad($mark / 100) * 100
-
-  @if $lightness-shift == null
-    $lightness-shift: 50 - abs($lightness - 50)
-
-  $hue-current: tone-range-value($position, $TONE_HUE_RANGE, $hue - $hue-shift $hue + $hue-shift)
-  $saturation-current: tone-range-value($position, $TONE_SATURATION_RANGE, $saturation - $saturation-shift $saturation + $saturation-shift)
-  $lightness-current: tone-range-value(100 - $position, $TONE_LIGHTNESS_RANGE, $lightness - $lightness-shift $lightness + $lightness-shift)
-
-  @return hsl($hue-current, $saturation-current, $lightness-current)
-
-@function tone-color-in-range($mark, $hue-range, $saturation-range, $lightness-range)
-  $position-hue: ease-in-quad($mark / 100) * 100
-  $position-saturation: ease-out-quad($mark / 100) * 100
-  $position-lightness: ease-out-quad((100 - $mark) / 100) * 100
-  $saturation-rate: $SATURATION_RATE
-
-  @if length($saturation-range) >= 3
-    $saturation-rate: nth($saturation-range, 3)
-
-  $hue-current: tone-range-value($position-hue, $TONE_HUE_RANGE, $hue-range)
-  $saturation-current: tone-range-value($position-saturation, $TONE_SATURATION_RANGE, $saturation-range) * $saturation-rate / 100
-  $lightness-current: tone-range-value($position-lightness, $TONE_LIGHTNESS_RANGE, $lightness-range)
-  // @error $position $position-reverse $hue-current $saturation-current $lightness-current
-
-  @return hsl($hue-current, strip-unit($saturation-current), strip-unit($lightness-current))
-
-
-@function tone-generate-steps($curve, $steps)
-  $list: ()
-
-  @for $i from $steps through 0
-    $list: append($list, call($curve, $i / $steps))
-
-  @return $list
-
-
-@function tone-range-list($list, $base, $current)
-  $result: ()
-
-  @each $item in $list
-    $result: append($result, tone-range-value($item, $base, $current))
-
-  @return $result
-
-
-@function tone-color-make-range($specs)
+@function tone-color-in-range($mark, $specs: ())
+  $position: $mark / 100
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
-  $steps: map-get($specs, steps)
   $saturation-rate: map-get($specs, saturation-rate)
 
   $hue-range: map-get($specs, hue-range)
   $saturation-range: map-get($specs, saturation-range)
-  $lightness-range: map-get($specs, lightness-range)
+  $brightness-range: map-get($specs, brightness-range)
 
-  $hues: list-reverse(tone-range-list(tone-generate-steps(map-get($specs, hue-curve), $steps), 0 1, $hue-range))
-  $lightnesses: tone-range-list(tone-generate-steps(map-get($specs, lightness-curve), $steps), 0 1, $lightness-range)
-  $saturations-prepared: list-reverse(tone-range-list(tone-generate-steps(map-get($specs, saturation-curve), $steps), 0 1 , $saturation-range))
+  $position-hue: call(map-get($specs, hue-curve), $position)
+  $position-saturation: call(map-get($specs, saturation-curve), $position)
+  $position-brightness: call(map-get($specs, brightness-curve), 1 - $position)
 
-  $saturations: ()
+  $hue-current: tone-range-value($position-hue, 0 1, $hue-range)
+  $saturation-current: tone-range-value($position-saturation, 0 1, $saturation-range) * $saturation-rate / 100
+  $brightness-current: tone-range-value($position-brightness, 0 1, $brightness-range)
 
-  @each $value in $saturations-prepared
-    $saturations: append($saturations, $value * $saturation-rate * 0.01)
-
-  $result: ()
-
-  @for $i from 1 through length($hues)
-    $result: append($result, hsl(nth($hues, $i), nth($saturations, $i), nth($lightnesses, $i)))
-
-  // @error $hues
-  // @error $saturations
-  // @error $lightnesses
-  // @error $result
-
-  @return $result
-
-
-
-// export default function({specs}) {
-
-//   var colorMap = []
-
-//   for (var index in lum_array) {
-
-//     var step = lum_array[index]
-
-//     var params = {
-//       hue:hue_array[index],
-//       saturation:sat_array[index],
-//       luminosity:lum_array[index],
-//     }
-
-//     if (params.saturation >  1) {params.saturation = 1}
-
-//     var hex = chroma(chroma.hsv([params.hue, params.saturation, params.luminosity]))
-//     var hexRGB = chroma(chroma.hsv([params.hue, params.saturation, params.luminosity])).rgb()
-
-//     const contrastWhite = chroma.contrast(hex, "white").toFixed(2)
-//     const contrastBlack = chroma.contrast(hex, "black").toFixed(2)
-
-//     var displayColor = ""
-//     if (contrastWhite >= 4.5) { displayColor = "white" } else { displayColor = "black" }
-
-//     var colorObj = {
-//       hex: chroma(hex).hex(),
-//       hue: chroma(hex).hsv()[0],
-//       sat: chroma(hex).hsv()[1],
-//       lum: chroma(hex).hsv()[2],
-//       hsv: chroma(hex).hsv(),
-//       hsl: chroma(hex).hsl(),
-//       rgb: chroma(hex).rgb(),
-//       hueRange: [specs.hue_start, specs.hue_end],
-//       steps:specs.steps,
-//       label:specs.modifier * index,
-//       contrastBlack:contrastBlack,
-//       contrastWhite:contrastWhite,
-//       displayColor:displayColor,
-//     }
-//     colorMap.push(colorObj)
-//   }
-
-//   return colorMap
-// }
+  @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
