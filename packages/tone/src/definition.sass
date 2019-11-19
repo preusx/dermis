@@ -1,6 +1,18 @@
 @each $mark, $color in $palette-green
-  .g-cell:nth-child(#{$mark / 10}) .d-cell
+  .g-cell:nth-child(#{$mark / 10 + 2}) .d-cell
     background-color: $color
     mark: $mark
     luminance: luminance($color)
     color: if(luminance($color) > 3.8, black, white)
+
+.g-cell:nth-child(2) .d-cell
+  background-color: map-get($palette-green, 5)
+  mark: 5
+  luminance: luminance(map-get($palette-green, 5))
+  color: if(luminance(map-get($palette-green, 5)) > 3.8, black, white)
+
+.g-cell:nth-child(1) .d-cell
+  background-color: map-get($palette-green, 0)
+  mark: 0
+  luminance: luminance(map-get($palette-green, 0))
+  color: if(luminance(map-get($palette-green, 0)) > 3.8, black, white)
