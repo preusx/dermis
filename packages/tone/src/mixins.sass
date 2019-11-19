@@ -34,3 +34,13 @@
     $result: map-merge($result, ($mark: tone-color-from-range($mark, $specs)))
 
   @return $result
+
+@mixin tone-colorize($background, $light: white, $dark: black)
+  $contrast: contrast-ratio($background, $light)
+  $foreground: $dark
+
+  @if $contrast > 2
+    $foreground: $light
+
+  background-color: $background
+  color: $foreground

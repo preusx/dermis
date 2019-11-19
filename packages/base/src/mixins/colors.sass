@@ -19,7 +19,7 @@
   $green: luminance-rgb-chanel-adgust(green($color))
   $blue: luminance-rgb-chanel-adgust(blue($color))
 
-  @return $red * 0.2126 + $green * 0.7152 + $blue * 0.0722
+  @return $red * 0.299 + $green * 0.587 + $blue * 0.114
 
 @function luminance-rgb-chanel-adgust($value)
   $value: $value / 255
@@ -27,6 +27,13 @@
   @if $value < 0.03928
     $value: $value / 12.92
   @else
-    $value: math-pow(($value + .055) / 1.055, 2.4)
+    $value: math-pow(($value + .055) / 1.055, 2)
 
   @return $value * 10
+
+@function contrast-ratio($background, $foreground)
+  $lf: luminance($foreground)
+  $lb: luminance($background)
+  $min: min($lf, $lb) + 0.05
+  $max: max($lf, $lb) + 0.05
+  @return abs($max / $min)

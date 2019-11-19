@@ -1,0 +1,8 @@
+.d-palette-bg
+  padding: $space-md $space-lg
+
+  &--
+    @each $name, $palette in $tone-palettes
+      @each $mark, $color in $palette
+        &#{$name}_#{$mark}
+          +tone-colorize($color, map-get($palette, 0), map-get($palette, 100))

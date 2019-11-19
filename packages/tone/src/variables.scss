@@ -22,11 +22,36 @@ $TONE_DEFAULT_SPECS: (
   saturation-rate: 130
 ) !default;
 
-$palette-red: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 18 0));
-$palette-orange: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 34 44));
-$palette-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 68 72));
-$palette-cyan: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 190 200));
-$palette-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 214 204));
-$palette-deep-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 238 242));
-$palette-violet: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 270 280));
-$palette-purple: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 320 326));
+$tone-palette-red: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 18 0));
+$tone-palette-orange: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 26 31));
+$tone-palette-yellow: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 58 62, brightness-range: 58 104, saturation-range: 2 96));
+$tone-palette-lite-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 68 78));
+$tone-palette-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 86 100));
+$tone-palette-turquoise: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 148 160));
+$tone-palette-cyan: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 190 200));
+$tone-palette-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 220 212));
+$tone-palette-deep-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 238 242));
+$tone-palette-purple: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 270 280));
+$tone-palette-magenta: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 320 326));
+$tone-palette-pink: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 336 342));
+
+$tone-palette-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 0 0, saturation-range: 0 0, brightness-range: 0 100));
+$tone-palette-cold-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 220 212, saturation-range: 2 10, brightness-range: 16 100, saturation-rate: 100));
+
+$tone-palettes: (
+  red: $tone-palette-red,
+  orange: $tone-palette-orange,
+  yellow: $tone-palette-yellow,
+  lite-green: $tone-palette-lite-green,
+  green: $tone-palette-green,
+  turquoise: $tone-palette-turquoise,
+  cyan: $tone-palette-cyan,
+  blue: $tone-palette-blue,
+  deep-blue: $tone-palette-deep-blue,
+  purple: $tone-palette-purple,
+  magenta: $tone-palette-magenta,
+  pink: $tone-palette-pink,
+
+  grey: $tone-palette-grey,
+  cold-grey: $tone-palette-cold-grey,
+);
