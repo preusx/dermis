@@ -9,3 +9,12 @@
 
 @function ease-in-out-quad($step)
   @return if($step < 0.5, 2 * $step * $step, (4 - 2 * $step) * $step - 1)
+
+@function ease-out-sine($step)
+  @return sin(pi() / 2 * $step);
+
+@function ease-in-sine($step)
+  @return 1 + sin(pi() / 2 * $step - pi() / 2);
+
+@function ease-in-out-sine($step)
+  @return (1 + sin(pi() * $step - pi() / 2)) / 2;

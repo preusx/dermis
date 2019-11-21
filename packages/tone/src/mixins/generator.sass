@@ -27,14 +27,6 @@
 
   @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
 
-@function tone-color-palette-range($marks, $specs: ())
-  $result: ()
-
-  @each $mark in $marks
-    $result: map-merge($result, ($mark: tone-color-from-range($mark, $specs)))
-
-  @return $result
-
 @function tone-color-shift($color, $shift, $specs: ())
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
   $way: if($shift >= 0, 1 , -1)
@@ -53,13 +45,3 @@
   $brightness-current: nth($hsb, 3) + $brightness-current * $opposite
 
   @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
-
-@mixin tone-background($background, $light: white, $dark: black)
-  $contrast: contrast-ratio($background, $light)
-  $foreground: $dark
-
-  @if $contrast > 2
-    $foreground: $light
-
-  background-color: $background
-  color: $foreground

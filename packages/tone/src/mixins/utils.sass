@@ -1,0 +1,10 @@
+@mixin tone-background($background, $base: white, $alternative: black)
+  $contrast-base: contrast-ratio($background, $base)
+  $contrast-alternative: contrast-ratio($background, $alternative)
+  $foreground: $alternative
+
+  @if $contrast-base >= $contrast-alternative
+    $foreground: $base
+
+  background-color: $background
+  color: $foreground

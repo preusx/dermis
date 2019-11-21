@@ -1,6 +1,270 @@
 # Цвет
 
-**`tone`** - Библиотека работы с цветом в проекте.
+**`tone`** - Библиотека работы с цветом в проекте. Это набор утилит и подготовленная настраивая готовая тема для работы.
+
+Генерация темы достаточно ресурсоемкая для препроцессора, поэтому ее можно отменить с помощью флага: **`$TONE_GENERATE_THEME`**. По умолчанию тема ганерируется. Основную нагрузку несет в себе генерация цветовой палитры. Этот флаг это поведение отключит **`$TONE_GENERATE_PALETTES`**, но тема генерируется из предоставленной палитры - поэтому нужно будет вручную описать базовую палитру.
+
+Генератор палитр настраивается в **`$TONE_DEFAULT_SPECS`** - это map с параметрами конфигурации.
+
+На основе базовой темы будут строится множество других компонентов
+
+Тема в рамках проекта существует в двух вариациях - светлая и темная. Это сделано для возможности
+
+## Тема
+
+С помощью использования темы в работе - мы поддерживаем интерфейс консистентным. Поведение пользователя более предсказуемо, визуальное отображение элементов идентично друг другу, поддержка/переработка элементов визуально становиться значительно легче при использовании общего стиля.
+
+Первичная проработка элементов дольше. Поддержка и переиспользование - значительно легче.
+
+### Основная
+
+::: demo
+```html
+<template>
+  <div class="d-theme-base-environment">
+    <div class="g-row g-row--appearance_spaced">
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_primary">
+          <div class="t-content">
+            <h4>Основной цвет (primary)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_accent">
+          <div class="t-content">
+            <h4>Акцентный цвет (accent)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+
+      <div class="g-cell g-cols g-cols--12">
+          <div class="t-content">
+          <h2>Рельеф(слой 1)</h2>
+          <p>
+            С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+          </p>
+            <h2>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></h2>
+            <p>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></p>
+            <h2>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></h2>
+            <p>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></p>
+            <h2>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></h2>
+            <p>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></p>
+        </div>
+
+        <div class="d-theme-base-relief">
+          <div class="t-content">
+            <h2>Рельеф(слой 2)</h2>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+              <h2>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></h2>
+              <p>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></p>
+              <h2>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></h2>
+              <p>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></p>
+              <h2>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></h2>
+              <p>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></p>
+          </div>
+          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--3">Слой 3</div>
+          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--4">Слой 4</div>
+          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--5">Слой 5</div>
+        </div>
+      </div>
+
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_danger">
+          <div class="t-content">
+            <h4>Вспомогательный: опасность/ошибка (danger)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_warning">
+          <div class="t-content">
+            <h4>Вспомогательный: предупреждение (warning)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_success">
+          <div class="t-content">
+            <h4>Вспомогательный: успех (success)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_info">
+          <div class="t-content">
+            <h4>Вспомогательный: информация (info)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12">
+        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_highlight">
+          <div class="t-content">
+            <h4>Вспомогательный: пометка (highlight)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-base-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+### "Инверсная"
+
+::: demo
+```html
+<template>
+  <div class="d-theme-inverse-environment">
+    <div class="g-row g-row--appearance_spaced">
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_primary">
+          <div class="t-content">
+            <h4>Основной цвет (primary)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_accent">
+          <div class="t-content">
+            <h4>Акцентный цвет (accent)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+
+      <div class="g-cell g-cols g-cols--12">
+          <div class="t-content">
+          <h2>Рельеф(слой 1)</h2>
+          <p>
+            С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+          </p>
+            <h2>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></h2>
+            <p>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></p>
+            <h2>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></h2>
+            <p>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></p>
+            <h2>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></h2>
+            <p>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></p>
+        </div>
+
+        <div class="d-theme-inverse-relief">
+          <div class="t-content">
+            <h2>Рельеф(слой 2)</h2>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+              <h2>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></h2>
+              <p>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></p>
+              <h2>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></h2>
+              <p>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></p>
+              <h2>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></h2>
+              <p>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></p>
+          </div>
+          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--3">Слой 3</div>
+          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--4">Слой 4</div>
+          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--5">Слой 5</div>
+        </div>
+      </div>
+
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_danger">
+          <div class="t-content">
+            <h4>Вспомогательный: опасность/ошибка (danger)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_warning">
+          <div class="t-content">
+            <h4>Вспомогательный: предупреждение (warning)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_success">
+          <div class="t-content">
+            <h4>Вспомогательный: успех (success)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_info">
+          <div class="t-content">
+            <h4>Вспомогательный: информация (info)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+      <div class="g-cell g-cols g-cols--12">
+        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_highlight">
+          <div class="t-content">
+            <h4>Вспомогательный: пометка (highlight)</h4>
+            <p>
+              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
+            </p>
+          </div>
+          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
 
 ## Цветовая палитра
 

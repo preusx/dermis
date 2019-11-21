@@ -1,0 +1,28 @@
+$TONE_GENERATE_THEME: true !default;
+$TONE_GENERATE_PALETTES: $TONE_GENERATE_THEME !default;
+
+$TONE_HUE_MAX: 359;
+$TONE_SATURATION_MAX: 100;
+$TONE_BRIGHTNESS_MAX: 100;
+
+$TONE_HUE_RANGE: 0 $TONE_HUE_MAX;
+$TONE_SATURATION_RANGE: 0 $TONE_SATURATION_MAX;
+$TONE_BRIGHTNESS_RANGE: 0 $TONE_BRIGHTNESS_MAX;
+
+$TONE_HUE_SHIFT: 4 !default;
+$TONE_SATURATION_SHIFT: $TONE_SATURATION_MAX / 6 !default;
+$TONE_BRIGHTNESS_SHIFT: $TONE_BRIGHTNESS_MAX / 6 !default;
+
+$TONE_DEFAULT_SPECS: (
+  steps: 11,
+
+  hue-curve: 'ease-in-quad',
+  saturation-curve: 'ease-out-quad',
+  brightness-curve: 'ease-out-quad',
+
+  hue-range: $TONE_HUE_RANGE,
+  saturation-range: 4 90,
+  brightness-range: 53 100,
+
+  saturation-rate: 130
+) !default;

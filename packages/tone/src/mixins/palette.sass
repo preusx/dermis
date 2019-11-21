@@ -1,0 +1,16 @@
+@function tone-color-palette-range($marks, $specs: ())
+  $result: ()
+
+  @each $mark in $marks
+    $result: map-merge($result, ($mark: tone-color-from-range($mark, $specs)))
+
+  @return $result
+
+@function tone-color-palette-names($palette-name, $name-map)
+  $result: ()
+  $palette: map-get($tone-palettes, $palette-name)
+
+  @each $key, $value in $name-map
+    $result: map-merge($result, ($key: map-get($palette, $value)))
+
+  @return $result
