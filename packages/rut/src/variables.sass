@@ -1,15 +1,15 @@
 $rut-base: 4px !default
 
 $space-1: $rut-base !default
-$space-2: 2 * $rut-base !default
-$space-3: 3 * $rut-base !default
-$space-4: 4 * $rut-base !default
-$space-5: 5 * $rut-base !default
-$space-6: 6 * $rut-base !default
-$space-7: 7 * $rut-base !default
-$space-8: 8 * $rut-base !default
-$space-9: 9 * $rut-base !default
-$space-10: 10 * $rut-base !default
+$space-2: 2 * $space-1 !default
+$space-3: 3 * $space-1 !default
+$space-4: 4 * $space-1 !default
+$space-5: 5 * $space-1 !default
+$space-6: 6 * $space-1 !default
+$space-7: 7 * $space-1 !default
+$space-8: 8 * $space-1 !default
+$space-9: 9 * $space-1 !default
+$space-10: 10 * $space-1 !default
 
 $space-xs: $space-1 !default
 $space-sm: $space-2 !default
@@ -23,3 +23,27 @@ $space-map: map-merge($space-map, ('sm': $space-sm))
 $space-map: map-merge($space-map, ('md': $space-md))
 $space-map: map-merge($space-map, ('lg': $space-lg))
 $space-map: map-merge($space-map, ('xl': $space-xl))
+
+$layout-1: $rut-base * 4 !default
+$layout-2: 2 * $layout-1 !default
+$layout-3: 3 * $layout-1 !default
+$layout-4: 4 * $layout-1 !default
+$layout-5: 5 * $layout-1 !default
+$layout-6: 6 * $layout-1 !default
+$layout-7: 7 * $layout-1 !default
+$layout-8: 8 * $layout-1 !default
+$layout-9: 9 * $layout-1 !default
+$layout-10: 10 * $layout-1 !default
+
+$layout-xs: $layout-1 !default
+$layout-sm: $layout-2 !default
+$layout-md: $layout-3 !default
+$layout-lg: $layout-4 !default
+$layout-xl: $layout-5 !default
+
+$layout-map: () !default
+$layout-map: map-merge($layout-map, ('xs': $layout-xs))
+$layout-map: map-merge($layout-map, ('sm': $layout-sm))
+$layout-map: map-merge($layout-map, ('md': $layout-md))
+$layout-map: map-merge($layout-map, ('lg': $layout-lg))
+$layout-map: map-merge($layout-map, ('xl': $layout-xl))

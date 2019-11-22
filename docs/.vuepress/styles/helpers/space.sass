@@ -1,0 +1,89 @@
+.d-space-display
+  --space: 0
+  padding-left: $space-lg
+  position: relative
+  z-index: 2
+
+  &:before
+    width: var(--space)
+    height: var(--space)
+    position: absolute
+    left: 0
+    top: 0
+    border: 1px solid rgba(map-path($theme, primary, text), 0.2)
+    background-color: rgba(map-path($theme, primary, light), 0.2)
+    content: ''
+    z-index: -1
+
+  &--
+    &named_
+      @each $size, $value in $space-map
+        &#{$size}
+          --space: var(--space-#{$size})
+
+    &numbered_
+      &1
+        --space: var(--space-1)
+      &2
+        --space: var(--space-2)
+      &3
+        --space: var(--space-3)
+      &4
+        --space: var(--space-4)
+      &5
+        --space: var(--space-5)
+      &6
+        --space: var(--space-6)
+      &7
+        --space: var(--space-7)
+      &8
+        --space: var(--space-8)
+      &9
+        --space: var(--space-9)
+      &10
+        --space: var(--space-10)
+
+.d-layout-display
+  --layout: 0
+  padding-left: $layout-lg
+  position: relative
+  z-index: 2
+
+  &:before
+    width: var(--layout)
+    height: var(--layout)
+    position: absolute
+    left: 0
+    top: 0
+    border: 1px solid rgba(map-path($theme, primary, text), 0.2)
+    background-color: rgba(map-path($theme, primary, light), 0.2)
+    content: ''
+    z-index: -1
+
+  &--
+    &named_
+      @each $size, $value in $layout-map
+        &#{$size}
+          --layout: var(--layout-#{$size})
+
+    &numbered_
+      &1
+        --layout: var(--layout-1)
+      &2
+        --layout: var(--layout-2)
+      &3
+        --layout: var(--layout-3)
+      &4
+        --layout: var(--layout-4)
+      &5
+        --layout: var(--layout-5)
+      &6
+        --layout: var(--layout-6)
+      &7
+        --layout: var(--layout-7)
+      &8
+        --layout: var(--layout-8)
+      &9
+        --layout: var(--layout-9)
+      &10
+        --layout: var(--layout-10)
