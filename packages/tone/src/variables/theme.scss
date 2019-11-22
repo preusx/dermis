@@ -1,0 +1,45 @@
+@if $TONE_GENERATE_THEME {
+  $theme-color-names: (
+    background: 5, light: 40, base: 50, dark: 60, text: 100, text-inverse: 0
+  );
+
+  $theme: (
+    primary: tone-color-palette-names(blue, $theme-color-names),
+    accent: tone-color-palette-names(magenta, $theme-color-names),
+
+    relief: tone-color-palette-names(grey, (
+      1: 0, 2: 10, 3: 20, 4: 30, 5: 40
+    )),
+    text: tone-color-palette-names(grey, (
+      1: 100, 2: 80, 3: 60, 4: 40
+    )),
+
+    danger: tone-color-palette-names(red, $theme-color-names),
+    warning: tone-color-palette-names(orange, $theme-color-names),
+    success: tone-color-palette-names(lite-green, $theme-color-names),
+    info: tone-color-palette-names(blue, $theme-color-names),
+    highlight: tone-color-palette-names(yellow, $theme-color-names),
+  ) !global !default;
+
+  $theme-inverse-color-names: (
+    background: 90, light: 30, base: 40, dark: 50, text: 0, text-inverse: 100
+  );
+
+  $theme-inverse: (
+    primary: tone-color-palette-names(blue, $theme-inverse-color-names),
+    accent: tone-color-palette-names(magenta, $theme-inverse-color-names),
+
+    relief: tone-color-palette-names(grey, (
+      1: 100, 2: 80, 3: 70, 4: 60, 5: 50
+    )),
+    text: tone-color-palette-names(grey, (
+      1: 0, 2: 20, 3: 40, 4: 60
+    )),
+
+    danger: tone-color-palette-names(red, $theme-inverse-color-names),
+    warning: tone-color-palette-names(orange, $theme-inverse-color-names),
+    success: tone-color-palette-names(lite-green, $theme-inverse-color-names),
+    info: tone-color-palette-names(blue, $theme-inverse-color-names),
+    highlight: tone-color-palette-names(yellow, $theme-inverse-color-names),
+  ) !global !default;
+}

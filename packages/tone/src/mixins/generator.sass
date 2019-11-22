@@ -1,0 +1,47 @@
+// Algorythm from https://www.colorbox.io/
+@function tone-range-value($value, $base, $current)
+  $shift: $value - nth($base, 1)
+  $base-diff: nth($base, 2) - nth($base, 1)
+  $current-diff: nth($current, 2) - nth($current, 1)
+
+  $result: nth($current, 1) + $shift / $base-diff * $current-diff
+
+  @return min(max($result, nth($current, 1)), nth($current, 2))
+
+@function tone-color-from-range($mark, $specs: ())
+  $position: $mark / 100
+  $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
+  $saturation-rate: map-get($specs, saturation-rate)
+
+  $hue-range: map-get($specs, hue-range)
+  $saturation-range: map-get($specs, saturation-range)
+  $brightness-range: map-get($specs, brightness-range)
+
+  $position-hue: call(map-get($specs, hue-curve), $position)
+  $position-saturation: call(map-get($specs, saturation-curve), $position)
+  $position-brightness: call(map-get($specs, brightness-curve), 1 - $position)
+
+  $hue-current: tone-range-value($position-hue, 0 1, $hue-range)
+  $saturation-current: tone-range-value($position-saturation, 0 1, $saturation-range) * $saturation-rate / 100
+  $brightness-current: tone-range-value($position-brightness, 0 1, $brightness-range)
+
+  @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
+
+@function tone-color-shift($color, $shift, $specs: ())
+  $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
+  $way: if($shift >= 0, 1 , -1)
+  $opposite: if($shift >= 0, -1 , 1)
+  $shift: (50 + $shift) / 100
+  $hsb: hsl-to-hsv(hue($color), saturation($color), lightness($color))
+
+  $shift-hue: call(map-get($specs, hue-curve), $shift)
+  $shift-saturation: call(map-get($specs, saturation-curve), $shift)
+  $shift-brightness: call(map-get($specs, brightness-curve), $shift)
+
+  $hue-current: nth($hsb, 1) + $shift-hue * $TONE_HUE_SHIFT * $way
+  $saturation-current: tone-range-value(50 - nth($hsb, 2) % 50, 0 50, 0 $TONE_SATURATION_SHIFT)
+  $saturation-current: nth($hsb, 2) + $saturation-current * $shift-saturation * $way
+  $brightness-current: tone-range-value(50 - nth($hsb, 3) % 50, 0 50, 0 $TONE_BRIGHTNESS_SHIFT)
+  $brightness-current: nth($hsb, 3) + $brightness-current * $opposite
+
+  @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)

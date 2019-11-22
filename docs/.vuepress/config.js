@@ -81,6 +81,7 @@ module.exports = {
             'base',
             'rut',
             'mq',
+            'tone',
             'type',
             'grid'
           ],

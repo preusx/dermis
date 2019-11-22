@@ -1,0 +1,37 @@
+$TONE_PALETTE_MARKS: 0 5 10 20 30 40 50 60 70 80 90 100 !default;
+
+@if $TONE_GENERATE_PALETTES {
+  $tone-palette-red: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 18 0)) !global !default;
+  $tone-palette-orange: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 26 31)) !global !default;
+  $tone-palette-yellow: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 58 62, brightness-range: 58 104, saturation-range: 2 96)) !global !default;
+  $tone-palette-lite-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 68 78)) !global !default;
+  $tone-palette-green: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 86 100)) !global !default;
+  $tone-palette-turquoise: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 148 160)) !global !default;
+  $tone-palette-cyan: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 190 200)) !global !default;
+  $tone-palette-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 220 212)) !global !default;
+  $tone-palette-deep-blue: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 238 242)) !global !default;
+  $tone-palette-purple: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 270 280)) !global !default;
+  $tone-palette-magenta: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 320 326)) !global !default;
+  $tone-palette-pink: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 336 342)) !global !default;
+
+  $tone-palette-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 0 0, saturation-range: 0 0, brightness-range: 9 99.9, brightness-curve: ease-in-out-sine)) !global !default;
+  $tone-palette-cold-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 220 212, saturation-range: 2 10, brightness-range: 16 100, brightness-curve: ease-in-out-sine, saturation-rate: 100)) !global !default;
+
+  $tone-palettes: (
+    red: $tone-palette-red,
+    orange: $tone-palette-orange,
+    yellow: $tone-palette-yellow,
+    lite-green: $tone-palette-lite-green,
+    green: $tone-palette-green,
+    turquoise: $tone-palette-turquoise,
+    cyan: $tone-palette-cyan,
+    blue: $tone-palette-blue,
+    deep-blue: $tone-palette-deep-blue,
+    purple: $tone-palette-purple,
+    magenta: $tone-palette-magenta,
+    pink: $tone-palette-pink,
+
+    grey: $tone-palette-grey,
+    cold-grey: $tone-palette-cold-grey,
+  ) !global !default;
+}

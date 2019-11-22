@@ -1,0 +1,82 @@
+.d-palette-bg
+  padding: $space-md $space-lg
+
+  &--
+    @each $name, $palette in $tone-palettes
+      @each $mark, $color in $palette
+        &#{$name}_#{$mark}
+          +tone-background($color, map-get($palette, 0), map-get($palette, 100))
+
+@mixin d-theme-block($selector, $key, $theme)
+  .d-theme-#{$selector}-environment
+    margin: -$space-xl
+    padding: $space-xl
+    background-color: var(--#{$key}-relief-1)
+    color: var(--#{$key}-text-1)
+
+  .d-theme-#{$selector}-relief
+    padding: $space-md $space-lg
+    margin-bottom: $space-md
+    background-color: var(--#{$key}-relief-2)
+
+    &__
+      &layer
+        padding: $space-md $space-lg
+        margin-bottom: $space-md
+
+        &--
+          &3
+            background-color: var(--#{$key}-relief-3)
+
+          &4
+            background-color: var(--#{$key}-relief-4)
+
+          &5
+            background-color: var(--#{$key}-relief-5)
+
+      &text
+        &--
+          &2
+            display: block
+            line-height: 1
+            color: var(--#{$key}-text-2)
+
+          &3
+            display: block
+            line-height: 1
+            color: var(--#{$key}-text-3)
+
+          &4
+            display: block
+            line-height: 1
+            color: var(--#{$key}-text-4)
+
+  .d-theme-#{$selector}-content-entity
+    &--
+      @each $name, $variations in $theme
+        @if map-get($variations, base)
+          &color_#{$name}
+            padding: $space-md $space-lg
+            background-color: var(--#{$key}-#{$name}-background)
+            color: var(--#{$key}-#{$name}-text)
+
+            .d-theme-#{$selector}-content-entity
+              &__
+                &active
+                  cursor: pointer
+                  padding: $space-md $space-lg
+                  background-color: var(--#{$key}-#{$name}-base)
+                  color: var(--#{$key}-#{$name}-text-inverse)
+                  +tone-background(map-get($variations, base), map-get($variations, text), map-get($variations, text-inverse))
+
+                  &:hover
+                    background-color: var(--#{$key}-#{$name}-dark)
+                    +tone-background(map-get($variations, dark), map-get($variations, text), map-get($variations, text-inverse))
+
+                  &:active
+                    background-color: var(--#{$key}-#{$name}-light)
+                    +tone-background(map-get($variations, light), map-get($variations, text), map-get($variations, text-inverse))
+
++d-theme-block('base', 'theme', $theme)
+
++d-theme-block('inverse', 'theme-inverse', $theme-inverse)
