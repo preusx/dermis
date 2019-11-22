@@ -1,11 +1,11 @@
 @if $TONE_GENERATE_THEME {
-  $theme-color-names: (
+  $theme-base-color-names: (
     background: 5, light: 40, base: 50, dark: 60, text: 100, text-inverse: 0
   );
 
-  $theme: (
-    primary: tone-color-palette-names(blue, $theme-color-names),
-    accent: tone-color-palette-names(magenta, $theme-color-names),
+  $theme-base: (
+    primary: tone-color-palette-names(blue, $theme-base-color-names),
+    accent: tone-color-palette-names(magenta, $theme-base-color-names),
 
     relief: tone-color-palette-names(grey, (
       1: 0, 2: 10, 3: 20, 4: 30, 5: 40
@@ -14,11 +14,11 @@
       1: 100, 2: 80, 3: 60, 4: 40
     )),
 
-    danger: tone-color-palette-names(red, $theme-color-names),
-    warning: tone-color-palette-names(orange, $theme-color-names),
-    success: tone-color-palette-names(lite-green, $theme-color-names),
-    info: tone-color-palette-names(blue, $theme-color-names),
-    highlight: tone-color-palette-names(yellow, $theme-color-names),
+    danger: tone-color-palette-names(red, $theme-base-color-names),
+    warning: tone-color-palette-names(orange, $theme-base-color-names),
+    success: tone-color-palette-names(lite-green, $theme-base-color-names),
+    info: tone-color-palette-names(blue, $theme-base-color-names),
+    highlight: tone-color-palette-names(yellow, $theme-base-color-names),
   ) !global !default;
 
   $theme-inverse-color-names: (
@@ -42,4 +42,6 @@
     info: tone-color-palette-names(blue, $theme-inverse-color-names),
     highlight: tone-color-palette-names(yellow, $theme-inverse-color-names),
   ) !global !default;
+
+  $theme: $theme-base !global !default;
 }
