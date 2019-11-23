@@ -1,0 +1,36 @@
+.#{$DERMIS_PREFIX}aspect-ratio
+  position: relative
+  display: block
+  padding: 0
+
+  &__
+    &body
+      +aspect-ratio-body()
+
+  &--
+    &appearance_
+      &cuted
+        overflow: hidden
+
+      &filled
+        & > .#{$DERMIS_PREFIX}aspect-ratio__body
+          height: 100%
+
+      &fit
+        & > .#{$DERMIS_PREFIX}aspect-ratio__body
+          max-width: 100%
+          max-height: 100%
+
+    &ratio_
+      &1x1
+        +mq-both-adaptive
+          padding-bottom: 100%
+
+      @each $a, $b in $aspect-ratio-ratios
+        &#{$a}x#{$b}
+          +mq-both-adaptive
+            padding-bottom: aspect-ratio-percentage($a $b)
+
+        &#{$b}x#{$a}
+          +mq-both-adaptive
+            padding-bottom: aspect-ratio-percentage($b $a)

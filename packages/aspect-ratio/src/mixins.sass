@@ -1,0 +1,26 @@
+%aspect-ratio-body
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+
+
+@function aspect-ratio-percentage($ratio)
+  @return percentage(nth($ratio, 2) / nth($ratio, 1))
+
+
+@mixin aspect-ratio-body()
+  @extend %aspect-ratio-body
+
+@mixin aspect-ratio-container($ratio)
+  position: relative
+  padding-bottom: aspect-ratio-percentage($ratio)
+
+@mixin aspect-ratio($ratio, $selector: null)
+  @if $selector == null
+    $selector: '& > :first-child'
+
+  +aspect-ratio-container($ratio)
+
+  @at-root #{unquote($selector)}
+    +aspect-ratio-body()

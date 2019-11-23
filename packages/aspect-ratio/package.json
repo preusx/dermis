@@ -1,5 +1,5 @@
 {
-  "name": "@dermis/dermis",
+  "name": "@dermis/aspect-ratio",
   "version": "0.4.1",
   "main": "index.sass",
   "sass": "index.sass",
@@ -25,13 +25,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
+  "devDependencies": {
     "@dermis/base": "0.4.1",
-    "@dermis/mq": "0.4.1",
-    "@dermis/rut": "0.4.1",
-    "@dermis/tone": "0.4.1",
-    "@dermis/type": "0.4.1",
-    "@dermis/grid": "0.4.1",
-    "@dermis/aspect-ratio": "0.4.1"
+    "@dermis/mq": "0.4.1"
   }
 }

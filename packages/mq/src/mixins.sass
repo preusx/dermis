@@ -98,8 +98,10 @@
   @if $with-initial
     @content
 
-  +mq-adaptive($with-initial: false)
-    @content
+  @if $MQ_ENABLE_FROM
+    +mq-adaptive($with-initial: false)
+      @content
 
-  +mq-adaptive-till($with-initial: false)
-    @content
+  @if $MQ_ENABLE_TILL
+    +mq-adaptive-till($with-initial: false)
+      @content
