@@ -83,7 +83,15 @@ module.exports = {
             'mq',
             'tone',
             'type',
-            'grid'
+            {
+              title: 'Структурирующие',
+              type: 'group',
+              collapsable: false,
+              children: [
+                'structural/grid',
+                'structural/aspect-ratio'
+              ]
+            }
           ],
         },
       }
