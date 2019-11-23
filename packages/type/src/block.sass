@@ -159,6 +159,13 @@
   i, cite, em, var, address, dfn
     font-style: italic
 
+  > :last-child
+    &,
+    > :last-child
+      &,
+      & > :last-child
+        margin-bottom: 0
+
 
 .#{$TYPE_PREFIX}words
   &--
