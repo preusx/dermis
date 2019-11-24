@@ -94,6 +94,14 @@ module.exports = {
                 'structural/panel',
                 'structural/section'
               ]
+            },
+            {
+              title: 'Контент',
+              type: 'group',
+              collapsable: false,
+              children: [
+                'content/caption'
+              ]
             }
           ],
         },
