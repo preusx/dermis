@@ -9,6 +9,7 @@ module.exports = {
   ],
   chainWebpack(config) {
     config.resolve.alias.set('vue$', 'vue/dist/vue.common');
+    config.node.set('global', true);
   },
   head: [
     ['meta', { charset: 'utf-8' }],
