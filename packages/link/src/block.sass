@@ -1,0 +1,59 @@
+%link-block
+  position: relative
+  display: inline-block
+  text-decoration: none
+  vertical-align: baseline
+  color: var(--link-color)
+  border: 0
+  padding: 0
+  background-color: transparent
+  cursor: pointer
+
+  box-shadow: 0 $link-shadow-base-width currentColor
+
+.#{$DERMIS_PREFIX}link
+  @extend %link-block
+
+  &.is-
+    &focused
+      outline: none
+      box-shadow: 0 $link-shadow-base-width * 3 currentColor
+
+    &hovered
+      box-shadow: none
+
+    &active
+      color: var(--link-color-active)
+
+    &visited
+      color: var(--link-color-visited)
+
+  &:hover:not(:focus)
+    @extend .#{$DERMIS_PREFIX}link.is-hovered
+
+  &:focus
+    @extend .#{$DERMIS_PREFIX}link.is-focused
+
+  &:active
+    @extend .#{$DERMIS_PREFIX}link.is-active
+
+  &:visited
+    @extend .#{$DERMIS_PREFIX}link.is-visited
+
+
+@if $LINK_USE_IN_TYPE_CONTENT
+  .#{$TYPE_PREFIX}content
+    a
+      @extend %link-block
+
+      &:hover:not(:focus)
+        @extend .#{$DERMIS_PREFIX}link:hover:not(:focus)
+
+      &:focus
+        @extend .#{$DERMIS_PREFIX}link:focus
+
+      &:active
+        @extend .#{$DERMIS_PREFIX}link:active
+
+      &:visited
+        @extend .#{$DERMIS_PREFIX}link:visited
