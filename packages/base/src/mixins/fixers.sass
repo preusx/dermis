@@ -1,0 +1,15 @@
+%margin-fitter
+  display: table
+  content: ''
+
+@mixin margin-fit-top()
+  &:before
+    @extend %margin-fitter
+
+@mixin margin-fit-bottom()
+  &:after
+    @extend %margin-fitter
+
+@mixin margin-fit()
+  +margin-fit-top()
+  +margin-fit-bottom()

@@ -32,6 +32,8 @@
     "@dermis/tone": "0.4.1",
     "@dermis/type": "0.4.1",
     "@dermis/grid": "0.4.1",
-    "@dermis/aspect-ratio": "0.4.1"
+    "@dermis/aspect-ratio": "0.4.1",
+    "@dermis/panel": "0.4.1",
+    "@dermis/section": "0.4.1"
   }
 }
