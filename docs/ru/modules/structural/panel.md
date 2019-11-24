@@ -11,10 +11,10 @@
     <section class="
       ds-panel
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -38,10 +38,10 @@
       ds-panel
       ds-panel--space_none
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -53,10 +53,10 @@
       ds-panel
       ds-panel--space_xs
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -68,10 +68,10 @@
       ds-panel
       ds-panel--space_sm
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -83,10 +83,10 @@
       ds-panel
       ds-panel--space_md
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -98,10 +98,10 @@
       ds-panel
       ds-panel--space_lg
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -113,10 +113,10 @@
       ds-panel
       ds-panel--space_xl
     ">
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content"><h4>Section</h4></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
@@ -141,7 +141,7 @@
     <section class="
       ds-panel
     ">
-      <div class="ds-panel__body">
+      <div class="ds-panel__element">
         <figure class="
           ds-aspect-ratio
           ds-aspect-ratio--appearance_cuted
@@ -159,20 +159,20 @@
           ></iframe>
         </figure>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_horizontal ds-panel__body--offset_top">
+      <div class="ds-panel__element ds-panel__element--offset_horizontal ds-panel__element--offset_top">
         <div class="t-content"><h6>Title section</h6></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_horizontal">
+      <div class="ds-panel__element ds-panel__element--offset_horizontal">
         <div class="t-content"><h3>Section</h3></div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_horizontal ds-panel__body--offset_top">
+      <div class="ds-panel__element ds-panel__element--offset_horizontal ds-panel__element--offset_top">
         <div class="t-content">
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
           </p>
         </div>
       </div>
-      <div class="ds-panel__body ds-panel__body--offset_full">
+      <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="g-row">
           <div class="g-cell g-cols g-cols--narrow">
             <div class="t-content">
