@@ -100,7 +100,8 @@ module.exports = {
               type: 'group',
               collapsable: false,
               children: [
-                'content/caption'
+                'content/caption',
+                'content/link'
               ]
             }
           ],
