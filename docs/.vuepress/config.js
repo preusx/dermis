@@ -89,7 +89,9 @@ module.exports = {
               collapsable: false,
               children: [
                 'structural/grid',
-                'structural/aspect-ratio'
+                'structural/aspect-ratio',
+                'structural/panel',
+                'structural/section'
               ]
             }
           ],

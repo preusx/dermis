@@ -1,0 +1,19 @@
+@mixin panel-block($name, $base: 0)
+  +cssvar-definition
+    --#{$name}-space: #{$base}
+    --#{$name}-space-vertical: var(--#{$name}-space)
+    --#{$name}-space-horizontal: var(--#{$name}-space)
+
+  display: block
+
+  +margin-fit()
+
+@mixin panel-space-definition($name, $map)
+  &none
+    +mq-both-adaptive
+      --#{$name}-space: 0
+
+  @each $size, $value in $map
+    &#{$size}
+      +mq-both-adaptive
+        --#{$name}-space: #{$value}

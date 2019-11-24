@@ -1,0 +1,23 @@
+.#{$DERMIS_PREFIX}section
+  +panel-block(section, $section-space)
+
+  --section-space-horizontal: 0
+
+  &__
+    &element
+      display: block
+
+      margin-top: var(--section-space-vertical)
+      margin-bottom: var(--section-space-vertical)
+      padding-left: var(--section-space-horizontal)
+      padding-right: var(--section-space-horizontal)
+
+  &--
+    &space_
+      +panel-space-definition(section, $section-space-map)
+
+      &screen
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: 100vh

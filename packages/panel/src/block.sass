@@ -1,0 +1,32 @@
+.#{$DERMIS_PREFIX}panel
+  +panel-block(panel, $panel-space)
+
+  &__
+    &element
+      display: block
+
+      &--
+        &offset_
+          &full,
+          &horizontal,
+          &left
+            padding-left: var(--panel-space-horizontal)
+
+          &full,
+          &horizontal,
+          &right
+            padding-right: var(--panel-space-horizontal)
+
+          &full,
+          &vertical,
+          &top
+            margin-top: var(--panel-space-vertical)
+
+          &full,
+          &vertical,
+          &bottom
+            margin-bottom: var(--panel-space-vertical)
+
+  &--
+    &space_
+      +panel-space-definition(panel, $panel-space-map)
