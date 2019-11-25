@@ -39,16 +39,19 @@
 @if $GRID_SHOULD_ALIGN
   .#{$GRID_ROW_PREFIX}row
     &--
-      &items_
+      &align_
         +mq-generate-property-modifiers(align-items, $grid-item-alignment-map)
 
       &justify_
         +mq-generate-property-modifiers(justify-content, $grid-content-alignment-map)
 
-      &align_
+      &content_
         +mq-generate-property-modifiers(align-content, $grid-content-alignment-map)
 
   .#{$GRID_ROW_PREFIX}cell
     &--
       &align_
         +mq-generate-property-modifiers(align-self, $grid-item-alignment-map)
+
+      &justify_
+        +mq-generate-property-modifiers(justify-self, $grid-content-alignment-map)
