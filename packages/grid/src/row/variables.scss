@@ -1,0 +1,22 @@
+$GRID_ROW_PREFIX: $GRID_PREFIX !default;
+$GRID_SHOULD_ALIGN: false !default;
+
+$grid-row-space: $space-md !default;
+$grid-row-space-map: $space-map !default;
+
+$grid-item-alignment-map: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+) !default;
+
+$grid-content-alignment-map: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  stretch: stretch
+) !default;
