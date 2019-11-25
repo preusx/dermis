@@ -36,6 +36,7 @@
     "@dermis/rut": "0.6.0",
     "@dermis/section": "0.6.0",
     "@dermis/tone": "0.6.0",
-    "@dermis/type": "0.6.0"
+    "@dermis/type": "0.6.0",
+    "@dermis/table": "0.6.0"
   }
 }

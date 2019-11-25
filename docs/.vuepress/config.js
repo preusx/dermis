@@ -101,7 +101,8 @@ module.exports = {
               collapsable: false,
               children: [
                 'content/caption',
-                'content/link'
+                'content/link',
+                'content/table'
               ]
             }
           ],

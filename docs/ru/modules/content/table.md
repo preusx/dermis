@@ -7,10 +7,124 @@
 ::: demo
 ```html
 <template>
+  <table class="ds-table">
+    <caption class="ds-table__caption">
+      <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
+      <div class="ds-caption ds-caption--size_3">Clear table with no styling</div>
+    </caption>
+
+    <thead class="ds-table__head">
+      <tr class="ds-table__row ds-table__row--relief">
+        <th class="ds-table__cell ds-table__cell--head">Project</th>
+        <th class="ds-table__cell ds-table__cell--head">Deadline</th>
+        <th class="ds-table__cell ds-table__cell--head">Leader + Team</th>
+        <th class="ds-table__cell ds-table__cell--head">Budget</th>
+        <th class="ds-table__cell ds-table__cell--head">Status</th>
+        <th class="ds-table__cell ds-table__cell--head" width="1">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="ds-table__row" v-for="i in [1,2,3,4,5,6,7,8,9]" :key="i">
+        <td class="ds-table__cell">
+          <div class="caption caption--size_5">
+            {{['Frontend Design System', 'WebCase', 'Back-end', 'Front-end'][i%4]}}
+          </div>
+        </td>
+        <td class="ds-table__cell">2018/10/09</td>
+        <td class="ds-table__cell">Antony</td>
+        <td class="ds-table__cell">
+          {{['$ 1 003', '$ 4 870', '$ 10 954', '$ 1 000 000', 'P 3 294'][i%5]}}
+        </td>
+        <td class="ds-table__cell">
+          Успешно
+        </td>
+        <td class="ds-table__cell">
+          <button class="ds-link">Activate</button>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot class="ds-table__footer">
+      <tr class="ds-table__row ds-table__row--relief">
+        <th class="ds-table__cell ds-table__cell--head">Project</th>
+        <th class="ds-table__cell ds-table__cell--head">Deadline</th>
+        <th class="ds-table__cell ds-table__cell--head">Leader + Team</th>
+        <th class="ds-table__cell ds-table__cell--head">Budget</th>
+        <th class="ds-table__cell ds-table__cell--head">Status</th>
+        <th class="ds-table__cell ds-table__cell--head">Actions</th>
+      </tr>
+    </tfoot>
+  </table>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+::: demo
+```html
+<template>
   <table class="ds-table ds-table--style_default">
     <caption class="ds-table__caption">
       <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
-      <div class="ds-caption ds-caption--size_3">Project totalis</div>
+      <div class="ds-caption ds-caption--size_3">Default styling</div>
+    </caption>
+
+    <thead class="ds-table__head">
+      <tr class="ds-table__row ds-table__row--relief">
+        <th class="ds-table__cell ds-table__cell--head">Project</th>
+        <th class="ds-table__cell ds-table__cell--head">Deadline</th>
+        <th class="ds-table__cell ds-table__cell--head">Leader + Team</th>
+        <th class="ds-table__cell ds-table__cell--head">Budget</th>
+        <th class="ds-table__cell ds-table__cell--head">Status</th>
+        <th class="ds-table__cell ds-table__cell--head" width="1">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="ds-table__row" v-for="i in [1,2,3,4,5,6,7,8,9]" :key="i">
+        <td class="ds-table__cell">
+          <div class="caption caption--size_5">
+            {{['Frontend Design System', 'WebCase', 'Back-end', 'Front-end'][i%4]}}
+          </div>
+        </td>
+        <td class="ds-table__cell">2018/10/09</td>
+        <td class="ds-table__cell">Antony</td>
+        <td class="ds-table__cell">
+          {{['$ 1 003', '$ 4 870', '$ 10 954', '$ 1 000 000', 'P 3 294'][i%5]}}
+        </td>
+        <td class="ds-table__cell">
+          Успешно
+        </td>
+        <td class="ds-table__cell">
+          <button class="ds-link">Activate</button>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot class="ds-table__footer">
+      <tr class="ds-table__row ds-table__row--relief">
+        <th class="ds-table__cell ds-table__cell--head">Project</th>
+        <th class="ds-table__cell ds-table__cell--head">Deadline</th>
+        <th class="ds-table__cell ds-table__cell--head">Leader + Team</th>
+        <th class="ds-table__cell ds-table__cell--head">Budget</th>
+        <th class="ds-table__cell ds-table__cell--head">Status</th>
+        <th class="ds-table__cell ds-table__cell--head">Actions</th>
+      </tr>
+    </tfoot>
+  </table>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+::: demo
+```html
+<template>
+  <table class="ds-table ds-table--style_default ds-table--appearance_striped">
+    <caption class="ds-table__caption">
+      <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
+      <div class="ds-caption ds-caption--size_3">Striped table</div>
     </caption>
 
     <thead class="ds-table__head">
