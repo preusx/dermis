@@ -193,34 +193,193 @@
 
 ### Выравнивание
 
-Легко выравнивать ячейки вертикально:
+::: warning
+Механизм выравнивания делает сетку "слишком" гибким инструментом. Имея такой молоток абсолютно все элементы вдруг начинают казаться гвоздями. Поэтому используйте его с осторожностью и пониманием.
+
+По умолчанию выравнивание включено. Не его можно выключить. Для этого измените **`$GRID_SHOULD_ALIGN`** флаг в `false` значение - и модификаторы выравнивания не будут генерироваться, что уменьшит исходный код.
+:::
+
+Все модификаторы выравнивания - адаптивны.
+
+Легко выравнивать ячейки вертикально: **`.g-row--align_`**
 
 ::: demo
 ```html
 <template>
-  <div class="g-row g-row--alignment_center">
-    <div class="g-cell g-cols g-cols--4"><div class="d-cell">
-      Вертикальное выравнивание по центру
-    </div></div>
-    <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
-      Невысокая ячейка
-    </div></div>
+  <div class="ds-section">
+    <div class="ds-section__element">
+      <div class="g-row g-row--align_baseline">
+        <div class="g-cell g-cols g-cols--4"><div class="d-cell">
+          <div class="ds-caption ds-caption--size_2">Заголовок</div>
+        </div></div>
+        <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
+          Равнение по базовой линии
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--align_start">
+        <div class="g-cell g-cols g-cols--4"><div class="d-cell">
+          Вертикальное выравнивание по верху
+        </div></div>
+        <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
+          Невысокая ячейка
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--align_center">
+        <div class="g-cell g-cols g-cols--4"><div class="d-cell">
+          Вертикальное выравнивание по центру
+        </div></div>
+        <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
+          Невысокая ячейка
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--align_end">
+        <div class="g-cell g-cols g-cols--4"><div class="d-cell">
+          Вертикальное выравнивание по низу
+        </div></div>
+        <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
+          Невысокая ячейка
+        </div></div>
+      </div>
+    </div>
   </div>
 </template>
 <script> export default {}; </script>
 ```
 :::
 
+Выравнивание работает и для отдельных ячеек: **`.g-cell--align_`**
+
 ::: demo
 ```html
 <template>
-  <div class="g-row g-row--alignment_bottom">
-    <div class="g-cell g-cols g-cols--4"><div class="d-cell">
-      Вертикальное выравнивание по низу
-    </div></div>
-    <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
-      Невысокая ячейка
-    </div></div>
+  <div class="ds-section">
+    <div class="ds-section__element">
+      <div class="g-row g-row--align_baseline">
+        <div class="g-cell g-cols g-cols--4"><div class="d-cell">
+          <div class="ds-caption ds-caption--size_2">Заголовок</div>
+        </div></div>
+        <div class="g-cell g-cols g-cols--auto"><div class="d-cell">
+          Равнение по базовой линии
+        </div></div>
+        <div class="g-cell g-cell--align_start g-cols g-cols--auto"><div class="d-cell">
+          Эта равняется по верху
+        </div></div>
+        <div class="g-cell g-cell--align_end g-cols g-cols--auto"><div class="d-cell">
+          Эта - по низу
+        </div></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+Горизонтальное выравнивание: **`.g-row--justify_`**, **`.g-cell--justify_`**
+
+::: demo
+```html
+<template>
+  <div class="ds-section">
+    <div class="ds-section__element">
+      <div class="g-row g-row--justify_center">
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          <div class="ds-caption ds-caption--size_2">Центрирование</div>
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--justify_between">
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          Между одним
+        </div></div>
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          И вторым
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--justify_around">
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          Равномерно
+        </div></div>
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          Вокруг
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--justify_start">
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          Начало
+        </div></div>
+      </div>
+    </div>
+    <div class="ds-section__element">
+      <div class="g-row g-row--justify_end">
+        <div class="g-cell g-cols g-cols--narrow"><div class="d-cell">
+          Конец
+        </div></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+Вертикальное выравнивание контента: **`.g-row--content_`**
+
+::: demo
+```html
+<template>
+  <div>
+    <div class="g-row g-row--content_center" style="height: 140px">
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Центрирование
+      </div></div>
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Многострочного
+      </div></div>
+    </div>
+    <div class="g-row g-row--content_start" style="height: 140px">
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        По верхней грани
+      </div></div>
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Многострочного
+      </div></div>
+    </div>
+    <div class="g-row g-row--content_end" style="height: 140px">
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        По нижней грани
+      </div></div>
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Многострочного
+      </div></div>
+    </div>
+    <div class="g-row g-row--content_around" style="height: 140px">
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Поровну
+      </div></div>
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Многострочного
+      </div></div>
+    </div>
+    <div class="g-row g-row--content_between" style="height: 140px">
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Между
+      </div></div>
+      <div class="g-cell g-cols g-cols--12"><div class="d-cell">
+        Многострочного
+      </div></div>
+    </div>
   </div>
 </template>
 <script> export default {}; </script>

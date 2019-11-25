@@ -105,3 +105,17 @@
   @if $MQ_ENABLE_TILL
     +mq-adaptive-till($with-initial: false)
       @content
+
+
+@mixin mq-whether-to-respond-both($responsive)
+  @content
+
+  @if $responsive
+    +mq-both-adaptive($with-initial: false)
+      @content
+
+@mixin mq-generate-property-modifiers($property, $map, $responsive: true)
+  @each $key, $value in $map
+    &#{$key}
+      +mq-whether-to-respond-both($responsive)
+        #{$property}: $value

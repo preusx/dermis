@@ -13,7 +13,4 @@
     +mq-both-adaptive
       --#{$name}-space: 0
 
-  @each $size, $value in $map
-    &#{$size}
-      +mq-both-adaptive
-        --#{$name}-space: #{$value}
+  +mq-generate-property-modifiers('--#{$name}-space', $map)

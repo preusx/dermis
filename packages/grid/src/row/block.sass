@@ -15,47 +15,43 @@
       &inline
         display: inline-flex
 
+      &column
+        flex-direction: column
+
       &nowrap
         flex-wrap: nowrap
 
       &spaced
         --grid-row-space: var(--grid-space-vertical)
 
-    &justification_
-      &center
-        justify-content: center
-
-    &alignment_
-      &center
-        align-items: center
-
-      &top
-        align-items: flex-start
-
-      &bottom
-        align-items: flex-end
-
     &space_
       &none
         +mq-both-adaptive
           --grid-space: 0
 
-      @each $size, $value in $grid-row-space-map
-        &#{$size}
-          +mq-both-adaptive
-            --grid-space: #{$value}
+      +mq-generate-property-modifiers(--grid-space, $grid-row-space-map)
 
 
 .#{$GRID_ROW_PREFIX}cell
   +grid-cell(var(--grid-cell-space-half), var(--grid-row-space-half))
 
-  &--
-    &alignment_
-      &center
-        align-self: center
 
-      &top
-        align-self: flex-start
+@if $GRID_SHOULD_ALIGN
+  .#{$GRID_ROW_PREFIX}row
+    &--
+      &align_
+        +mq-generate-property-modifiers(align-items, $grid-item-alignment-map)
 
-      &bottom
-        align-self: flex-end
+      &justify_
+        +mq-generate-property-modifiers(justify-content, $grid-content-alignment-map)
+
+      &content_
+        +mq-generate-property-modifiers(align-content, $grid-content-alignment-map)
+
+  .#{$GRID_ROW_PREFIX}cell
+    &--
+      &align_
+        +mq-generate-property-modifiers(align-self, $grid-item-alignment-map)
+
+      &justify_
+        +mq-generate-property-modifiers(justify-self, $grid-content-alignment-map)
