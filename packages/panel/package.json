@@ -1,6 +1,6 @@
 {
   "name": "@dermis/panel",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "@dermis/base": "0.7.0",
-    "@dermis/mq": "0.7.0"
+    "@dermis/mq": "^0.7.1"
   }
 }
