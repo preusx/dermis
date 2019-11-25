@@ -1,0 +1,131 @@
+%#{$DERMIS_PREFIX}table
+  +cssvar-definition
+    --table-background: transparent
+    --table-background-relief: transparent
+    --table-border-color: transparent
+    --table-space-horizontal: #{$table-space-horizontal}
+    --table-space-vertical: #{$table-space-vertical}
+    --table-font-size: inherit
+    --table-font-size-heading: inherit
+
+  display: table
+  width: 100%
+  max-width: 100%
+  border-collapse: collapse
+  font-size: var(--table-font-size)
+
+  border: 1px solid var(--table-border-color)
+  background-color: var(--table-background)
+  color: inherit
+
+
+.#{$DERMIS_PREFIX}table
+  @extend %#{$DERMIS_PREFIX}table
+
+  &__
+    &caption
+      position: relative
+      padding: var(--table-space-vertical) var(--table-space-horizontal)
+      border: 1px solid var(--table-border-color)
+      border-bottom-width: 0
+      text-align: left
+      background-color: var(--table-background)
+
+    &row
+      border: 1px solid var(--table-border-color)
+      border-left: 0
+      border-right: 0
+
+      &:last-child
+        border-bottom: 0
+
+      &--
+        &relief
+          background-color: var(--table-background-relief)
+
+    &cell
+      padding: var(--table-space-vertical) 0 var(--table-space-vertical) var(--table-space-horizontal)
+      font-weight: 400
+      text-align: left
+      vertical-align: middle
+
+      &:last-child
+        padding-right: var(--table-space-horizontal)
+
+      &--
+        &head
+          font-size: var(--table-font-size-heading)
+
+  &--
+    &appearance_
+      &striped
+        tbody tr:nth-of-type(even)
+          @extend .#{$DERMIS_PREFIX}table__row--relief
+
+
+.#{$DERMIS_PREFIX}table--style_default
+  --table-background: #{$table-background}
+  --table-background-relief: #{$table-background-relief}
+  --table-border-color: #{$table-border-color}
+
+  --table-font-size: #{$table-font-size}
+  --table-font-size-heading: #{$table-font-size-heading}
+
+
+.#{$DERMIS_PREFIX}table--view_cards
+  +mq-adaptive-till()
+    thead,
+    tfoot
+      display: none
+
+    & .#{$DERMIS_PREFIX}table__
+      &row
+        display: block
+        border-top-width: 0
+
+      &cell
+        display: block
+        padding-right: var(--table-space-horizontal)
+
+    & tbody .#{$DERMIS_PREFIX}table__cell::before
+      display: block
+      content: attr(data-title)
+      font-size: var(--table-font-size-heading)
+      font-weight: 300
+
+    &.#{$DERMIS_PREFIX}table--appearance_autofill-card
+      & .#{$DERMIS_PREFIX}table__
+        &row
+          display: flex
+          flex-wrap: wrap
+          justify-content: space-between
+
+
+@if $TABLE_USE_IN_TYPE_CONTENT
+  .#{$TYPE_PREFIX}content
+    table
+      @extend %#{$DERMIS_PREFIX}table
+      @extend .#{$DERMIS_PREFIX}table--style_default
+      @extend .#{$DERMIS_PREFIX}table--appearance_striped
+
+    caption
+      @extend .#{$DERMIS_PREFIX}table__caption
+
+    th,
+    td
+      @extend .#{$DERMIS_PREFIX}table__cell
+
+    th
+      font-weight: 600
+
+    tfoot,
+    thead
+      tr
+        @extend .#{$DERMIS_PREFIX}table__row--relief
+
+      th,
+      td
+        @extend .#{$DERMIS_PREFIX}table__cell--head
+
+    tr
+      @extend .#{$DERMIS_PREFIX}table__row
