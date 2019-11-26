@@ -39,7 +39,7 @@
     ">
       <div class="ds-panel__element ds-panel__element--offset_top ds-panel__element--offset_horizontal ds-panel__element--indent_inside">
         <div class="t-content">
-          <h4>Внутренний (ds-panel__element--indent_inside)</h4>
+          <h4>Внутренний (.ds-panel__element--indent_inside)</h4>
           <p>
             Элемент с внутренним отсупом.
           </p>
@@ -47,7 +47,7 @@
       </div>
       <div class="ds-panel__element ds-panel__element--offset_full">
         <div class="t-content">
-          <h4>Внешний(по умолчанию)</h4>
+          <h4>Внешний(по умолчанию, .ds-panel__element--indent_outside)</h4>
           <p>
             Элемент с внешним отсупом.
           </p>

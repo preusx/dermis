@@ -40,7 +40,7 @@
       <div class="ds-section__element ds-section__element--indent_inside">
         <div class="g-container g-container--fit_sm">
           <div class="t-content">
-            <h4>Внутренний (ds-section__element--indent_inside)</h4>
+            <h4>Внутренний (.ds-section__element--indent_inside)</h4>
             <p>
               Элемент с внутренним отсупом.
             </p>
@@ -50,7 +50,7 @@
       <div class="ds-section__element">
         <div class="g-container g-container--fit_sm">
           <div class="t-content">
-            <h4>Внешний(по умолчанию)</h4>
+            <h4>Внешний(по умолчанию, .ds-section__element--indent_outside)</h4>
             <p>
               Элемент с внешним отсупом.
             </p>
