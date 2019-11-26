@@ -28,6 +28,38 @@
 ```
 :::
 
+## Внутренний/внешний отступ
+
+::: demo
+```html
+<template>
+  <div>
+    <section class="
+      ds-panel
+    ">
+      <div class="ds-panel__element ds-panel__element--offset_top ds-panel__element--offset_horizontal ds-panel__element--indent_inside">
+        <div class="t-content">
+          <h4>Внутренний (ds-panel__element--indent_inside)</h4>
+          <p>
+            Элемент с внутренним отсупом.
+          </p>
+        </div>
+      </div>
+      <div class="ds-panel__element ds-panel__element--offset_full">
+        <div class="t-content">
+          <h4>Внешний(по умолчанию)</h4>
+          <p>
+            Элемент с внешним отсупом.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
 ## Размеры
 
 ::: demo

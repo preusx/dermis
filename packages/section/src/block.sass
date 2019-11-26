@@ -1,3 +1,10 @@
+%#{$DERMIS_PREFIX}section__element--indent_outside
+  padding-top: 0
+  padding-bottom: 0
+  margin-top: var(--section-space-vertical)
+  margin-bottom: var(--section-space-vertical)
+
+
 .#{$DERMIS_PREFIX}section
   +panel-block(section, $section-space)
 
@@ -5,12 +12,23 @@
 
   &__
     &element
+      @extend %#{$DERMIS_PREFIX}section__element--indent_outside
+
       display: block
 
-      margin-top: var(--section-space-vertical)
-      margin-bottom: var(--section-space-vertical)
       padding-left: var(--section-space-horizontal)
       padding-right: var(--section-space-horizontal)
+
+      &--
+        &indent_
+          &outside
+            @extend %#{$DERMIS_PREFIX}section__element--indent_outside
+
+          &inside
+            margin-top: 0
+            margin-bottom: 0
+            padding-top: var(--section-space-vertical)
+            padding-bottom: var(--section-space-vertical)
 
   &--
     &space_

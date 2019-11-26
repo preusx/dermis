@@ -28,6 +28,42 @@
 ```
 :::
 
+## Внутренний/внешний отступ
+
+::: demo
+```html
+<template>
+  <div>
+    <section class="
+      ds-section
+    ">
+      <div class="ds-section__element ds-section__element--indent_inside">
+        <div class="g-container g-container--fit_sm">
+          <div class="t-content">
+            <h4>Внутренний (ds-section__element--indent_inside)</h4>
+            <p>
+              Элемент с внутренним отсупом.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="ds-section__element">
+        <div class="g-container g-container--fit_sm">
+          <div class="t-content">
+            <h4>Внешний(по умолчанию)</h4>
+            <p>
+              Элемент с внешним отсупом.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
 ## Размеры
 
 ::: demo
