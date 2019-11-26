@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -32,9 +32,9 @@
     "@dermis/grid": "^0.7.1",
     "@dermis/link": "0.7.0",
     "@dermis/mq": "^0.7.1",
-    "@dermis/panel": "^0.7.1",
+    "@dermis/panel": "^0.7.2",
     "@dermis/rut": "0.7.0",
-    "@dermis/section": "^0.7.1",
+    "@dermis/section": "^0.7.2",
     "@dermis/table": "^0.7.1",
     "@dermis/tone": "0.7.0",
     "@dermis/type": "0.7.0"
