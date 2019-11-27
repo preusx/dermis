@@ -1,6 +1,6 @@
 {
   "name": "@dermis/tone",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "main": "index.sass",
   "files": [
     "src",
