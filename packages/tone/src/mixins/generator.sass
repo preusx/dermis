@@ -13,13 +13,13 @@
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
   $saturation-rate: map-get($specs, saturation-rate)
 
-  $hue-range: map-get($specs, hue-range)
-  $saturation-range: map-get($specs, saturation-range)
-  $brightness-range: map-get($specs, brightness-range)
+  $hue-range: map-get($specs, 'hue-range')
+  $saturation-range: map-get($specs, 'saturation-range')
+  $brightness-range: map-get($specs, 'brightness-range')
 
-  $position-hue: call(map-get($specs, hue-curve), $position)
-  $position-saturation: call(map-get($specs, saturation-curve), $position)
-  $position-brightness: call(map-get($specs, brightness-curve), 1 - $position)
+  $position-hue: call(get-function(map-get($specs, 'hue-curve')), $position)
+  $position-saturation: call(get-function(map-get($specs, 'saturation-curve')), $position)
+  $position-brightness: call(get-function(map-get($specs, 'brightness-curve')), 1 - $position)
 
   $hue-current: tone-range-value($position-hue, 0 1, $hue-range)
   $saturation-current: tone-range-value($position-saturation, 0 1, $saturation-range) * $saturation-rate / 100
@@ -34,9 +34,9 @@
   $shift: (50 + $shift) / 100
   $hsb: hsl-to-hsv(hue($color), saturation($color), lightness($color))
 
-  $shift-hue: call(map-get($specs, hue-curve), $shift)
-  $shift-saturation: call(map-get($specs, saturation-curve), $shift)
-  $shift-brightness: call(map-get($specs, brightness-curve), $shift)
+  $shift-hue: call(get-function(map-get($specs, hue-curve)), $shift)
+  $shift-saturation: call(get-function(map-get($specs, saturation-curve)), $shift)
+  $shift-brightness: call(get-function(map-get($specs, brightness-curve)), $shift)
 
   $hue-current: nth($hsb, 1) + $shift-hue * $TONE_HUE_SHIFT * $way
   $saturation-current: tone-range-value(50 - nth($hsb, 2) % 50, 0 50, 0 $TONE_SATURATION_SHIFT)
