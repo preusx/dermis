@@ -1,6 +1,6 @@
 {
   "name": "@dermis/grid",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -26,8 +26,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "0.7.0",
-    "@dermis/mq": "^0.7.1",
-    "@dermis/rut": "0.7.0"
+    "@dermis/base": "^0.7.3",
+    "@dermis/mq": "^0.7.3",
+    "@dermis/rut": "^0.7.3"
   }
 }
