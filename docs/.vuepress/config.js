@@ -4,6 +4,7 @@ module.exports = {
   base: '/dermis/',
   plugins: [
     '@vuepress/back-to-top',
+    ['@vuepress/pwa', { serviceWorker: true, updatePopup: false }],
     'demo-block'
   ],
   chainWebpack(config) {
@@ -16,12 +17,12 @@ module.exports = {
     ['meta', { property: 'og:image', content: 'https://preusx.github.io/dermis/logo.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
     ['meta', { name: 'msapplication-TileImage', content: '/img/favicon/ms-icon-144x144.png' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'true' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'white' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: 'Dermis' }],
-    ['meta', { name: 'mobile-web-app-capable', content: 'true' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'application-name', content: 'Dermis' }],
-    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['meta', { name: 'theme-color', content: '#7d4cdb' }],
     ['link', { rel: 'apple-touch-icon', sizes: '57x57', href: '/img/favicon/apple-icon-57x57.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '60x60', href: '/img/favicon/apple-icon-60x60.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '72x72', href: '/img/favicon/apple-icon-72x72.png' }],
