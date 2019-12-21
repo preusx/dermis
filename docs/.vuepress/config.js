@@ -1,7 +1,6 @@
 module.exports = {
   title: 'Dermis',
   description: 'Set of tools for application styling',
-  // theme: './theme',
   base: '/dermis/',
   plugins: [
     '@vuepress/back-to-top',
@@ -17,6 +16,11 @@ module.exports = {
     ['meta', { property: 'og:image', content: 'https://preusx.github.io/dermis/logo.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
     ['meta', { name: 'msapplication-TileImage', content: '/img/favicon/ms-icon-144x144.png' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'true' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'white' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'Dermis' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'true' }],
+    ['meta', { name: 'application-name', content: 'Dermis' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'apple-touch-icon', sizes: '57x57', href: '/img/favicon/apple-icon-57x57.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '60x60', href: '/img/favicon/apple-icon-60x60.png' }],
@@ -33,7 +37,6 @@ module.exports = {
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
 
-    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
 
   ],
