@@ -106,7 +106,8 @@ module.exports = {
               children: [
                 'content/caption',
                 'content/link',
-                'content/table'
+                'content/table',
+                'content/inliner',
               ]
             }
           ],

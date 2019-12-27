@@ -37,6 +37,7 @@
     "@dermis/section": "^0.7.3",
     "@dermis/table": "^0.7.3",
     "@dermis/tone": "^0.7.4",
+    "@dermis/inliner": "^0.7.4",
     "@dermis/type": "^0.7.3"
   }
 }
