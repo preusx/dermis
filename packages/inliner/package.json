@@ -1,5 +1,5 @@
 {
-  "name": "@dermis/dermis",
+  "name": "@dermis/inliner",
   "version": "0.7.4",
   "main": "index.sass",
   "sass": "index.sass",
@@ -14,7 +14,7 @@
     "utility",
     "style",
     "css",
-    "media-query"
+    "inline"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",
@@ -25,19 +25,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@dermis/aspect-ratio": "^0.7.3",
+  "devDependencies": {
     "@dermis/base": "^0.7.3",
-    "@dermis/caption": "^0.7.3",
-    "@dermis/grid": "^0.7.3",
-    "@dermis/link": "^0.7.4",
-    "@dermis/mq": "^0.7.3",
-    "@dermis/panel": "^0.7.3",
-    "@dermis/rut": "^0.7.3",
-    "@dermis/section": "^0.7.3",
-    "@dermis/table": "^0.7.3",
-    "@dermis/tone": "^0.7.4",
-    "@dermis/inliner": "^0.7.4",
-    "@dermis/type": "^0.7.3"
+    "@dermis/type": "^0.7.3",
+    "@dermis/mq": "^0.7.3"
   }
 }
