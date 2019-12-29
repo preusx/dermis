@@ -1,6 +1,6 @@
 {
   "name": "@dermis/caption",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
