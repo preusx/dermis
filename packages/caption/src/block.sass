@@ -38,9 +38,13 @@
         +mq-both-adaptive
           +type-line('sm', 'heading')
 
-    &variant_secondary
-      font-weight: 300
+    &variant_
+      &secondary
+        font-weight: 300
 
-    &variant_uppercase
-      text-transform: uppercase
-      letter-spacing: var(--type-letter-spacing-3xl)
+      &uppercase
+        text-transform: uppercase
+        letter-spacing: var(--type-letter-spacing-3xl)
+
+      &internal
+        line-height: 1
