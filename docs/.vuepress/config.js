@@ -109,6 +109,14 @@ module.exports = {
                 'content/table',
                 'content/inliner',
               ]
+            },
+            {
+              title: 'Управляющие элементы',
+              type: 'group',
+              collapsable: false,
+              children: [
+                'controls/box',
+              ]
             }
           ],
         },
