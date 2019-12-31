@@ -1,0 +1,46 @@
+%control-box-definition
+  +cssvar-definition
+    +control-box-definition
+
+%control-box-base
+  +control-box-base
+
+%control-box-border
+  +control-box-border
+
+%control-box-wrapper
+  @extend %control-box-definition
+  @extend %control-box-base
+  @extend %control-box-border
+
+%control-box-inner
+  @extend %control-box-base
+
+  padding: var(--control-box-padding-vertical) var(--control-box-padding-horizontal)
+
+%control-box
+  @extend %control-box-wrapper
+
+  display: block
+
+  &__
+    &body
+      display: flex
+      flex-wrap: nowrap
+      flex-direction: row
+
+    &item
+      &--
+        &primary
+          flex-grow: 1
+
+    &element
+      @extend %control-box-inner
+
+      &--
+        &attachment_
+          &append
+            padding-left: 0
+
+          &prepend
+            padding-right: 0
