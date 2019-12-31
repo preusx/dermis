@@ -1,6 +1,6 @@
 {
   "name": "@dermis/aspect-ratio",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -26,7 +26,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "^0.8.0",
-    "@dermis/mq": "^0.8.0"
+    "@dermis/base": "^0.9.0",
+    "@dermis/mq": "^0.9.0"
   }
 }
