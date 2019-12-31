@@ -1,6 +1,6 @@
 {
-  "name": "@dermis/dermis",
-  "version": "0.8.1",
+  "name": "@dermis/controls",
+  "version": "0.8.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -14,7 +14,9 @@
     "utility",
     "style",
     "css",
-    "media-query"
+    "form",
+    "input",
+    "control"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",
@@ -25,20 +27,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@dermis/aspect-ratio": "^0.8.0",
+  "devDependencies": {
     "@dermis/base": "^0.8.0",
-    "@dermis/caption": "^0.8.1",
-    "@dermis/grid": "^0.8.0",
-    "@dermis/inliner": "^0.8.0",
-    "@dermis/link": "^0.8.0",
     "@dermis/mq": "^0.8.0",
-    "@dermis/panel": "^0.8.0",
-    "@dermis/rut": "^0.8.0",
-    "@dermis/section": "^0.8.0",
-    "@dermis/table": "^0.8.0",
-    "@dermis/tone": "^0.8.0",
-    "@dermis/controls": "^0.8.0",
-    "@dermis/type": "^0.8.0"
+    "@dermis/type": "^0.8.0",
+    "@dermis/rut": "^0.8.0"
   }
 }

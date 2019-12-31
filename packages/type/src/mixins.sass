@@ -1,8 +1,9 @@
-@function type-line-height($size: 'body', $line: 'body')
+@function type-line-height($size: 'body', $line: 'body', $fit-size: $size, $fit-line: $line)
   $font-size: map-get($type-font-size-map, $size)
+  $fit: map-get($type-font-size-map, $fit-size) * map-get($type-line-height-map, $fit-line)
 
-  @return rut-floor($font-size * map-get($type-line-height-map, $line)) / $font-size
+  @return rut-floor($fit) / $font-size
 
-@mixin type-line($size: 'body', $line: 'body')
+@mixin type-line($size: 'body', $line: 'body', $fit-size: $size, $fit-line: $line)
   font-size: var(--type-font-size-#{$size})
-  line-height: type-line-height($size: $size, $line: $line)
+  line-height: type-line-height($size: $size, $line: $line, $fit-size: $fit-size, $fit-line: $fit-line)
