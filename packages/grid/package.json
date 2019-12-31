@@ -14,7 +14,11 @@
     "utility",
     "style",
     "css",
-    "media-query"
+    "media-query",
+    "grid",
+    "12",
+    "column",
+    "row"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",
