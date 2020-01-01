@@ -1,0 +1,39 @@
+@mixin control-stack-first-styling()
+  border-top-right-radius: 0 !important
+  border-bottom-right-radius: 0 !important
+
+@mixin control-stack-last-styling()
+  border-top-left-radius: 0 !important
+  border-bottom-left-radius: 0 !important
+
+@mixin control-stack-elements($selectors)
+  @if $selectors and length($selectors) > 0
+    +mq-both-adaptive
+      #{list-join($selectors, ',')}
+        @content
+
+
+@mixin control-stack($selectors)
+  .#{$CONTROLS_PREFIX}stack__element--position_first
+    +control-stack-elements($selectors)
+      +control-stack-first-styling
+      @content
+
+  .#{$CONTROLS_PREFIX}stack__element--position_last
+    +control-stack-elements($selectors)
+      +control-stack-last-styling
+      @content
+
+  .#{$CONTROLS_PREFIX}stack__element--position_inner
+    +control-stack-elements($selectors)
+      +control-stack-first-styling
+      +control-stack-last-styling
+      @content
+
+
+@mixin control-stack-add()
+  $selector: '&#{&}'
+
+  @at-root
+    +control-stack(($selector))
+      @content

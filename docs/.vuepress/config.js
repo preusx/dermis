@@ -116,6 +116,7 @@ module.exports = {
               collapsable: false,
               children: [
                 'controls/box',
+                'controls/stack',
               ]
             }
           ],
