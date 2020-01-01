@@ -1,2 +1,22 @@
 .d-control-box-example
   +control-box()
+
+.d-control-input-example,
+.d-control-button-example
+  border-radius: 4px
+
+.d-control-input-example
+  +control-box()
+
+  --control-box-border-width: 1px
+  border-color: var(--theme-relief-3)
+
+.d-control-button-example
+  +control-box()
+
+  background: var(--theme-primary-base)
+  color: var(--theme-primary-text-inverse)
+
+  &--variant_accent
+    background: var(--theme-accent-base)
+    color: var(--theme-accent-text-inverse)
