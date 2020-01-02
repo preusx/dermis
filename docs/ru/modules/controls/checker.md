@@ -46,7 +46,55 @@
     &:after
       display: block
       background-color: transparent
+
+  +control-checker--variant_inline
 ```
+
+::: demo
+```html
+<template>
+  <div>
+    <div>
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline">
+        <input class="d-control-checkbox-example__element" type="checkbox" />
+        <span class="d-control-checkbox-example__label" />
+      </label>
+      Обычный чекбокс
+    </div>
+    <div>
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline">
+        <input class="d-control-checkbox-example__element" type="checkbox" checked />
+        <span class="d-control-checkbox-example__label" />
+      </label>
+      Checked чекбокс
+    </div>
+    <div>
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline is-read-only is-checked">
+        <span class="d-control-checkbox-example__label" />
+      </label>
+      Checked чекбокс только для чтения
+    </div>
+    <div>
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline">
+        <input class="d-control-checkbox-example__element" type="checkbox" :indeterminate.prop="true" />
+        <span class="d-control-checkbox-example__label" />
+      </label>
+      Indeterminate чекбокс
+    </div>
+    <div>
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline">
+        <input class="d-control-checkbox-example__element" type="checkbox" :indeterminate.prop="true" disabled />
+        <span class="d-control-checkbox-example__label" />
+      </label>
+      Indeterminate отключенный чекбокс
+    </div>
+  </div>
+</template>
+<script> export default {}; </script>
+```
+:::
+
+### Варианты
 
 ::: demo
 ```html
@@ -57,34 +105,19 @@
         <input class="d-control-checkbox-example__element" type="checkbox" />
         <span class="d-control-checkbox-example__label" />
       </label>
-      Обычный чекбокс
+      По умолчанию checker ведет себя как блок. В таком виде его нужно отдельно позиционировать относительно контента, например с помощью `ds-inliner` или `g-row`. Размеры его предсказуемы, и управлять им легче.
     </div>
     <div>
-      <label class="d-control-checkbox-example">
-        <input class="d-control-checkbox-example__element" type="checkbox" checked />
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline">
+        <input class="d-control-checkbox-example__element" type="checkbox" />
         <span class="d-control-checkbox-example__label" />
       </label>
-      Checked чекбокс
-    </div>
-    <div>
-      <label class="d-control-checkbox-example is-read-only is-checked">
+      Есть у него `--variant_inline` модификатор, который работает как встроенный `ds-inliner`. Такой элемент встраивать в текущий flow элементов, легко, но за счет неизвестной высоты могут быть проблемы когда размеры самого checker'а значительно больше чем контент относительно которого он спозиционирован, например:
+      <label class="d-control-checkbox-example d-control-checkbox-example--variant_inline" style="--control-checker-size: 40px">
+        <input class="d-control-checkbox-example__element" type="checkbox" />
         <span class="d-control-checkbox-example__label" />
       </label>
-      Checked чекбокс только для чтения
-    </div>
-    <div>
-      <label class="d-control-checkbox-example">
-        <input class="d-control-checkbox-example__element" type="checkbox" :indeterminate.prop="true" />
-        <span class="d-control-checkbox-example__label" />
-      </label>
-      Indeterminate чекбокс
-    </div>
-    <div>
-      <label class="d-control-checkbox-example">
-        <input class="d-control-checkbox-example__element" type="checkbox" :indeterminate.prop="true" disabled />
-        <span class="d-control-checkbox-example__label" />
-      </label>
-      Indeterminate отключенный чекбокс
+      Для добавления этого варианта нужно использовать отдельный `control-checker--variant_inline` миксин, который и добавит требуемую стилизацию в модификатор.
     </div>
   </div>
 </template>

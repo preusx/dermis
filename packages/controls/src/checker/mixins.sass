@@ -34,9 +34,6 @@
   @extend %control-checker-definition
   @extend %control-checker
 
-  &:before
-    @extend %control-checker---before
-
   &__
     &element
       @extend %control-checker__element
@@ -49,3 +46,16 @@
 
       &:after
         @extend %control-checker__label---after
+
+
+@mixin control-checker--variant_inline($block: '&')
+  $selector: #{$block}
+
+  &--variant_inline
+    @extend %control-checker--variant_inline
+
+    &:before
+      @extend %control-checker--variant_inline---before
+
+    & #{$selector}__label
+      @extend %control-checker--variant_inline__label

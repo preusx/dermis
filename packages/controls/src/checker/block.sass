@@ -2,14 +2,16 @@
   +control-checker-definition
 
 %control-checker
-  display: inline-block
-  position: relative
-  width: var(--control-checker-size)
   cursor: pointer
   user-select: none
 
-  &---before
-    content: '\00a0'
+  &,
+  &__label
+    display: block
+    position: relative
+    height: var(--control-checker-size)
+    width: var(--control-checker-size)
+    line-height: 1
 
   &__
     &element
@@ -19,13 +21,6 @@
       position: absolute
 
     &label
-      display: block
-      position: absolute
-      height: 100%
-      width: 100%
-      top: 0
-      left: 0
-
       &---before,
       &---after
         content: ""
@@ -42,3 +37,17 @@
       &---after
         width: var(--control-checker-inner-size)
         height: var(--control-checker-inner-size)
+
+%control-checker--variant_inline
+  display: inline-block
+  height: auto
+
+  &---before
+    content: '\00a0'
+
+  &__label
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
