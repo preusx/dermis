@@ -1,0 +1,44 @@
+%control-checker-definition
+  +control-checker-definition
+
+%control-checker
+  display: inline-block
+  position: relative
+  width: var(--control-checker-size)
+  cursor: pointer
+  user-select: none
+
+  &---before
+    content: '\00a0'
+
+  &__
+    &element
+      z-index: -100500
+      opacity: 0
+      height: 0
+      position: absolute
+
+    &label
+      display: block
+      position: absolute
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+
+      &---before,
+      &---after
+        content: ""
+        position: absolute
+        display: block
+        top: 50%
+        left: 50%
+        transform: translateY(-50%) translateX(-50%)
+
+      &---before
+        width: var(--control-checker-size)
+        height: var(--control-checker-size)
+
+      &---after
+        width: var(--control-checker-inner-size)
+        height: var(--control-checker-inner-size)
