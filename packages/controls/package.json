@@ -1,6 +1,6 @@
 {
   "name": "@dermis/controls",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -28,9 +28,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "^0.10.0",
-    "@dermis/mq": "^0.10.0",
-    "@dermis/rut": "^0.10.0",
-    "@dermis/type": "^0.10.0"
+    "@dermis/base": "^0.11.0",
+    "@dermis/mq": "^0.11.0",
+    "@dermis/rut": "^0.11.0",
+    "@dermis/type": "^0.11.0"
   }
 }

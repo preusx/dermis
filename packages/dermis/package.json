@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -26,19 +26,19 @@
     "access": "public"
   },
   "dependencies": {
-    "@dermis/aspect-ratio": "^0.10.0",
-    "@dermis/base": "^0.10.0",
-    "@dermis/caption": "^0.10.0",
-    "@dermis/controls": "^0.10.0",
-    "@dermis/grid": "^0.10.0",
-    "@dermis/inliner": "^0.10.0",
-    "@dermis/link": "^0.10.0",
-    "@dermis/mq": "^0.10.0",
-    "@dermis/panel": "^0.10.0",
-    "@dermis/rut": "^0.10.0",
-    "@dermis/section": "^0.10.0",
-    "@dermis/table": "^0.10.0",
-    "@dermis/tone": "^0.10.0",
-    "@dermis/type": "^0.10.0"
+    "@dermis/aspect-ratio": "^0.11.0",
+    "@dermis/base": "^0.11.0",
+    "@dermis/caption": "^0.11.0",
+    "@dermis/controls": "^0.11.0",
+    "@dermis/grid": "^0.11.0",
+    "@dermis/inliner": "^0.11.0",
+    "@dermis/link": "^0.11.0",
+    "@dermis/mq": "^0.11.0",
+    "@dermis/panel": "^0.11.0",
+    "@dermis/rut": "^0.11.0",
+    "@dermis/section": "^0.11.0",
+    "@dermis/table": "^0.11.0",
+    "@dermis/tone": "^0.11.0",
+    "@dermis/type": "^0.11.0"
   }
 }

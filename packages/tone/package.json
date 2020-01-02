@@ -1,6 +1,6 @@
 {
   "name": "@dermis/tone",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "index.sass",
   "files": [
     "src",
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "^0.10.0"
+    "@dermis/base": "^0.11.0"
   }
 }
