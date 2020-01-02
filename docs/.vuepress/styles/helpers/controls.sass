@@ -1,18 +1,18 @@
 .d-control-box-example
-  +control-box()
+  +control-box
 
 .d-control-input-example,
 .d-control-button-example
   border-radius: 4px
 
 .d-control-input-example
-  +control-box()
+  +control-box
 
   --control-box-border-width: 1px
   border-color: var(--theme-relief-3)
 
 .d-control-button-example
-  +control-box()
+  +control-box
 
   background: var(--theme-primary-base)
   color: var(--theme-primary-text-inverse)
@@ -20,3 +20,27 @@
   &--variant_accent
     background: var(--theme-accent-base)
     color: var(--theme-accent-text-inverse)
+
+
+.d-control-checkbox-example
+  +control-checker
+  +control-checker-default-states($block: '.d-control-checkbox-example')
+
+  &__
+    &label
+      &:before
+        background-color: var(--theme-primary-base)
+
+      &:after
+        display: none
+        background-color: var(--theme-primary-text-inverse)
+        border-bottom: 2px solid var(--theme-primary-text-inverse)
+
+  +control-checker-state(checked, $block: '.d-control-checkbox-example')
+    &:after
+      display: block
+
+  +control-checker-state(indeterminate, $block: '.d-control-checkbox-example')
+    &:after
+      display: block
+      background-color: transparent
