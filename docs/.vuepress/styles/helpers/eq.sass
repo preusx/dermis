@@ -1,0 +1,18 @@
+@at-root
+  .ds-eq-check
+    background: #fff
+
+    +eq-md
+      background: #eee
+
+    +eq-lg
+      background: #ddd
+
+    &--clear
+      +eq-xs
+        background: #000
+
+    &__element
+      &--clear
+        +eq-adaptive('.ds-eq-check ')
+          background: #000
