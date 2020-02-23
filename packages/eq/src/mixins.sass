@@ -47,70 +47,85 @@
 
 
 @mixin eq-adaptive($base: null, $separator: '-', $with-initial: true)
-  @if $with-initial
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
     @content
+
+  @if $with-initial
+    @extend #{$selector}
 
   @if $EQ_INCLUDE_XS
     &#{$separator}exs
       +eq-xs($base: $base)
-        @content
+        @extend #{$selector}
 
   &#{$separator}esm
     +eq-sm($base: $base)
-      @content
+      @extend #{$selector}
 
   &#{$separator}emd
     +eq-md($base: $base)
-      @content
+      @extend #{$selector}
 
   &#{$separator}elg
     +eq-lg($base: $base)
-      @content
+      @extend #{$selector}
 
   @if $EQ_INCLUDE_XL
     &#{$separator}exl
       +eq-xl($base: $base)
-        @content
+        @extend #{$selector}
 
 
 @mixin eq-adaptive-till($base: null, $separator: '-till-', $with-initial: true)
-  @if $with-initial
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
     @content
+
+  @if $with-initial
+    @extend #{$selector}
 
   @if $EQ_INCLUDE_XS
     &#{$separator}exs
       +eq-till-xs($base: $base)
-        @content
+        @extend #{$selector}
 
   &#{$separator}esm
     +eq-till-sm($base: $base)
-      @content
+      @extend #{$selector}
 
   &#{$separator}emd
     +eq-till-md($base: $base)
-      @content
+      @extend #{$selector}
 
   &#{$separator}elg
     +eq-till-lg($base: $base)
-      @content
+      @extend #{$selector}
 
   @if $EQ_INCLUDE_XL
     &#{$separator}exl
       +eq-till-xl($base: $base)
-        @content
+        @extend #{$selector}
 
 
 @mixin eq-both-adaptive($base: null, $with-initial: true)
-  @if $with-initial
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
     @content
+
+  @if $with-initial
+    @extend #{$selector}
 
   @if $EQ_ENABLE_FROM
     +eq-adaptive($with-initial: false, $base: $base)
-      @content
+      @extend #{$selector}
 
   @if $EQ_ENABLE_TILL
     +eq-adaptive-till($with-initial: false, $base: $base)
-      @content
+      @extend #{$selector}
 
 
 @mixin eq-whether-to-respond-both($base: null, $responsive: true)
