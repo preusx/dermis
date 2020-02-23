@@ -88,9 +88,9 @@ API также идентичен с `mq` пакетом.
 
 ```css
 .block--modifier { color: green }
-.u-eq--gte390.block--modifier-sm { color: green }
-.u-eq--gte520.block--modifier-md { color: green }
-.u-eq--gte780.block--modifier-lg { color: green }
+.u-eq--gte390.block--modifier-esm { color: green }
+.u-eq--gte520.block--modifier-emd { color: green }
+.u-eq--gte780.block--modifier-elg { color: green }
 ```
 
 #### `+eq-adaptive-till($base: null, $separator: '-till-', $with-initial: true)`
@@ -111,9 +111,9 @@ API также идентичен с `mq` пакетом.
 
 ```css
 .block__element--changed { color: green }
-.u-eq--lt390.block .block__element--changed-till-sm { color: green }
-.u-eq--lt520.block .block__element--changed-till-md { color: green }
-.u-eq--lt780.block .block__element--changed-till-lg { color: green }
+.u-eq--lt390.block .block__element--changed-till-esm { color: green }
+.u-eq--lt520.block .block__element--changed-till-emd { color: green }
+.u-eq--lt780.block .block__element--changed-till-elg { color: green }
 ```
 
 #### `eq-both-adaptive($with-initial: true)`

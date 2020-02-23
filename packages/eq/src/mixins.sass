@@ -51,24 +51,24 @@
     @content
 
   @if $EQ_INCLUDE_XS
-    &#{$separator}xs
+    &#{$separator}exs
       +eq-xs($base: $base)
         @content
 
-  &#{$separator}sm
+  &#{$separator}esm
     +eq-sm($base: $base)
       @content
 
-  &#{$separator}md
+  &#{$separator}emd
     +eq-md($base: $base)
       @content
 
-  &#{$separator}lg
+  &#{$separator}elg
     +eq-lg($base: $base)
       @content
 
   @if $EQ_INCLUDE_XL
-    &#{$separator}xl
+    &#{$separator}exl
       +eq-xl($base: $base)
         @content
 
@@ -78,24 +78,24 @@
     @content
 
   @if $EQ_INCLUDE_XS
-    &#{$separator}xs
+    &#{$separator}exs
       +eq-till-xs($base: $base)
         @content
 
-  &#{$separator}sm
+  &#{$separator}esm
     +eq-till-sm($base: $base)
       @content
 
-  &#{$separator}md
+  &#{$separator}emd
     +eq-till-md($base: $base)
       @content
 
-  &#{$separator}lg
+  &#{$separator}elg
     +eq-till-lg($base: $base)
       @content
 
   @if $EQ_INCLUDE_XL
-    &#{$separator}xl
+    &#{$separator}exl
       +eq-till-xl($base: $base)
         @content
 
