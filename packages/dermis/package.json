@@ -34,6 +34,7 @@
     "@dermis/inliner": "^0.11.0",
     "@dermis/link": "^0.11.0",
     "@dermis/mq": "^0.11.0",
+    "@dermis/qproxy": "^0.11.0",
     "@dermis/panel": "^0.11.0",
     "@dermis/rut": "^0.11.0",
     "@dermis/section": "^0.11.0",

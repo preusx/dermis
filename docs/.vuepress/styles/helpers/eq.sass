@@ -2,17 +2,17 @@
   .ds-eq-check
     background: #fff
 
-    +eq-md
-      background: #eee
+    // +eq-md
+    //   background: #eee
 
-    +eq-lg
-      background: #ddd
+    // +eq-lg
+    //   background: #ddd
 
-    &--clear
-      +eq-xs
-        background: #000
+    // &--clear
+    //   +eq-xs
+    //     background: #000
 
     &__element
       &--clear
-        +eq-both-adaptive('.ds-eq-check ')
+        +q-both-adaptive('.ds-eq-check ')
           background: #000

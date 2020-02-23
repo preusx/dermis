@@ -85,8 +85,16 @@ module.exports = {
           '/ru/modules/': [
             'base',
             'rut',
-            'mq',
-            'eq',
+            {
+              title: 'Адаптивность',
+              type: 'group',
+              collapsable: false,
+              children: [
+                'mq',
+                'eq',
+                'qproxy'
+              ]
+            },
             'tone',
             'type',
             {
