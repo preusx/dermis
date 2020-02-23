@@ -1,0 +1,45 @@
+@mixin q-adaptive($base: null, $separator: null, $with-initial: true)
+  @if $Q_EQ_ENABLED
+    +eq-adaptive($base: $base, $separator: $separator, $with-initial: $with-initial)
+      @content
+    $with-initial: false
+
+  @if $Q_MQ_ENABLED
+    +mq-adaptive($separator: $separator, $with-initial: $with-initial)
+      @content
+
+
+@mixin q-adaptive-till($base: null, $separator: null, $with-initial: true)
+  @if $Q_EQ_ENABLED
+    +eq-adaptive-till($base: $base, $separator: $separator, $with-initial: $with-initial)
+      @content
+    $with-initial: false
+
+  @if $Q_MQ_ENABLED
+    +mq-adaptive-till($separator: $separator, $with-initial: $with-initial)
+      @content
+
+
+@mixin q-both-adaptive($base: null, $with-initial: true)
+  @if $Q_EQ_ENABLED
+    +eq-both-adaptive($base: $base, $with-initial: $with-initial)
+      @content
+    $with-initial: false
+
+  @if $Q_MQ_ENABLED
+    +mq-both-adaptive($with-initial: $with-initial)
+      @content
+
+
+@mixin q-whether-to-respond-both($base: null, $responsive: true)
+  @content
+
+  @if $responsive
+    +q-both-adaptive($base: $base, $with-initial: false)
+      @content
+
+@mixin q-generate-property-modifiers($property, $map, $base: null, $responsive: true)
+  @each $key, $value in $map
+    &#{$key}
+      +q-whether-to-respond-both($base: $base, $responsive: $responsive)
+        #{$property}: $value
