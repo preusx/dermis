@@ -1,6 +1,6 @@
 {
   "name": "@dermis/rut",
-  "version": "0.11.0",
+  "version": "0.11.3",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -26,6 +26,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "^0.11.0"
+    "@dermis/base": "^0.11.3"
   }
 }
