@@ -93,6 +93,6 @@
 @media (max-width: 991px) { .block--modifier-till-lg { color: green } }
 ```
 
-#### `mq-both-adaptive($with-initial: true)`
+#### `+mq-both-adaptive($with-initial: true)`
 
 Этот миксин применяет сразу оба вышеизложеных адаптеров.

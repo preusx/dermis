@@ -1,0 +1,6 @@
+$Q_EQ_USE: true !default
+$Q_MQ_USE: true !default
+$Q_EQ_AVAILABLE: mixin-exists('eq-adaptive') !default
+$Q_MQ_AVAILABLE: mixin-exists('mq-adaptive') !default
+$Q_EQ_ENABLED: $Q_EQ_USE and $Q_EQ_AVAILABLE
+$Q_MQ_ENABLED: $Q_MQ_USE and $Q_MQ_AVAILABLE

@@ -1,1 +1,3 @@
-+cssvar-expose-map($eq-size-map, $prefix: 'eq-size')
+@at-root :root
+  @each $key, $value in $eq-size-map
+    --eq-size-#{$key}: #{$value}

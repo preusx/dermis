@@ -4,6 +4,17 @@
 
 Для библиотеки также нужен JS механизм для автоматического добавления классов-идентификаторов текущего размера.
 
+::: warning В стандартную сборку модуль не включен!
+В `@dermis/dermis` этого модуля нет. Так как используется далеко не всегда, и для его работы нужна дополнительная JS библиотека.
+
+Поэтому в случае потребности использования его нужно устанавливать отдельно. И подключать перед `dermis` пакетом:
+
+```sass
+@import '@dermis/eq'
+@import '@dermis/dermis'
+```
+:::
+
 **`eq`** - Модуль отвечающий за генерацию классов, которые описывают изменения отображения элемента в зависимости от размера его контейнера.
 
 Контрольные точки изменения размеров стандартизированы до: `xs`, `sm`, `md`, `lg`, `xl`. Это базовый вариант, с размерами опредененности еще пока нет - скорее всего нужно будет дорабатывать, но пока так.
@@ -88,9 +99,9 @@ API также идентичен с `mq` пакетом.
 
 ```css
 .block--modifier { color: green }
-.u-eq--gte390.block--modifier-sm { color: green }
-.u-eq--gte520.block--modifier-md { color: green }
-.u-eq--gte780.block--modifier-lg { color: green }
+.u-eq--gte390.block--modifier-esm { color: green }
+.u-eq--gte520.block--modifier-emd { color: green }
+.u-eq--gte780.block--modifier-elg { color: green }
 ```
 
 #### `+eq-adaptive-till($base: null, $separator: '-till-', $with-initial: true)`
@@ -111,11 +122,11 @@ API также идентичен с `mq` пакетом.
 
 ```css
 .block__element--changed { color: green }
-.u-eq--lt390.block .block__element--changed-till-sm { color: green }
-.u-eq--lt520.block .block__element--changed-till-md { color: green }
-.u-eq--lt780.block .block__element--changed-till-lg { color: green }
+.u-eq--lt390.block .block__element--changed-till-esm { color: green }
+.u-eq--lt520.block .block__element--changed-till-emd { color: green }
+.u-eq--lt780.block .block__element--changed-till-elg { color: green }
 ```
 
-#### `eq-both-adaptive($with-initial: true)`
+#### `+eq-both-adaptive($with-initial: true)`
 
 Этот миксин применяет сразу оба вышеизложеных адаптеров.

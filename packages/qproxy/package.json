@@ -1,6 +1,6 @@
 {
-  "name": "@dermis/eq",
-  "version": "0.11.2",
+  "name": "@dermis/qproxy",
+  "version": "0.11.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -14,7 +14,10 @@
     "utility",
     "style",
     "css",
-    "element-query"
+    "query",
+    "queries",
+    "combination",
+    "proxy"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",
