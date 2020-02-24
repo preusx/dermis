@@ -1,33 +1,54 @@
 @mixin q-adaptive($base: null, $separator: null, $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
   @if $Q_EQ_ENABLED
-    +eq-adaptive($base: $base, $separator: $separator, $with-initial: $with-initial)
-      @content
-    $with-initial: false
+    +eq-adaptive($base: $base, $separator: $separator, $with-initial: false)
+      @extend #{$selector}
 
   @if $Q_MQ_ENABLED
-    +mq-adaptive($separator: $separator, $with-initial: $with-initial)
+    +mq-adaptive($separator: $separator, $with-initial: false)
       @content
 
 
 @mixin q-adaptive-till($base: null, $separator: null, $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
   @if $Q_EQ_ENABLED
-    +eq-adaptive-till($base: $base, $separator: $separator, $with-initial: $with-initial)
-      @content
-    $with-initial: false
+    +eq-adaptive-till($base: $base, $separator: $separator, $with-initial: false)
+      @extend #{$selector}
 
   @if $Q_MQ_ENABLED
-    +mq-adaptive-till($separator: $separator, $with-initial: $with-initial)
+    +mq-adaptive-till($separator: $separator, $with-initial: false)
       @content
 
 
 @mixin q-both-adaptive($base: null, $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
   @if $Q_EQ_ENABLED
-    +eq-both-adaptive($base: $base, $with-initial: $with-initial)
-      @content
-    $with-initial: false
+    +eq-both-adaptive($base: $base, $with-initial: false)
+      @extend #{$selector}
 
   @if $Q_MQ_ENABLED
-    +mq-both-adaptive($with-initial: $with-initial)
+    +mq-both-adaptive($with-initial: false)
       @content
 
 
