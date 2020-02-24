@@ -10,7 +10,7 @@
 
 @mixin panel-space-definition($name, $map)
   &none
-    +mq-both-adaptive
+    +q-both-adaptive
       --#{$name}-space: 0
 
-  +mq-generate-property-modifiers('--#{$name}-space', $map)
+  +q-generate-property-modifiers('--#{$name}-space', $map)

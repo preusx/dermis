@@ -3,7 +3,7 @@
 
   &--
     &auto
-      +mq-both-adaptive
+      +q-both-adaptive($base: '.#{$GRID_ROW_PREFIX}row')
         max-width: none
         width: auto
         flex-basis: 0
@@ -11,7 +11,7 @@
         flex-shrink: 1
 
     &narrow
-      +mq-both-adaptive
+      +q-both-adaptive($base: '.#{$GRID_ROW_PREFIX}row')
         width: auto
         flex: none
 
@@ -19,6 +19,6 @@
       &#{$i}
         $columns: grid-cols($i, $total: $grid-cols-columns-count)
 
-        +mq-both-adaptive
+        +q-both-adaptive($base: '.#{$GRID_ROW_PREFIX}row')
           width: $columns
           flex: none

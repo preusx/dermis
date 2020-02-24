@@ -8,23 +8,23 @@
 
 @mixin control-stack-elements($selectors)
   @if $selectors and length($selectors) > 0
-    +mq-both-adaptive
+    +q-both-adaptive($base: $control-stack-base-selector)
       #{list-join($selectors, ',')}
         @content
 
 
 @mixin control-stack($selectors)
-  .#{$CONTROLS_PREFIX}stack__element--position_first
+  #{$control-stack-base-selector}__element--position_first
     +control-stack-elements($selectors)
       +control-stack-first-styling
       @content
 
-  .#{$CONTROLS_PREFIX}stack__element--position_last
+  #{$control-stack-base-selector}__element--position_last
     +control-stack-elements($selectors)
       +control-stack-last-styling
       @content
 
-  .#{$CONTROLS_PREFIX}stack__element--position_inner
+  #{$control-stack-base-selector}__element--position_inner
     +control-stack-elements($selectors)
       +control-stack-first-styling
       +control-stack-last-styling
