@@ -7,6 +7,7 @@ PACKAGE_VERSION=$(cat lerna.json | grep version | head -1 | awk -F: '{ print $2 
 npm run docs:build
 
 cd docs/.vuepress/dist
+touch .nojekyll
 
 git init
 git add -A
