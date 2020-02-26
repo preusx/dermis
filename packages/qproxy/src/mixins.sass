@@ -1,4 +1,4 @@
-@mixin q-adaptive($base: null, $separator: null, $with-initial: true)
+@mixin q-adaptive($base: null, $separator: '-', $with-initial: true)
   $selector: '%#{unique-id()}'
 
   @at-root #{$selector}
@@ -16,7 +16,7 @@
       @content
 
 
-@mixin q-adaptive-till($base: null, $separator: null, $with-initial: true)
+@mixin q-adaptive-till($base: null, $separator: '-till-', $with-initial: true)
   $selector: '%#{unique-id()}'
 
   @at-root #{$selector}
