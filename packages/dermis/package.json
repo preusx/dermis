@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.11.5",
+  "version": "0.11.6",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -38,7 +38,7 @@
     "@dermis/qproxy": "^0.11.3",
     "@dermis/rut": "^0.11.5",
     "@dermis/section": "^0.11.5",
-    "@dermis/table": "^0.11.5",
+    "@dermis/table": "^0.11.6",
     "@dermis/tone": "^0.11.5",
     "@dermis/type": "^0.11.5"
   }
