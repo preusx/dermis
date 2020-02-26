@@ -1,7 +1,14 @@
 .#{$DERMIS_PREFIX}aspect-ratio
+  +cssvar-definition
+    --aspect-ratio-value: 100%
+
   position: relative
   display: block
-  padding: 0
+
+  &:before
+    content: ''
+    display: block
+    padding-bottom: var(--aspect-ratio-value)
 
   &__
     &body
@@ -24,13 +31,13 @@
     &ratio_
       &1x1
         +q-both-adaptive
-          padding-bottom: 100%
+          --aspect-ratio-value: 100%
 
       @each $a, $b in $aspect-ratio-ratios
         &#{$a}x#{$b}
           +q-both-adaptive
-            padding-bottom: aspect-ratio-percentage($a $b)
+            --aspect-ratio-value: #{aspect-ratio-percentage($a $b)}
 
         &#{$b}x#{$a}
           +q-both-adaptive
-            padding-bottom: aspect-ratio-percentage($b $a)
+            --aspect-ratio-value: #{aspect-ratio-percentage($b $a)}

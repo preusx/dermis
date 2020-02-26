@@ -20,7 +20,8 @@
   @if $selector == null
     $selector: '& > :first-child'
 
-  +aspect-ratio-container($ratio)
+  &:before
+    +aspect-ratio-container($ratio)
 
   @at-root #{unquote($selector)}
     +aspect-ratio-body()
