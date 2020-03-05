@@ -1,13 +1,15 @@
-%link-block
+%link-block-clearer
   position: relative
   display: inline-block
   text-decoration: none
   vertical-align: baseline
-  color: var(--link-color)
   border: 0
   padding: 0
   background-color: transparent
   cursor: pointer
+
+%link-block
+  color: var(--link-color)
 
   box-shadow: 0 $link-shadow-base-width currentColor
 
@@ -26,6 +28,11 @@
 
 
 .#{$DERMIS_PREFIX}link
+  @extend %link-block-clearer
+
+  color: var(--link-color)
+
+.#{$DERMIS_PREFIX}link--styling_default
   @extend %link-block
 
   &.is-
@@ -57,6 +64,7 @@
 @if $LINK_USE_IN_TYPE_CONTENT
   .#{$TYPE_PREFIX}content
     a
+      @extend %link-block-clearer
       @extend %link-block
 
       &:hover:not(:focus)
