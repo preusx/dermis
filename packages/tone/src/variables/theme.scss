@@ -12,8 +12,8 @@ $theme: () !default;
       1: 100, 2: 80, 3: 60, 4: 50, 5: 40, 6: 30
     )),
 
-    link-base: var(--theme-primary-50),
-    link-active: var(--theme-primary-40),
-    link-visited: var(--theme-primary-80),
-  ), $theme) !default;
+    'link-base': var(--theme-primary-50),
+    'link-active': var(--theme-primary-40),
+    'link-visited': var(--theme-primary-80),
+  ), $theme);
 }
