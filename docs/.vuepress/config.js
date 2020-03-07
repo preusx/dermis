@@ -84,15 +84,16 @@ module.exports = {
           ],
           '/ru/modules/': [
             'base',
+            'naming',
             'rut',
             {
               title: 'Адаптивность',
               type: 'group',
               collapsable: false,
               children: [
-                'mq',
-                'eq',
-                'qproxy'
+                'queries/mq',
+                'queries/eq',
+                'queries/qproxy'
               ]
             },
             'tone',

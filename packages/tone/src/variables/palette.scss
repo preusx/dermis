@@ -32,7 +32,7 @@ $tone-palettes: null !default;
   $tone-palette-magenta: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 320 326)) !default;
   $tone-palette-pink: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 336 342)) !default;
 
-  $tone-palette-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 0 0, saturation-range: 0 0, brightness-range: 9 99.9, brightness-curve: ease-in-out-sine)) !default;
+  $tone-palette-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 0 0, saturation-range: 0 0, brightness-range: 0 100, brightness-curve: linear)) !default;
   $tone-palette-cold-grey: tone-color-palette-range($TONE_PALETTE_MARKS, (hue-range: 220 212, saturation-range: 2 10, brightness-range: 16 100, brightness-curve: ease-in-out-sine, saturation-rate: 100)) !default;
 
   $tone-palettes: (
