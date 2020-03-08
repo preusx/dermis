@@ -14,3 +14,82 @@
     $result: map-merge($result, ($key: map-get($palette, $value)))
 
   @return $result
+
+@function tone-color-palette-fill-gaps($value, $specs: ())
+  $specs: map-merge($TONE_GAPS_FILLER_SPECS, $specs)
+  $marks: $TONE_PALETTE_MARKS
+
+  $start-base: map-get($specs, 'start-base')
+  $end-base: map-get($specs, 'end-base')
+  $start-weight: map-get($specs, 'start-weight')
+  $end-weight: map-get($specs, 'end-weight')
+
+  $path: ()
+  $start: null
+  $start-index: 0
+  $finish: null
+  $finish-index: 100
+  $i: -1
+
+  $length: length($marks)
+
+  // Defining first tone element if is not present
+  $first: map-get($value, nth($marks, 1))
+  @if $first == null
+    $i: 1
+    @while $first == null and $i < $length
+      $i: $i + 1
+      $first: map-get($value, nth($marks, $i))
+
+    @if $first == null
+      @error 'There must be at least one element in a map.'
+
+    $value: map-merge($value, (nth($marks, 1): mix($first, $start-base, $start-weight)))
+
+  // Defining last tone element if is not present
+  $last: map-get($value, nth($marks, -1))
+  @if $last == null
+    $i: $length
+    @while $last == null and $i > 0
+      $i: $i - 1
+      $last: map-get($value, nth($marks, $i))
+
+    $value: map-merge($value, (nth($marks, -1): mix($last, $end-base, $end-weight)))
+
+  $i: 0
+  $start: $first
+  $start-index: 1
+  @each $point in $marks
+    $i: $i + 1
+    $current: map-get($value, $point)
+
+    // If there is a gap
+    @if $current == null
+      $path: append($path, $i)
+
+      @if $finish != null
+        $start: $finish
+        $start-index: $finish-index
+
+      $finish: null
+
+    @else
+      @if $finish == null
+        $finish: $current
+        $finish-index: $i
+
+    @if $start != null and $finish != null and $start-index < $finish-index and $start-index < ($finish-index - 1)
+      @debug $path $start $finish
+
+      $start-shift: nth($marks, $start-index)
+      $finish-shift: nth($marks, $finish-index)
+      $shift: $finish-shift - $start-shift
+
+      @each $index in $path
+        $current-mark: nth($marks, $index)
+        $current-shift: $current-mark - $start-shift
+        $value: map-merge($value, ($current-mark: mix($finish, $start, ($current-mark - $start-shift) / $shift * 100%)))
+
+      $path: ()
+
+  @return $value

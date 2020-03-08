@@ -1,4 +1,10 @@
 $TONE_PALETTE_MARKS: 0 5 10 20 30 40 50 60 70 80 90 100 !default;
+$TONE_GAPS_FILLER_SPECS: (
+  'start-base': #fff,
+  'end-base': #000,
+  'start-weight': 5%,
+  'end-weight': 30%,
+) !default;
 
 $tone-palette-red: null !default;
 $tone-palette-orange: null !default;
