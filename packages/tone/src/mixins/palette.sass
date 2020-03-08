@@ -79,8 +79,6 @@
         $finish-index: $i
 
     @if $start != null and $finish != null and $start-index < $finish-index and $start-index < ($finish-index - 1)
-      @debug $path $start $finish
-
       $start-shift: nth($marks, $start-index)
       $finish-shift: nth($marks, $finish-index)
       $shift: $finish-shift - $start-shift

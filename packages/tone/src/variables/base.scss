@@ -13,7 +13,8 @@ $TONE_HUE_SHIFT: 4 !default;
 $TONE_SATURATION_SHIFT: $TONE_SATURATION_MAX / 6 !default;
 $TONE_BRIGHTNESS_SHIFT: $TONE_BRIGHTNESS_MAX / 6 !default;
 
-$TONE_DEFAULT_SPECS: (
+$TONE_DEFAULT_SPECS: () !default;
+$TONE_DEFAULT_SPECS: map-merge((
   steps: 11,
 
   hue-curve: 'ease-in-quad',
@@ -25,4 +26,4 @@ $TONE_DEFAULT_SPECS: (
   brightness-range: 53 100,
 
   saturation-rate: 130
-) !default;
+), $TONE_DEFAULT_SPECS);
