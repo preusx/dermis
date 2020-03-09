@@ -1,6 +1,6 @@
 {
   "name": "@dermis/inliner",
-  "version": "0.11.5",
+  "version": "0.20.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -26,8 +26,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dermis/base": "^0.11.5",
-    "@dermis/mq": "^0.11.5",
-    "@dermis/type": "^0.11.5"
+    "@dermis/base": "^0.20.0",
+    "@dermis/mq": "^0.20.0",
+    "@dermis/type": "^0.20.0"
   }
 }

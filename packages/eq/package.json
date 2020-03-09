@@ -1,6 +1,6 @@
 {
   "name": "@dermis/eq",
-  "version": "0.11.3",
+  "version": "0.20.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
