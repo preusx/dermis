@@ -18,11 +18,11 @@ $space-lg: $space-4 !default
 $space-xl: $space-5 !default
 
 $space-map: () !default
-$space-map: map-merge($space-map, ('xs': $space-xs))
-$space-map: map-merge($space-map, ('sm': $space-sm))
-$space-map: map-merge($space-map, ('md': $space-md))
-$space-map: map-merge($space-map, ('lg': $space-lg))
-$space-map: map-merge($space-map, ('xl': $space-xl))
+$space-map: map-merge(('xs': $space-xs), $space-map)
+$space-map: map-merge(('sm': $space-sm), $space-map)
+$space-map: map-merge(('md': $space-md), $space-map)
+$space-map: map-merge(('lg': $space-lg), $space-map)
+$space-map: map-merge(('xl': $space-xl), $space-map)
 
 $layout-1: $rut-base * 4 !default
 $layout-2: 2 * $layout-1 !default
@@ -46,12 +46,12 @@ $layout-4xl: $layout-8 !default
 $layout-5xl: $layout-9 !default
 
 $layout-map: () !default
-$layout-map: map-merge($layout-map, ('xs': $layout-xs))
-$layout-map: map-merge($layout-map, ('sm': $layout-sm))
-$layout-map: map-merge($layout-map, ('md': $layout-md))
-$layout-map: map-merge($layout-map, ('lg': $layout-lg))
-$layout-map: map-merge($layout-map, ('xl': $layout-xl))
-$layout-map: map-merge($layout-map, ('2xl': $layout-2xl))
-$layout-map: map-merge($layout-map, ('3xl': $layout-3xl))
-$layout-map: map-merge($layout-map, ('4xl': $layout-4xl))
-$layout-map: map-merge($layout-map, ('5xl': $layout-5xl))
+$layout-map: map-merge(('xs': $layout-xs), $layout-map)
+$layout-map: map-merge(('sm': $layout-sm), $layout-map)
+$layout-map: map-merge(('md': $layout-md), $layout-map)
+$layout-map: map-merge(('lg': $layout-lg), $layout-map)
+$layout-map: map-merge(('xl': $layout-xl), $layout-map)
+$layout-map: map-merge(('2xl': $layout-2xl), $layout-map)
+$layout-map: map-merge(('3xl': $layout-3xl), $layout-map)
+$layout-map: map-merge(('4xl': $layout-4xl), $layout-map)
+$layout-map: map-merge(('5xl': $layout-5xl), $layout-map)

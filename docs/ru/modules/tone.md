@@ -1,14 +1,87 @@
 # Цвет
 
-**`tone`** - Библиотека работы с цветом в проекте. Это набор утилит и подготовленная настраивая готовая тема для работы.
+**`tone`** - Библиотека работы с цветом в проекте. Это набор утилит и базовая тема для работы.
 
-Генерация темы достаточно ресурсоемкая для препроцессора, поэтому ее можно отменить с помощью флага: **`$TONE_GENERATE_THEME`**. По умолчанию тема ганерируется. Основную нагрузку несет в себе генерация цветовой палитры. Этот флаг это поведение отключит **`$TONE_GENERATE_PALETTES`**, но тема генерируется из предоставленной палитры - поэтому нужно будет вручную описать базовую палитру.
+Генерация темы достаточно ресурсоемкая для препроцессора, поэтому ее можно отменить с помощью флага: **`$TONE_GENERATE_THEME`**. По умолчанию тема ганерируется. Основную нагрузку несет в себе генерация цветовой палитры. Этот флаг это поведение отключит **`$TONE_GENERATE_PALETTES`**, но тема генерируется из предоставленной палитры. Поэтому, если хотите оставить генерацию темы - нужно будет вручную описать базовую палитру.
 
-Генератор палитр настраивается в **`$TONE_DEFAULT_SPECS`** - это map с параметрами конфигурации.
+На основе базовой темы будут строится множество других компонентов.
 
-На основе базовой темы будут строится множество других компонентов
+## Миксины
 
-Тема в рамках проекта существует в двух вариациях - светлая и темная. Это сделано для возможности
+#### `+tone-theme-apply($theme-map)`
+
+Заменяет переменные `var(--theme-{name})` на существующие в `$theme-map` значения.
+
+#### `+tone-color-palette-fill-gaps($colors-map, $specs: $TONE_GAPS_FILLER_SPECS)`
+
+- `$colors-map` - Существующая у вас неполная палитра. На основании ее, и дополнительных настроек - пустые места точек палитры(`$TONE_PALETTE_MARKS`) будут заполнены сгенерированными цветами.
+- `$specs` - Это map настроек генерации палитры.
+
+Из этой, неполной, палитры:
+
+```scss
+$some-palette: tone-color-palette-fill-gaps((
+  10: #d0e2ff,
+  50: #1976e1,
+));
+```
+
+В итоге получится:
+
+```scss
+$some-palette: : (
+  0: #fdfeff,
+  5: #e7f0ff,
+  10: #d0e2ff,
+  20: #a2c7f8,
+  30: #75acf0,
+  40: #4791e9,
+  50: #1976e1,
+  60: #1665c2,
+  70: #1255a2,
+  80: #0f4483,
+  90: #0b3463
+  100: #082344,
+);
+```
+
+#### `+tone-color-palette-range($marks, $specs: $TONE_DEFAULT_SPECS)`
+
+Генерирует палитру в рамках установленных в `$specs` диапазонов значений hue, brightness, saturation.
+
+- `$marks` - Это точки интенсивности цветов в порядке следования от самого незаметного - до самого темного. Передавайте переменную `$TONE_PALETTE_MARKS` - это стандартный набор "точек".
+- `$specs` - Это map настроек генерации палитры. Он будет "слит" с базовыми(`$TONE_DEFAULT_SPECS`) для получения новой палитры цветов.
+
+Для генерации различных цветов по большому счету достаточно указать hue-range:
+
+```scss
+// Эта-же настройка генератора используется
+// в стандартной палитре для генерации
+// голубого цвета.
+$some-palette: tone-color-palette-range(
+  $TONE_PALETTE_MARKS,
+  (hue-range: 220 212)
+);
+```
+
+И выйдет:
+
+```scss
+$some-palette: (
+  0: #f2f8ff,
+  5: #d6e9ff,
+  10: #bbdafe,
+  20: #88befa,
+  30: #5ca3f4
+  40: #378bec,
+  50: #1976e1,
+  60: #0264d4,
+  70: #0055b7,
+  80: #00499c,
+  90: #003e85
+  100: #003470
+);
+```
 
 ## Тема
 
@@ -16,247 +89,52 @@
 
 Первичная проработка элементов дольше. Поддержка и переиспользование - значительно легче.
 
-### Основная
+По умолчанию тема включает только базовые цвета: Рельефа и Текста. Остальные - на ваше рассуждение.
 
 ::: demo
 ```html
 <template>
-  <div class="d-theme-base-environment">
+  <div class="d-theme-environment">
     <div class="g-row g-row--appearance_spaced">
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_primary">
-          <div class="t-content">
-            <h4>Основной цвет (primary)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_accent">
-          <div class="t-content">
-            <h4>Акцентный цвет (accent)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-
       <div class="g-cell g-cols g-cols--12">
           <div class="t-content">
           <h2>Рельеф(слой 1)</h2>
           <p>
             С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
           </p>
-            <h2>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></h2>
-            <p>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></p>
-            <h2>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></h2>
-            <p>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></p>
-            <h2>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></h2>
-            <p>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></p>
+            <h2>2 уровень <small class="d-theme-relief__text d-theme-relief__text--2">Облегченная версия текста</small></h2>
+            <p>2 уровень <small class="d-theme-relief__text d-theme-relief__text--2">Облегченная версия текста</small></p>
+            <h2>3 уровень <small class="d-theme-relief__text d-theme-relief__text--3">Облегченная версия текста</small></h2>
+            <p>3 уровень <small class="d-theme-relief__text d-theme-relief__text--3">Облегченная версия текста</small></p>
+            <h2>4 уровень <small class="d-theme-relief__text d-theme-relief__text--4">Облегченная версия текста</small></h2>
+            <p>4 уровень <small class="d-theme-relief__text d-theme-relief__text--4">Облегченная версия текста</small></p>
+            <h2>5 уровень <small class="d-theme-relief__text d-theme-relief__text--5">Облегченная версия текста</small></h2>
+            <p>5 уровень <small class="d-theme-relief__text d-theme-relief__text--5">Облегченная версия текста</small></p>
+            <h2>6 уровень <small class="d-theme-relief__text d-theme-relief__text--6">Облегченная версия текста</small></h2>
+            <p>6 уровень <small class="d-theme-relief__text d-theme-relief__text--6">Облегченная версия текста</small></p>
         </div>
 
-        <div class="d-theme-base-relief">
+        <div class="d-theme-relief">
           <div class="t-content">
             <h2>Рельеф(слой 2)</h2>
             <p>
               С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
             </p>
-              <h2>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></h2>
-              <p>2 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--2">Облегченная версия текста</small></p>
-              <h2>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></h2>
-              <p>3 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--3">Облегченная версия текста</small></p>
-              <h2>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></h2>
-              <p>4 уровень <small class="d-theme-base-relief__text d-theme-base-relief__text--4">Облегченная версия текста</small></p>
+              <h2>2 уровень <small class="d-theme-relief__text d-theme-relief__text--2">Облегченная версия текста</small></h2>
+              <p>2 уровень <small class="d-theme-relief__text d-theme-relief__text--2">Облегченная версия текста</small></p>
+              <h2>3 уровень <small class="d-theme-relief__text d-theme-relief__text--3">Облегченная версия текста</small></h2>
+              <p>3 уровень <small class="d-theme-relief__text d-theme-relief__text--3">Облегченная версия текста</small></p>
+              <h2>4 уровень <small class="d-theme-relief__text d-theme-relief__text--4">Облегченная версия текста</small></h2>
+              <p>4 уровень <small class="d-theme-relief__text d-theme-relief__text--4">Облегченная версия текста</small></p>
+              <h2>5 уровень <small class="d-theme-relief__text d-theme-relief__text--5">Облегченная версия текста</small></h2>
+              <p>5 уровень <small class="d-theme-relief__text d-theme-relief__text--5">Облегченная версия текста</small></p>
+              <h2>6 уровень <small class="d-theme-relief__text d-theme-relief__text--6">Облегченная версия текста</small></h2>
+              <p>6 уровень <small class="d-theme-relief__text d-theme-relief__text--6">Облегченная версия текста</small></p>
           </div>
-          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--3">Слой 3</div>
-          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--4">Слой 4</div>
-          <div class="d-theme-base-relief__layer d-theme-base-relief__layer--5">Слой 5</div>
-        </div>
-      </div>
-
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_danger">
-          <div class="t-content">
-            <h4>Вспомогательный: опасность/ошибка (danger)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_warning">
-          <div class="t-content">
-            <h4>Вспомогательный: предупреждение (warning)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_success">
-          <div class="t-content">
-            <h4>Вспомогательный: успех (success)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_info">
-          <div class="t-content">
-            <h4>Вспомогательный: информация (info)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12">
-        <div class="d-theme-base-content-entity d-theme-base-content-entity--color_highlight">
-          <div class="t-content">
-            <h4>Вспомогательный: пометка (highlight)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-base-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-<script> export default {}; </script>
-```
-:::
-
-### "Инверсная"
-
-::: demo
-```html
-<template>
-  <div class="d-theme-inverse-environment">
-    <div class="g-row g-row--appearance_spaced">
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_primary">
-          <div class="t-content">
-            <h4>Основной цвет (primary)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_accent">
-          <div class="t-content">
-            <h4>Акцентный цвет (accent)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-
-      <div class="g-cell g-cols g-cols--12">
-          <div class="t-content">
-          <h2>Рельеф(слой 1)</h2>
-          <p>
-            С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-          </p>
-            <h2>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></h2>
-            <p>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></p>
-            <h2>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></h2>
-            <p>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></p>
-            <h2>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></h2>
-            <p>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></p>
-        </div>
-
-        <div class="d-theme-inverse-relief">
-          <div class="t-content">
-            <h2>Рельеф(слой 2)</h2>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-              <h2>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></h2>
-              <p>2 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--2">Облегченная версия текста</small></p>
-              <h2>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></h2>
-              <p>3 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--3">Облегченная версия текста</small></p>
-              <h2>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></h2>
-              <p>4 уровень <small class="d-theme-inverse-relief__text d-theme-inverse-relief__text--4">Облегченная версия текста</small></p>
-          </div>
-          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--3">Слой 3</div>
-          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--4">Слой 4</div>
-          <div class="d-theme-inverse-relief__layer d-theme-inverse-relief__layer--5">Слой 5</div>
-        </div>
-      </div>
-
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_danger">
-          <div class="t-content">
-            <h4>Вспомогательный: опасность/ошибка (danger)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_warning">
-          <div class="t-content">
-            <h4>Вспомогательный: предупреждение (warning)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_success">
-          <div class="t-content">
-            <h4>Вспомогательный: успех (success)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_info">
-          <div class="t-content">
-            <h4>Вспомогательный: информация (info)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
-        </div>
-      </div>
-      <div class="g-cell g-cols g-cols--12">
-        <div class="d-theme-inverse-content-entity d-theme-inverse-content-entity--color_highlight">
-          <div class="t-content">
-            <h4>Вспомогательный: пометка (highlight)</h4>
-            <p>
-              С помощью использования темы в работе - мы поддерживаем интерфейс консистентным.
-            </p>
-          </div>
-          <div class="d-theme-inverse-content-entity__active">Активный элемент</div>
+          <div class="d-theme-relief__layer d-theme-relief__layer--3">Слой 3</div>
+          <div class="d-theme-relief__layer d-theme-relief__layer--4">Слой 4</div>
+          <div class="d-theme-relief__layer d-theme-relief__layer--5">Слой 5</div>
+          <div class="d-theme-relief__layer d-theme-relief__layer--6">Слой 6</div>
         </div>
       </div>
     </div>
@@ -272,9 +150,9 @@
 ```html
 <template>
   <div>
-    <div class="g-row g-row--appearance_offset">
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Red</div>
+    <div class="g-row g-row--appearance_offset g-row--space_none">
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Red</small></div>
         <div class="d-palette-bg d-palette-bg--red_0">0</div>
         <div class="d-palette-bg d-palette-bg--red_5">5</div>
         <div class="d-palette-bg d-palette-bg--red_10">10</div>
@@ -288,8 +166,8 @@
         <div class="d-palette-bg d-palette-bg--red_90">90</div>
         <div class="d-palette-bg d-palette-bg--red_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Orange</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Orange</small></div>
         <div class="d-palette-bg d-palette-bg--orange_0">0</div>
         <div class="d-palette-bg d-palette-bg--orange_5">5</div>
         <div class="d-palette-bg d-palette-bg--orange_10">10</div>
@@ -303,8 +181,8 @@
         <div class="d-palette-bg d-palette-bg--orange_90">90</div>
         <div class="d-palette-bg d-palette-bg--orange_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Yellow</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Yellow</small></div>
         <div class="d-palette-bg d-palette-bg--yellow_0">0</div>
         <div class="d-palette-bg d-palette-bg--yellow_5">5</div>
         <div class="d-palette-bg d-palette-bg--yellow_10">10</div>
@@ -318,8 +196,8 @@
         <div class="d-palette-bg d-palette-bg--yellow_90">90</div>
         <div class="d-palette-bg d-palette-bg--yellow_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Lite-green</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Lite-green</small></div>
         <div class="d-palette-bg d-palette-bg--lite-green_0">0</div>
         <div class="d-palette-bg d-palette-bg--lite-green_5">5</div>
         <div class="d-palette-bg d-palette-bg--lite-green_10">10</div>
@@ -333,8 +211,8 @@
         <div class="d-palette-bg d-palette-bg--lite-green_90">90</div>
         <div class="d-palette-bg d-palette-bg--lite-green_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Green</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Green</small></div>
         <div class="d-palette-bg d-palette-bg--green_0">0</div>
         <div class="d-palette-bg d-palette-bg--green_5">5</div>
         <div class="d-palette-bg d-palette-bg--green_10">10</div>
@@ -348,8 +226,8 @@
         <div class="d-palette-bg d-palette-bg--green_90">90</div>
         <div class="d-palette-bg d-palette-bg--green_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Turquoise</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Turquoise</small></div>
         <div class="d-palette-bg d-palette-bg--turquoise_0">0</div>
         <div class="d-palette-bg d-palette-bg--turquoise_5">5</div>
         <div class="d-palette-bg d-palette-bg--turquoise_10">10</div>
@@ -363,8 +241,8 @@
         <div class="d-palette-bg d-palette-bg--turquoise_90">90</div>
         <div class="d-palette-bg d-palette-bg--turquoise_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Cyan</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Cyan</small></div>
         <div class="d-palette-bg d-palette-bg--cyan_0">0</div>
         <div class="d-palette-bg d-palette-bg--cyan_5">5</div>
         <div class="d-palette-bg d-palette-bg--cyan_10">10</div>
@@ -378,8 +256,8 @@
         <div class="d-palette-bg d-palette-bg--cyan_90">90</div>
         <div class="d-palette-bg d-palette-bg--cyan_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Blue</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Blue</small></div>
         <div class="d-palette-bg d-palette-bg--blue_0">0</div>
         <div class="d-palette-bg d-palette-bg--blue_5">5</div>
         <div class="d-palette-bg d-palette-bg--blue_10">10</div>
@@ -393,8 +271,8 @@
         <div class="d-palette-bg d-palette-bg--blue_90">90</div>
         <div class="d-palette-bg d-palette-bg--blue_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Deep-blue</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Deep-blue</small></div>
         <div class="d-palette-bg d-palette-bg--deep-blue_0">0</div>
         <div class="d-palette-bg d-palette-bg--deep-blue_5">5</div>
         <div class="d-palette-bg d-palette-bg--deep-blue_10">10</div>
@@ -408,8 +286,8 @@
         <div class="d-palette-bg d-palette-bg--deep-blue_90">90</div>
         <div class="d-palette-bg d-palette-bg--deep-blue_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Purple</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Purple</small></div>
         <div class="d-palette-bg d-palette-bg--purple_0">0</div>
         <div class="d-palette-bg d-palette-bg--purple_5">5</div>
         <div class="d-palette-bg d-palette-bg--purple_10">10</div>
@@ -423,8 +301,8 @@
         <div class="d-palette-bg d-palette-bg--purple_90">90</div>
         <div class="d-palette-bg d-palette-bg--purple_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Magenta</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Magenta</small></div>
         <div class="d-palette-bg d-palette-bg--magenta_0">0</div>
         <div class="d-palette-bg d-palette-bg--magenta_5">5</div>
         <div class="d-palette-bg d-palette-bg--magenta_10">10</div>
@@ -438,8 +316,8 @@
         <div class="d-palette-bg d-palette-bg--magenta_90">90</div>
         <div class="d-palette-bg d-palette-bg--magenta_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--4-sm">
-        <div class="d-palette-bg">Pink</div>
+      <div class="g-cell g-cols g-cols--4 g-cols--3-sm g-cols--2-md">
+        <div class="d-palette-bg"><small>Pink</small></div>
         <div class="d-palette-bg d-palette-bg--pink_0">0</div>
         <div class="d-palette-bg d-palette-bg--pink_5">5</div>
         <div class="d-palette-bg d-palette-bg--pink_10">10</div>
@@ -453,7 +331,7 @@
         <div class="d-palette-bg d-palette-bg--pink_90">90</div>
         <div class="d-palette-bg d-palette-bg--pink_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+      <div class="g-cell g-cols g-cols--6">
         <div class="d-palette-bg">Grey</div>
         <div class="d-palette-bg d-palette-bg--grey_0">0</div>
         <div class="d-palette-bg d-palette-bg--grey_5">5</div>
@@ -468,7 +346,7 @@
         <div class="d-palette-bg d-palette-bg--grey_90">90</div>
         <div class="d-palette-bg d-palette-bg--grey_100">100</div>
       </div>
-      <div class="g-cell g-cols g-cols--12 g-cols--6-sm">
+      <div class="g-cell g-cols g-cols--6">
         <div class="d-palette-bg">Cold-grey</div>
         <div class="d-palette-bg d-palette-bg--cold-grey_0">0</div>
         <div class="d-palette-bg d-palette-bg--cold-grey_5">5</div>

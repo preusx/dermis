@@ -37,13 +37,13 @@
     &body
       @extend %control-box__body
 
-    &item--primary
-      @extend %control-box__item--primary
-
     &element
       @extend %control-box__element
 
       &--
+        &primary
+          @extend %control-box__element--primary
+
         &attachment_
           &append
             @extend %control-box__element--attachment_append

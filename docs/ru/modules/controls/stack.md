@@ -32,16 +32,20 @@
   border-radius: 4px
 
 .d-control-input-example
-  +control-box()
+  +control-box
 
   --control-box-border-width: 1px
   border-color: var(--theme-relief-3)
 
 .d-control-button-example
-  +control-box()
+  +control-box
 
-  background: var(--theme-primary-base)
-  color: var(--theme-primary-text-inverse)
+  background: var(--theme-relief-6)
+  color: var(--theme-relief-1)
+
+  &--variant_accent
+    background: var(--theme-relief-2)
+    color: var(--theme-text-2)
 ```
 
 Элементы легко можно "подключить" к механизму стека.

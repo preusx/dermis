@@ -50,10 +50,8 @@
   <div>
     <div class="d-control-box-example">
       <div class="d-control-box-example__body">
-        <div class="d-control-box-example__item d-control-box-example__item--primary">
-          <div class="d-control-box-example__element">
-            Control box example
-          </div>
+        <div class="d-control-box-example__element d-control-box-example__element--primary">
+          Control box example
         </div>
       </div>
     </div>
@@ -71,35 +69,27 @@
   <div>
     <div class="d-control-box-example" style="--control-box-border-width: 1px; border-color: var(--theme-relief-3)">
       <div class="d-control-box-example__body">
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">add_box</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">add_box</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">directions_transit</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">directions_transit</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item d-control-box-example__item--primary">
-          <div class="d-control-box-example__element">
-            With prepend/append
-          </div>
+        <div class="d-control-box-example__element d-control-box-example__element--primary">
+          With prepend/append
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">expand_more</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">expand_more</div>
             </div>
           </div>
         </div>
@@ -122,26 +112,20 @@
       <div class="g-cell g-cols g-cols--6">
         <div class="d-control-box-example" style="--control-box-border-width: 1px; border-color: var(--theme-relief-3)">
           <div class="d-control-box-example__body">
-            <div class="d-control-box-example__item">
-              <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-                <div class="ds-inliner">
-                  <div class="ds-inliner__body">
-                    <div class="material-icons">directions_transit</div>
-                  </div>
+            <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+              <div class="ds-inliner">
+                <div class="ds-inliner__body">
+                  <div class="material-icons">directions_transit</div>
                 </div>
               </div>
             </div>
-            <div class="d-control-box-example__item d-control-box-example__item--primary">
-              <div class="d-control-box-example__element">
-                With prepend/append
-              </div>
+            <div class="d-control-box-example__element d-control-box-example__element--primary">
+              With prepend/append
             </div>
-            <div class="d-control-box-example__item">
-              <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
-                <div class="ds-inliner">
-                  <div class="ds-inliner__body">
-                    <div class="material-icons">expand_more</div>
-                  </div>
+            <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
+              <div class="ds-inliner">
+                <div class="ds-inliner__body">
+                  <div class="material-icons">expand_more</div>
                 </div>
               </div>
             </div>
@@ -151,26 +135,20 @@
       <div class="g-cell g-cols g-cols--6">
         <div class="d-control-box-example" style="--control-box-border-width: 3px; border-color: var(--theme-relief-3)">
           <div class="d-control-box-example__body">
-            <div class="d-control-box-example__item">
-              <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-                <div class="ds-inliner">
-                  <div class="ds-inliner__body">
-                    <div class="material-icons">directions_transit</div>
-                  </div>
+            <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+              <div class="ds-inliner">
+                <div class="ds-inliner__body">
+                  <div class="material-icons">directions_transit</div>
                 </div>
               </div>
             </div>
-            <div class="d-control-box-example__item d-control-box-example__item--primary">
-              <div class="d-control-box-example__element">
-                With prepend/append
-              </div>
+            <div class="d-control-box-example__element d-control-box-example__element--primary">
+              With prepend/append
             </div>
-            <div class="d-control-box-example__item">
-              <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
-                <div class="ds-inliner">
-                  <div class="ds-inliner__body">
-                    <div class="material-icons">expand_more</div>
-                  </div>
+            <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
+              <div class="ds-inliner">
+                <div class="ds-inliner__body">
+                  <div class="material-icons">expand_more</div>
                 </div>
               </div>
             </div>
@@ -197,35 +175,27 @@
       border-color: var(--theme-relief-3)
     ">
       <div class="d-control-box-example__body">
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">add_box</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">add_box</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">directions_transit</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">directions_transit</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item d-control-box-example__item--primary">
-          <div class="d-control-box-example__element">
-            With prepend/append
-          </div>
+        <div class="d-control-box-example__element d-control-box-example__element--primary">
+          With prepend/append
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">expand_more</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">expand_more</div>
             </div>
           </div>
         </div>
@@ -240,35 +210,27 @@
       border-color: var(--theme-relief-3)
     ">
       <div class="d-control-box-example__body">
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">add_box</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">add_box</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">directions_transit</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_prepend">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">directions_transit</div>
             </div>
           </div>
         </div>
-        <div class="d-control-box-example__item d-control-box-example__item--primary">
-          <div class="d-control-box-example__element">
-            With prepend/append
-          </div>
+        <div class="d-control-box-example__element d-control-box-example__element--primary">
+          With prepend/append
         </div>
-        <div class="d-control-box-example__item">
-          <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
-            <div class="ds-inliner">
-              <div class="ds-inliner__body">
-                <div class="material-icons">expand_more</div>
-              </div>
+        <div class="d-control-box-example__element d-control-box-example__element--attachment_append">
+          <div class="ds-inliner">
+            <div class="ds-inliner__body">
+              <div class="material-icons">expand_more</div>
             </div>
           </div>
         </div>
