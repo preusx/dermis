@@ -26,17 +26,17 @@
 ```sass
 .d-control-checkbox-example
   +control-checker
-  +control-checker-default-states
+  +control-checker-default-states($block: '.d-control-checkbox-example')
 
   &__
     &label
       &:before
-        background-color: var(--theme-primary-base)
+        background-color: var(--theme-relief-6)
 
       &:after
         display: none
-        background-color: var(--theme-primary-text-inverse)
-        border-bottom: 2px solid var(--theme-primary-text-inverse)
+        background-color: var(--theme-relief-1)
+        border-bottom: 2px solid var(--theme-relief-1)
 
   +control-checker-state(checked, $block: '.d-control-checkbox-example')
     &:after
@@ -47,7 +47,7 @@
       display: block
       background-color: transparent
 
-  +control-checker--variant_inline
+  +control-checker--variant_inline($block: '.d-control-checkbox-example')
 ```
 
 ::: demo
