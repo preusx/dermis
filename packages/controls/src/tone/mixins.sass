@@ -1,0 +1,84 @@
+//
+// Selectors
+//
+=control-hover-selector
+  &:hover,
+  &.is-hover
+    @content
+
+=control-active-selector
+  &:active,
+  &.is-active,
+  &.is-selected
+    @content
+
+=control-active-hover-selector
+  +control-active-selector
+    +control-hover-selector
+      @content
+
+=control-focus-selector
+  &:focus,
+  &.is-focus
+    @content
+
+=control-tone-initialize
+  --color: #{$control-tone-color}
+  --color-hover: #{$control-tone-color-hover}
+  --color-active: #{$control-tone-color-active}
+  --color-active-hover: #{$control-tone-color-active-hover}
+  --color-focus: #{$control-tone-color-focus}
+  --color-relief: #{$control-tone-color-relief}
+
+  --contrast: #{$control-tone-contrast}
+  --contrast-hover: #{$control-tone-contrast-hover}
+  --contrast-active: #{$control-tone-contrast-active}
+  --contrast-active-hover: #{$control-tone-contrast-active-hover}
+  --contrast-focus: #{$control-tone-contrast-focus}
+  --contrast-relief: #{$control-tone-contrast-relief}
+
+  --control-focus-outline-width: #{$control-focus-outline-width}
+  --control-focus-outline-color: #{$control-focus-outline-color}
+
+=control-tone-use($state)
+  +cssvar-use-state($CONTROL_TONE_SELECTOR_RULE_NAMES, $state)
+
+//
+// Styling
+//
+
+=control-focus-base
+  outline: none
+  box-shadow: 0 0 0 var(--control-focus-outline-width) var(--control-focus-outline-color)
+
+=control-focus-behavior
+  +control-focus-selector
+    @extend %control-focus-base
+
+//
+// Tone appliance
+//
+=control-tone-base
+  @extend %control-tone-base
+
+=control-tone-hover
+  @extend %control-tone-hover
+
+  +control-hover-selector
+    @extend %control-tone-hover-enabled
+
+=control-tone-active($hoverable: false)
+  @extend %control-tone-active
+
+  +control-active-selector
+    @extend %control-tone-active-enabled
+
+  @if $hoverable
+    +control-active-hover-selector
+      @extend %control-tone-active-enabled-hover
+
+=control-tone-focus
+  @extend %control-tone-focus
+
+  +control-focus-selector
+    @extend %control-tone-focus-enabled
