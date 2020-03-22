@@ -128,6 +128,7 @@ module.exports = {
                 'controls/box',
                 'controls/checker',
                 'controls/stack',
+                'controls/button',
               ]
             }
           ],
