@@ -4,6 +4,7 @@ $theme: () !default;
   $theme: map-merge((
     primary: map-get($tone-palettes, 'blue'),
     accent: map-get($tone-palettes, 'magenta'),
+    neutral: map-get($tone-palettes, 'grey'),
 
     relief: tone-color-palette-names('grey', (
       1: 0, 2: 5, 3: 10, 4: 20, 5: 30, 6: 40

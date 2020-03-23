@@ -118,6 +118,7 @@ module.exports = {
                 'content/link',
                 'content/table',
                 'content/inliner',
+                'content/avatar',
               ]
             },
             {
@@ -128,6 +129,7 @@ module.exports = {
                 'controls/box',
                 'controls/checker',
                 'controls/stack',
+                // 'controls/button',
               ]
             }
           ],

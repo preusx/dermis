@@ -1,0 +1,33 @@
+=control-selector-hover
+  &:hover,
+  &.is-hover
+    @content
+
+=control-selector-active
+  &:active,
+  &.is-active,
+  &.is-selected
+    @content
+
+=control-selector-active-hover
+  +control-selector-active
+    +control-selector-hover
+      @content
+
+=control-selector-focus
+  &:focus,
+  &.is-focus
+    @content
+
+=control-selector-disabled
+  &:disabled,
+  &.is-disabled
+    @content
+
+=control-state-focus
+  +control-selector-focus
+    @extend %control-state-focus
+
+=control-state-disabled
+  +control-selector-disabled
+    @extend %control-state-disabled

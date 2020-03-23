@@ -1,5 +1,5 @@
 {
-  "name": "@dermis/aspect-ratio",
+  "name": "@dermis/avatar",
   "version": "0.20.0",
   "main": "index.sass",
   "sass": "index.sass",
@@ -14,7 +14,7 @@
     "utility",
     "style",
     "css",
-    "media-query"
+    "avatar"
   ],
   "author": "Alex Tkachenko",
   "license": "MIT",

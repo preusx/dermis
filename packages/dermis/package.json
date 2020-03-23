@@ -40,6 +40,7 @@
     "@dermis/section": "^0.20.0",
     "@dermis/table": "^0.20.0",
     "@dermis/tone": "^0.20.0",
+    "@dermis/avatar": "^0.20.0",
     "@dermis/type": "^0.20.0"
   }
 }
