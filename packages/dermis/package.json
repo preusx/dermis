@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -33,7 +33,7 @@
     "@dermis/controls": "^0.21.0",
     "@dermis/grid": "^0.21.0",
     "@dermis/inliner": "^0.21.0",
-    "@dermis/link": "^0.21.0",
+    "@dermis/link": "^0.21.1",
     "@dermis/mq": "^0.21.0",
     "@dermis/panel": "^0.21.0",
     "@dermis/qproxy": "^0.21.0",
