@@ -1,27 +1,3 @@
-//
-// Selectors
-//
-=control-hover-selector
-  &:hover,
-  &.is-hover
-    @content
-
-=control-active-selector
-  &:active,
-  &.is-active,
-  &.is-selected
-    @content
-
-=control-active-hover-selector
-  +control-active-selector
-    +control-hover-selector
-      @content
-
-=control-focus-selector
-  &:focus,
-  &.is-focus
-    @content
-
 =control-tone-initialize
   --color: #{$control-tone-color}
   --color-hover: #{$control-tone-color-hover}
@@ -37,23 +13,8 @@
   --contrast-focus: #{$control-tone-contrast-focus}
   --contrast-relief: #{$control-tone-contrast-relief}
 
-  --control-focus-outline-width: #{$control-focus-outline-width}
-  --control-focus-outline-color: #{$control-focus-outline-color}
-
 =control-tone-use($state)
   +cssvar-use-state($CONTROL_TONE_SELECTOR_RULE_NAMES, $state)
-
-//
-// Styling
-//
-
-=control-focus-base
-  outline: none
-  box-shadow: 0 0 0 var(--control-focus-outline-width) var(--control-focus-outline-color)
-
-=control-focus-behavior
-  +control-focus-selector
-    @extend %control-focus-base
 
 //
 // Tone appliance
@@ -82,3 +43,9 @@
 
   +control-focus-selector
     @extend %control-tone-focus-enabled
+
+=control-tone-disabled
+  @extend %control-tone-disabled
+
+  +control-disabled-selector
+    @extend %control-tone-disabled-enabled

@@ -3,9 +3,30 @@
   +control-tone-hover
   +control-tone-active
   +control-tone-focus
+  +control-tone-disabled
+
+  user-select: none
+
+  +control-disabled-selector
+    pointer-events: none
 
 =control-button-styling($namespace)
   --color: var(--#{$namespace}-50)
   --color-hover: var(--#{$namespace}-40)
   --color-active: var(--#{$namespace}-60)
   --contrast: var(--#{$namespace}-0)
+
+=control-button-variant-text
+  background: transparent
+  color: var(--bg)
+
+  +control-hover-selector
+    background: var(--bg)
+    color: var(--fg)
+
+=control-button-variant-ghost
+  +control-button-variant-text
+  --br-default: var(--color-relief)
+
+  +control-hover-selector
+    --br-default: transparent
