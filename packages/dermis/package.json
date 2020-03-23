@@ -41,6 +41,7 @@
     "@dermis/table": "^0.20.0",
     "@dermis/tone": "^0.20.0",
     "@dermis/avatar": "^0.20.0",
+    "@dermis/utils": "^0.20.0",
     "@dermis/type": "^0.20.0"
   }
 }
