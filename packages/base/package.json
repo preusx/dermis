@@ -1,6 +1,6 @@
 {
   "name": "@dermis/base",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
