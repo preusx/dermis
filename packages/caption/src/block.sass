@@ -4,43 +4,17 @@
 
   &--
     &size_
-      &1,
-      &2
-        font-weight: 400
-
-      &3,
-      &4,
-      &5,
-      &6
-        font-weight: 600
-
-      &1
-        +q-both-adaptive
-          +type-line('3xl', 'display')
-
-      &2
-        +q-both-adaptive
-          +type-line('2xl', 'display')
-
-      &3
-        +q-both-adaptive
-          +type-line('xl', 'heading')
-
-      &4
-        +q-both-adaptive
-          +type-line('lg', 'heading')
-
-      &5
-        +q-both-adaptive
-          +type-line('md', 'heading')
-
-      &6
-        +q-both-adaptive
-          +type-line('sm', 'heading')
+      @each $key, $size in $caption-size-map
+        &#{$key}
+          +q-both-adaptive
+            +type-line($size, $caption-line-height)
 
     &variant_
       &secondary
         font-weight: 300
+
+      &strong
+        font-weight: 700
 
       &uppercase
         text-transform: uppercase
