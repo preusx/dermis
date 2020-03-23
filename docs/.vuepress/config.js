@@ -118,6 +118,7 @@ module.exports = {
                 'content/link',
                 'content/table',
                 'content/inliner',
+                'content/avatar',
               ]
             },
             {
