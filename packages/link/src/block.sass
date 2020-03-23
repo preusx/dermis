@@ -13,11 +13,11 @@
 
   box-shadow: 0 $link-shadow-base-width currentColor
 
-%link-block-is-focused
+%link-block-is-focus
   outline: none
   box-shadow: 0 $link-shadow-base-width * 3 currentColor
 
-%link-block-is-hovered
+%link-block-is-hover
   box-shadow: none
 
 %link-block-is-active
@@ -36,11 +36,11 @@
   @extend %link-block
 
   &.is-
-    &focused
-      @extend %link-block-is-focused
+    &focus
+      @extend %link-block-is-focus
 
-    &hovered
-      @extend %link-block-is-hovered
+    &hover
+      @extend %link-block-is-hover
 
     &active
       @extend %link-block-is-active
@@ -49,10 +49,10 @@
       @extend %link-block-is-visited
 
   &:hover:not(:focus)
-    @extend %link-block-is-hovered
+    @extend %link-block-is-hover
 
   &:focus
-    @extend %link-block-is-focused
+    @extend %link-block-is-focus
 
   &:active
     @extend %link-block-is-active
@@ -68,10 +68,10 @@
       @extend %link-block
 
       &:hover:not(:focus)
-        @extend %link-block-is-hovered
+        @extend %link-block-is-hover
 
       &:focus
-        @extend %link-block-is-focused
+        @extend %link-block-is-focus
 
       &:active
         @extend %link-block-is-active
