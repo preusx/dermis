@@ -42,10 +42,9 @@
 <template>
   <div>
     <a class="ds-link ds-link--styling_default" href="javascript:void(0)">Default</a>
-    <a class="ds-link ds-link--styling_default is-focused" href="javascript:void(0)">Focused</a>
-    <a class="ds-link ds-link--styling_default is-hovered" href="javascript:void(0)">Hover</a>
+    <a class="ds-link ds-link--styling_default is-focus" href="javascript:void(0)">Focused</a>
+    <a class="ds-link ds-link--styling_default is-hover" href="javascript:void(0)">Hover</a>
     <a class="ds-link ds-link--styling_default is-active" href="javascript:void(0)">Active</a>
-    <a class="ds-link ds-link--styling_default is-visited" href="javascript:void(0)">Visited</a>
   </div>
 </template>
 <script> export default {}; </script>

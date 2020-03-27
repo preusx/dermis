@@ -35,30 +35,17 @@
 .#{$DERMIS_PREFIX}link--styling_default
   @extend %link-block
 
-  &.is-
-    &focus
-      @extend %link-block-is-focus
-
-    &hover
-      @extend %link-block-is-hover
-
-    &active
-      @extend %link-block-is-active
-
-    &visited
-      @extend %link-block-is-visited
-
-  &:hover:not(:focus)
-    @extend %link-block-is-hover
-
+  &.is-focus,
   &:focus
     @extend %link-block-is-focus
 
+  &.is-hover,
+  &:hover:not(:focus)
+    @extend %link-block-is-hover
+
+  &.is-active,
   &:active
     @extend %link-block-is-active
-
-  &:visited
-    @extend %link-block-is-visited
 
 
 @if $LINK_USE_IN_TYPE_CONTENT
