@@ -1,6 +1,6 @@
 {
   "name": "@dermis/dermis",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "main": "index.sass",
   "sass": "index.sass",
   "repository": {
@@ -33,14 +33,14 @@
     "@dermis/controls": "^0.21.0",
     "@dermis/grid": "^0.21.0",
     "@dermis/inliner": "^0.21.0",
-    "@dermis/link": "^0.21.1",
+    "@dermis/link": "^0.21.2",
     "@dermis/mq": "^0.21.0",
     "@dermis/panel": "^0.21.0",
     "@dermis/qproxy": "^0.21.0",
     "@dermis/rut": "^0.21.0",
     "@dermis/section": "^0.21.0",
     "@dermis/table": "^0.21.0",
-    "@dermis/tone": "^0.21.0",
+    "@dermis/tone": "^0.21.2",
     "@dermis/type": "^0.21.0",
     "@dermis/utils": "^0.21.0"
   }
