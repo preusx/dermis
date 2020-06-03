@@ -20,3 +20,24 @@
     +cssvar-print-map($map, $prefix: $prefix, $separator: $separator)
 
     @content
+
+@mixin cssvar-define-state($rules, $state: 'default')
+  @each $rule, $value in $rules
+    --#{$rule}-#{$state}: #{$value}
+
+    @if $state == 'default'
+      --#{$rule}: var(--#{$rule}-#{$state})
+
+// TODO: Find out if this behaviour is useful
+@mixin cssvar-define-states($rules, $states, $namespace: '')
+  @each $rule, $value in $rules
+    --#{$namespace}#{$rule}-default: #{$value}
+
+    @each $state in $states
+      --#{$namespace}#{$rule}-#{$state}: var(--#{$namespace}#{$rule}-default)
+
+    --#{$namespace}#{$rule}: var(--#{$namespace}#{$rule}-default)
+
+@mixin cssvar-use-state($rule-names, $state)
+  @each $rule in $rule-names
+    --#{$rule}: var(--#{$rule}-#{$state})

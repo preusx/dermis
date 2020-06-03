@@ -1,2 +1,5 @@
-@mixin tone-theme-apply($map, $name: '')
+@mixin tone-theme-apply($map)
   +cssvar-expose-map($map, $prefix: 'theme')
+
+@function tone-theme-rgba($opacity, $path...)
+  @return rgba(map-path($theme, $path...), $opacity)

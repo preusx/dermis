@@ -26,10 +26,10 @@
 
     &space_
       &none
-        +mq-both-adaptive
+        +q-both-adaptive
           --grid-space: 0
 
-      +mq-generate-property-modifiers(--grid-space, $grid-row-space-map)
+      +q-generate-property-modifiers(--grid-space, $grid-row-space-map)
 
 
 .#{$GRID_ROW_PREFIX}cell
@@ -40,18 +40,18 @@
   .#{$GRID_ROW_PREFIX}row
     &--
       &align_
-        +mq-generate-property-modifiers(align-items, $grid-item-alignment-map)
+        +q-generate-property-modifiers(align-items, $grid-item-alignment-map)
 
       &justify_
-        +mq-generate-property-modifiers(justify-content, $grid-content-alignment-map)
+        +q-generate-property-modifiers(justify-content, $grid-content-alignment-map)
 
       &content_
-        +mq-generate-property-modifiers(align-content, $grid-content-alignment-map)
+        +q-generate-property-modifiers(align-content, $grid-content-alignment-map)
 
   .#{$GRID_ROW_PREFIX}cell
     &--
       &align_
-        +mq-generate-property-modifiers(align-self, $grid-item-alignment-map)
+        +q-generate-property-modifiers(align-self, $grid-item-alignment-map, $base: '.#{$GRID_ROW_PREFIX}row')
 
       &justify_
-        +mq-generate-property-modifiers(justify-self, $grid-content-alignment-map)
+        +q-generate-property-modifiers(justify-self, $grid-content-alignment-map, $base: '.#{$GRID_ROW_PREFIX}row')

@@ -1,0 +1,52 @@
+@mixin control-box-type-line($size: $control-box-font-size, $line: $control-box-line-height)
+  --control-box-font-size: var(--type-font-size-#{$size})
+  --control-box-line-height: #{type-line-height($size: $size, $line: $line)}
+
+
+@mixin control-box-definition()
+  +control-box-type-line($control-box-font-size)
+
+  --control-box-space-vertical: #{$control-box-space-vertical}
+  --control-box-space-horizontal: #{$control-box-space-horizontal}
+  --control-box-border-width: #{$control-box-border-width}
+
+  --control-box-padding-vertical: calc(var(--control-box-space-vertical) - var(--control-box-border-width))
+  --control-box-padding-horizontal: calc(var(--control-box-space-horizontal) - var(--control-box-border-width))
+
+  --control-box-height: calc(var(--control-box-space-vertical) * 2 + var(--control-box-line-height) * var(--control-box-font-size))
+
+
+@mixin control-box-base()
+  position: relative
+  color: inherit
+  background-color: transparent
+  font-size: var(--control-box-font-size)
+  line-height: var(--control-box-line-height)
+  padding: 0
+  border: 0 solid transparent
+
+
+@mixin control-box-border()
+  border-width: var(--control-box-border-width)
+
+
+@mixin control-box()
+  @extend %control-box
+
+  &__
+    &body
+      @extend %control-box__body
+
+    &element
+      @extend %control-box__element
+
+      &--
+        &primary
+          @extend %control-box__element--primary
+
+        &attachment_
+          &append
+            @extend %control-box__element--attachment_append
+
+          &prepend
+            @extend %control-box__element--attachment_prepend

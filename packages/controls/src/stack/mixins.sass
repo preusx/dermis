@@ -1,0 +1,39 @@
+@mixin control-stack-first-styling()
+  border-top-right-radius: 0 !important
+  border-bottom-right-radius: 0 !important
+
+@mixin control-stack-last-styling()
+  border-top-left-radius: 0 !important
+  border-bottom-left-radius: 0 !important
+
+@mixin control-stack-elements($selectors)
+  @if $selectors and length($selectors) > 0
+    +q-both-adaptive($base: $control-stack-base-selector)
+      #{list-join($selectors, ',')}
+        @content
+
+
+@mixin control-stack($selectors)
+  #{$control-stack-base-selector}__element--position_first
+    +control-stack-elements($selectors)
+      +control-stack-first-styling
+      @content
+
+  #{$control-stack-base-selector}__element--position_last
+    +control-stack-elements($selectors)
+      +control-stack-last-styling
+      @content
+
+  #{$control-stack-base-selector}__element--position_inner
+    +control-stack-elements($selectors)
+      +control-stack-first-styling
+      +control-stack-last-styling
+      @content
+
+
+@mixin control-stack-add()
+  $selector: '&#{&}'
+
+  @at-root
+    +control-stack(($selector))
+      @content

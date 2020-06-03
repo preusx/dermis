@@ -1,59 +1,67 @@
-%link-block
+%link-block-clearer
   position: relative
   display: inline-block
   text-decoration: none
   vertical-align: baseline
-  color: var(--link-color)
   border: 0
   padding: 0
   background-color: transparent
   cursor: pointer
 
+%link-block
+  color: var(--link-color)
+
   box-shadow: 0 $link-shadow-base-width currentColor
 
+%link-block-is-focus
+  outline: none
+  box-shadow: 0 $link-shadow-base-width * 3 currentColor
+
+%link-block-is-hover
+  box-shadow: none
+
+%link-block-is-active
+  color: var(--link-color-active)
+
+%link-block-is-visited
+  color: var(--link-color-visited)
+
+
 .#{$DERMIS_PREFIX}link
+  @extend %link-block-clearer
+
+  color: var(--link-color)
+
+.#{$DERMIS_PREFIX}link--styling_default
   @extend %link-block
 
-  &.is-
-    &focused
-      outline: none
-      box-shadow: 0 $link-shadow-base-width * 3 currentColor
-
-    &hovered
-      box-shadow: none
-
-    &active
-      color: var(--link-color-active)
-
-    &visited
-      color: var(--link-color-visited)
-
-  &:hover:not(:focus)
-    @extend .#{$DERMIS_PREFIX}link.is-hovered
-
+  &.is-focus,
   &:focus
-    @extend .#{$DERMIS_PREFIX}link.is-focused
+    @extend %link-block-is-focus
 
+  &.is-hover,
+  &:hover:not(:focus)
+    @extend %link-block-is-hover
+
+  &.is-active,
   &:active
-    @extend .#{$DERMIS_PREFIX}link.is-active
-
-  &:visited
-    @extend .#{$DERMIS_PREFIX}link.is-visited
+    @extend %link-block-is-active
 
 
 @if $LINK_USE_IN_TYPE_CONTENT
   .#{$TYPE_PREFIX}content
     a
+      @extend %link-block-clearer
       @extend %link-block
 
       &:hover:not(:focus)
-        @extend .#{$DERMIS_PREFIX}link:hover:not(:focus)
+        @extend %link-block-is-hover
 
       &:focus
-        @extend .#{$DERMIS_PREFIX}link:focus
+        @extend %link-block-is-focus
 
       &:active
-        @extend .#{$DERMIS_PREFIX}link:active
+        @extend %link-block-is-active
 
       &:visited
-        @extend .#{$DERMIS_PREFIX}link:visited
+        @extend %link-block-is-visited

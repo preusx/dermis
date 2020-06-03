@@ -10,14 +10,35 @@
   @import 'styles/helpers/default-styles'
 
   div.vuepress-plugin-demo-block__wrapper div.vuepress-plugin-demo-block__display &.vuepress-plugin-demo-block__app.vuepress-plugin-demo-block__app
-    $GRID_SHOULD_ALIGN: true !global
+    $GRID_SHOULD_ALIGN: true
 
+    $control-stack-selectors: ('&.d-control-button-example', '&.d-control-input-example')
+
+    @import '../../packages/eq/index'
     @import '../../packages/dermis/index'
+
+    .material-icons
+      font-family: 'Material Icons'
+      font-weight: normal
+      font-style: normal
+      font-size: 24px
+      line-height: 1
+      letter-spacing: normal
+      text-transform: none
+      display: inline-block
+      white-space: nowrap
+      word-wrap: normal
+      direction: ltr
+      -webkit-font-feature-settings: 'liga'
+      -webkit-font-smoothing: antialiased
 
     @import 'styles/helpers/highlight-cell'
     @import 'styles/helpers/space'
     @import 'styles/helpers/tone'
     @import 'styles/helpers/section'
+    @import 'styles/helpers/inliner'
+    @import 'styles/helpers/controls'
+    @import 'styles/helpers/eq'
 
     @extend body
     @extend :root
@@ -31,3 +52,10 @@
 
 .vuepress-plugin-demo-block__wrapper .vuepress-plugin-demo-block__display.vuepress-plugin-demo-block__display
   max-height: none
+
+
+@font-face
+  font-family: 'Material Icons'
+  font-style: normal
+  font-weight: 400
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2')

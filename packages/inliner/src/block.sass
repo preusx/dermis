@@ -1,0 +1,33 @@
+.#{$DERMIS_PREFIX}inliner
+  +cssvar-definition
+    --inliner-size: 1em
+
+  margin-left: -0.05em
+  margin-right: -0.05em
+
+  position: relative
+  display: inline-block
+  border: 0
+  color: inherit
+  width: var(--inliner-size)
+
+  &:before
+    content: '\00a0'
+
+  &__
+    &body
+      display: inline-flex
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translateX(-50%) translateY(-50%)
+      align-items: center
+      justify-content: center
+      line-height: 1
+
+      width: var(--inliner-size)
+      height: var(--inliner-size)
+
+  &--
+    &size_
+      +q-generate-property-modifiers('--inliner-size', $inliner-size-map)

@@ -1,0 +1,29 @@
+%control-tone-base
+  +control-tone-initialize
+  +cssvar-define-state((bg: var(--color), fg: var(--contrast), br: transparent))
+
+  background-color: var(--bg)
+  color: var(--fg)
+  border-color: var(--br)
+
+%control-tone-focus
+  +cssvar-define-state((bg: var(--color-focus), fg: var(--contrast-focus), br: var(--br-default)), 'focus')
+
+  &-enabled
+    +control-tone-use('focus')
+
+%control-tone-hover
+  +cssvar-define-state((bg: var(--color-hover), fg: var(--contrast-hover), br: var(--br-default)), 'hover')
+
+  &-enabled
+    +control-tone-use('hover')
+
+%control-tone-active
+  +cssvar-define-state((bg: var(--color-active), fg: var(--contrast-active), br: var(--br-default)), 'active')
+  +cssvar-define-state((bg: var(--color-active-hover), fg: var(--contrast-active-hover), br: var(--br-default)), 'active-hover')
+
+  &-enabled
+    +control-tone-use('active')
+
+  &-enabled-hover
+    +control-tone-use('active-hover')

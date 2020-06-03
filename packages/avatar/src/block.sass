@@ -1,0 +1,61 @@
+.#{$DERMIS_PREFIX}avatar
+  +cssvar-definition
+    --avatar-size-base: #{$avatar-size-base}
+    --avatar-size-factor: var(--avatar-size-md)
+    --avatar-size: calc(var(--avatar-size-factor) * var(--avatar-size-base))
+
+  display: flex
+  font-size: var(--avatar-size)
+  line-height: 1
+  width: 1em
+  height: 1em
+  align-items: center
+  justify-content: center
+  background-color: var(--theme-relief-3)
+  color: vat(--theme-text-1)
+
+  &__
+    &image
+      display: block
+      flex-grow: 1
+      width: 100%
+      height: 100%
+      object-fit: cover
+      overflow: hidden
+      border: 0
+      font-size: var(--type-font-size-xs)
+
+    &label
+      display: block
+      font-size: 0.5em
+      text-transform: uppercase
+      font-weight: 700
+
+  &--
+    &appearance_
+      &rounded
+        +q-both-adaptive
+          &,
+          & .#{$DERMIS_PREFIX}avatar__image
+            border-radius: 100cm
+
+    &size_
+      +mq-generate-property-modifiers('--avatar-size-factor', $avatar-size-map)
+
+      &full
+        +q-both-adaptive
+          width: 100%
+          height: auto
+          position: relative
+
+          &:before
+            content: ''
+            display: block
+            padding-top: 100%
+
+          .avatar__image,
+          .avatar__label
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translateX(-50%) translateY(-50%)

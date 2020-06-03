@@ -63,7 +63,7 @@
           @extend .#{$DERMIS_PREFIX}table__row--relief
 
 
-.#{$DERMIS_PREFIX}table--style_default
+.#{$DERMIS_PREFIX}table--styling_default
   --table-background: #{$table-background}
   --table-background-relief: #{$table-background-relief}
   --table-border-color: #{$table-border-color}
@@ -73,7 +73,7 @@
 
 
 .#{$DERMIS_PREFIX}table--view_cards
-  +mq-adaptive-till()
+  +q-adaptive-till
     thead,
     tfoot
       display: none
@@ -105,7 +105,7 @@
   .#{$TYPE_PREFIX}content
     table
       @extend %#{$DERMIS_PREFIX}table
-      @extend .#{$DERMIS_PREFIX}table--style_default
+      @extend .#{$DERMIS_PREFIX}table--styling_default
       @extend .#{$DERMIS_PREFIX}table--appearance_striped
 
     caption

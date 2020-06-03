@@ -1,0 +1,142 @@
+@mixin eq($size, $sign, $base: null)
+  $selector: '.#{$EQ_PREFIX}#{$sign}#{$size}'
+  $current: #{&}
+
+  @at-root #{$selector}#{if($base, $base, $current)}#{if($base, $current, '')}
+    @content
+
+@mixin eq-xs($base: null)
+  +eq($eq-size-xs, 'gte', $base: $base)
+    @content
+
+@mixin eq-sm($base: null)
+  +eq($eq-size-sm, 'gte', $base: $base)
+    @content
+
+@mixin eq-md($base: null)
+  +eq($eq-size-md, 'gte', $base: $base)
+    @content
+
+@mixin eq-lg($base: null)
+  +eq($eq-size-lg, 'gte', $base: $base)
+    @content
+
+@mixin eq-xl($base: null)
+  +eq($eq-size-xl, 'gte', $base: $base)
+    @content
+
+@mixin eq-till-xs($base: null)
+  +eq($eq-size-xs, 'lt', $base: $base)
+    @content
+
+@mixin eq-till-sm($base: null)
+  +eq($eq-size-sm, 'lt', $base: $base)
+    @content
+
+@mixin eq-till-md($base: null)
+  +eq($eq-size-md, 'lt', $base: $base)
+    @content
+
+@mixin eq-till-lg($base: null)
+  +eq($eq-size-lg, 'lt', $base: $base)
+    @content
+
+@mixin eq-till-xl($base: null)
+  +eq($eq-size-xl, 'lt', $base: $base)
+    @content
+
+
+@mixin eq-adaptive($base: null, $separator: '-', $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
+  @if $EQ_INCLUDE_XS
+    &#{$separator}exs
+      +eq-xs($base: $base)
+        @extend #{$selector}
+
+  &#{$separator}esm
+    +eq-sm($base: $base)
+      @extend #{$selector}
+
+  &#{$separator}emd
+    +eq-md($base: $base)
+      @extend #{$selector}
+
+  &#{$separator}elg
+    +eq-lg($base: $base)
+      @extend #{$selector}
+
+  @if $EQ_INCLUDE_XL
+    &#{$separator}exl
+      +eq-xl($base: $base)
+        @extend #{$selector}
+
+
+@mixin eq-adaptive-till($base: null, $separator: '-till-', $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
+  @if $EQ_INCLUDE_XS
+    &#{$separator}exs
+      +eq-till-xs($base: $base)
+        @extend #{$selector}
+
+  &#{$separator}esm
+    +eq-till-sm($base: $base)
+      @extend #{$selector}
+
+  &#{$separator}emd
+    +eq-till-md($base: $base)
+      @extend #{$selector}
+
+  &#{$separator}elg
+    +eq-till-lg($base: $base)
+      @extend #{$selector}
+
+  @if $EQ_INCLUDE_XL
+    &#{$separator}exl
+      +eq-till-xl($base: $base)
+        @extend #{$selector}
+
+
+@mixin eq-both-adaptive($base: null, $with-initial: true)
+  $selector: '%#{unique-id()}'
+
+  @at-root #{$selector}
+    @content
+
+  @if $with-initial
+    @extend #{$selector}
+
+  @if $EQ_ENABLE_FROM
+    +eq-adaptive($with-initial: false, $base: $base)
+      @extend #{$selector}
+
+  @if $EQ_ENABLE_TILL
+    +eq-adaptive-till($with-initial: false, $base: $base)
+      @extend #{$selector}
+
+
+@mixin eq-whether-to-respond-both($base: null, $responsive: true)
+  @content
+
+  @if $responsive
+    +eq-both-adaptive($base: $base, $with-initial: false)
+      @content
+
+@mixin eq-generate-property-modifiers($property, $map, $base: null, $responsive: true)
+  @each $key, $value in $map
+    &#{$key}
+      +eq-whether-to-respond-both($base: $base, $responsive: $responsive)
+        #{$property}: $value

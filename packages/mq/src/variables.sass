@@ -11,11 +11,11 @@ $mq-size-lg: 992px !default
 $mq-size-xl: 1200px !default
 
 $mq-size-map: () !default
-$mq-size-map: map-merge($mq-size-map, ('xs': $mq-size-xs))
-$mq-size-map: map-merge($mq-size-map, ('sm': $mq-size-sm))
-$mq-size-map: map-merge($mq-size-map, ('md': $mq-size-md))
-$mq-size-map: map-merge($mq-size-map, ('lg': $mq-size-lg))
-$mq-size-map: map-merge($mq-size-map, ('xl': $mq-size-xl))
+$mq-size-map: map-merge(('xs': $mq-size-xs), $mq-size-map)
+$mq-size-map: map-merge(('sm': $mq-size-sm), $mq-size-map)
+$mq-size-map: map-merge(('md': $mq-size-md), $mq-size-map)
+$mq-size-map: map-merge(('lg': $mq-size-lg), $mq-size-map)
+$mq-size-map: map-merge(('xl': $mq-size-xl), $mq-size-map)
 
 $mq-query-xs: unquote("min-width: #{$mq-size-xs}") !default
 $mq-query-sm: unquote("min-width: #{$mq-size-sm}") !default

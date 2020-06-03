@@ -1,0 +1,61 @@
+@function control-checker-state-selectors($pseudo, $state: $pseudo, $block: '&')
+  $list: ('&__element:#{$pseudo} + #{$block}__label')
+
+  @if length($state) > 0
+    @each $s in $state
+      $list: append($list, '&.is-#{$s} #{$block}__label')
+  @else
+    $list: append($list, '&.is-#{$state} #{$block}__label')
+
+  @return $list
+
+
+@mixin control-checker-state($pseudo, $state: $pseudo, $block: '&')
+  #{list-join(control-checker-state-selectors($pseudo, $state: $state, $block: $block), ',')}
+    @content
+
+
+@mixin control-checker-definition()
+  --control-checker-size: #{$control-checker-size}
+  --control-checker-inner-size: #{$control-checker-inner-size}
+
+
+@mixin control-checker-default-states($block: '&')
+  +control-checker-state(disabled, $block: $block)
+    filter: grayscale(1)
+    cursor: default
+
+  +control-checker-state('read-only', $block: $block)
+    filter: grayscale(0.5)
+    cursor: default
+
+
+@mixin control-checker()
+  @extend %control-checker-definition
+  @extend %control-checker
+
+  &__
+    &element
+      @extend %control-checker__element
+
+    &label
+      @extend %control-checker__label
+
+      &:before
+        @extend %control-checker__label---before
+
+      &:after
+        @extend %control-checker__label---after
+
+
+@mixin control-checker--variant_inline($block: '&')
+  $selector: #{$block}
+
+  &--variant_inline
+    @extend %control-checker--variant_inline
+
+    &:before
+      @extend %control-checker--variant_inline---before
+
+    & #{$selector}__label
+      @extend %control-checker--variant_inline__label

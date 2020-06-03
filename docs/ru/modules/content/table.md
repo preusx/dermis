@@ -64,7 +64,7 @@
 ::: demo
 ```html
 <template>
-  <table class="ds-table ds-table--style_default">
+  <table class="ds-table ds-table--styling_default">
     <caption class="ds-table__caption">
       <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
       <div class="ds-caption ds-caption--size_3">Default styling</div>
@@ -121,7 +121,7 @@
 ::: demo
 ```html
 <template>
-  <table class="ds-table ds-table--style_default ds-table--appearance_striped">
+  <table class="ds-table ds-table--styling_default ds-table--appearance_striped">
     <caption class="ds-table__caption">
       <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
       <div class="ds-caption ds-caption--size_3">Striped table</div>
@@ -230,7 +230,7 @@
 ::: demo
 ```html
 <template>
-  <table class="ds-table ds-table--style_default ds-table--view_cards-till-md">
+  <table class="ds-table ds-table--styling_default ds-table--view_cards-till-md">
     <caption class="ds-table__caption">
       <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
       <div class="ds-caption ds-caption--size_3">Project totalis</div>
@@ -291,7 +291,7 @@
 ::: demo
 ```html
 <template>
-  <table class="ds-table ds-table--style_default ds-table--view_cards-till-md ds-table--appearance_autofill-card">
+  <table class="ds-table ds-table--styling_default ds-table--view_cards-till-md ds-table--appearance_autofill-card">
     <caption class="ds-table__caption">
       <div class="ds-caption ds-caption--size_6 ds-caption--variant_secondary">Table caption</div>
       <div class="ds-caption ds-caption--size_3">Project totalis</div>

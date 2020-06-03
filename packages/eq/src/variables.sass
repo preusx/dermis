@@ -1,0 +1,21 @@
+$EQ_BLOCK: 'u-eq' !default
+$EQ_PREFIX: '#{$EQ_BLOCK}--' !default
+
+$EQ_INCLUDE_XS: false !default
+$EQ_INCLUDE_XL: false !default
+
+$EQ_ENABLE_FROM: true !default
+$EQ_ENABLE_TILL: true !default
+
+$eq-size-xs: 260 !default
+$eq-size-sm: 390 !default
+$eq-size-md: 520 !default
+$eq-size-lg: 780 !default
+$eq-size-xl: 1040 !default
+
+$eq-size-map: () !default
+$eq-size-map: map-merge(('xs': $eq-size-xs), $eq-size-map)
+$eq-size-map: map-merge(('sm': $eq-size-sm), $eq-size-map)
+$eq-size-map: map-merge(('md': $eq-size-md), $eq-size-map)
+$eq-size-map: map-merge(('lg': $eq-size-lg), $eq-size-map)
+$eq-size-map: map-merge(('xl': $eq-size-xl), $eq-size-map)
