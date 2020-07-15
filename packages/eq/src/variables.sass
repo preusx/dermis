@@ -14,8 +14,17 @@ $eq-size-lg: 780 !default
 $eq-size-xl: 1040 !default
 
 $eq-size-map: () !default
-$eq-size-map: map-merge(('xs': $eq-size-xs), $eq-size-map)
 $eq-size-map: map-merge(('sm': $eq-size-sm), $eq-size-map)
 $eq-size-map: map-merge(('md': $eq-size-md), $eq-size-map)
 $eq-size-map: map-merge(('lg': $eq-size-lg), $eq-size-map)
-$eq-size-map: map-merge(('xl': $eq-size-xl), $eq-size-map)
+$eq-size-order-base: 'sm' 'md' 'lg'
+
+@if $EQ_INCLUDE_XS
+  $eq-size-map: map-merge(('xs': $eq-size-xs), $eq-size-map)
+  $eq-size-order-base: join('xs', $eq-size-order-base)
+
+@if $EQ_INCLUDE_XL
+  $eq-size-map: map-merge(('xl': $eq-size-xl), $eq-size-map)
+  $eq-size-order-base: append($eq-size-order-base, 'xl')
+
+$eq-size-order: $eq-size-order-base !default
