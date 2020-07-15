@@ -1,42 +1,42 @@
 @mixin mq-xs
-  @media ($mq-query-xs)
+  @media (map-get($mq-queries-from-map, 'xs'))
     @content
 
 @mixin mq-sm
-  @media ($mq-query-sm)
+  @media (map-get($mq-queries-from-map, 'sm'))
     @content
 
 @mixin mq-md
-  @media ($mq-query-md)
+  @media (map-get($mq-queries-from-map, 'md'))
     @content
 
 @mixin mq-lg
-  @media ($mq-query-lg)
+  @media (map-get($mq-queries-from-map, 'lg'))
     @content
 
 @mixin mq-xl
-  @media ($mq-query-xl)
+  @media (map-get($mq-queries-from-map, 'xl'))
     @content
 
 
 @mixin mq-till-xs
-  @media ($mq-query-till-xs)
+  @media (map-get($mq-queries-till-map, 'xs'))
     @content
 
 @mixin mq-till-sm
-  @media ($mq-query-till-sm)
+  @media (map-get($mq-queries-till-map, 'sm'))
     @content
 
 @mixin mq-till-md
-  @media ($mq-query-till-md)
+  @media (map-get($mq-queries-till-map, 'md'))
     @content
 
 @mixin mq-till-lg
-  @media ($mq-query-till-lg)
+  @media (map-get($mq-queries-till-map, 'lg'))
     @content
 
 @mixin mq-till-xl
-  @media ($mq-query-till-xl)
+  @media (map-get($mq-queries-till-map, 'xl'))
     @content
 
 
@@ -44,26 +44,9 @@
   @if $with-initial
     @content
 
-  @if $MQ_INCLUDE_XS
-    &#{$separator}xs
-      +mq-xs
-        @content
-
-  &#{$separator}sm
-    +mq-sm
-      @content
-
-  &#{$separator}md
-    +mq-md
-      @content
-
-  &#{$separator}lg
-    +mq-lg
-      @content
-
-  @if $MQ_INCLUDE_XL
-    &#{$separator}xl
-      +mq-xl
+  @each $size in $mq-size-order
+    &#{$separator}#{$size}
+      @media (map-get($mq-queries-from-map, $size))
         @content
 
 
@@ -71,26 +54,9 @@
   @if $with-initial
     @content
 
-  @if $MQ_INCLUDE_XS
-    &#{$separator}xs
-      +mq-till-xs
-        @content
-
-  &#{$separator}sm
-    +mq-till-sm
-      @content
-
-  &#{$separator}md
-    +mq-till-md
-      @content
-
-  &#{$separator}lg
-    +mq-till-lg
-      @content
-
-  @if $MQ_INCLUDE_XL
-    &#{$separator}xl
-      +mq-till-xl
+  @each $size in $mq-size-order
+    &#{$separator}#{$size}
+      @media (map-get($mq-queries-till-map, $size))
         @content
 
 

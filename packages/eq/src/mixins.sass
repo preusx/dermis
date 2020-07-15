@@ -55,27 +55,10 @@
   @if $with-initial
     @extend #{$selector}
 
-  @if $EQ_INCLUDE_XS
-    &#{$separator}exs
-      +eq-xs($base: $base)
-        @extend #{$selector}
-
-  &#{$separator}esm
-    +eq-sm($base: $base)
-      @extend #{$selector}
-
-  &#{$separator}emd
-    +eq-md($base: $base)
-      @extend #{$selector}
-
-  &#{$separator}elg
-    +eq-lg($base: $base)
-      @extend #{$selector}
-
-  @if $EQ_INCLUDE_XL
-    &#{$separator}exl
-      +eq-xl($base: $base)
-        @extend #{$selector}
+  @each $size in $eq-size-order
+    &#{$separator}e#{$size}
+      +eq(map-get($eq-size-map, $size), 'gte', $base: $base)
+        @content
 
 
 @mixin eq-adaptive-till($base: null, $separator: '-till-', $with-initial: true)
@@ -87,27 +70,10 @@
   @if $with-initial
     @extend #{$selector}
 
-  @if $EQ_INCLUDE_XS
-    &#{$separator}exs
-      +eq-till-xs($base: $base)
-        @extend #{$selector}
-
-  &#{$separator}esm
-    +eq-till-sm($base: $base)
-      @extend #{$selector}
-
-  &#{$separator}emd
-    +eq-till-md($base: $base)
-      @extend #{$selector}
-
-  &#{$separator}elg
-    +eq-till-lg($base: $base)
-      @extend #{$selector}
-
-  @if $EQ_INCLUDE_XL
-    &#{$separator}exl
-      +eq-till-xl($base: $base)
-        @extend #{$selector}
+  @each $size in $eq-size-order
+    &#{$separator}e#{$size}
+      +eq(map-get($eq-size-map, $size), 'lt', $base: $base)
+        @content
 
 
 @mixin eq-both-adaptive($base: null, $with-initial: true)
