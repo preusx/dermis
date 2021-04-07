@@ -16,10 +16,12 @@
         display: inline-flex
 
       &column
-        flex-direction: column
+        +mq-both-adaptive
+          flex-direction: column
 
       &nowrap
-        flex-wrap: nowrap
+        +mq-both-adaptive
+          flex-wrap: nowrap
 
       &spaced
         --grid-row-space: var(--grid-space-vertical)
