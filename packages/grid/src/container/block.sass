@@ -21,4 +21,5 @@
       @each $size, $value in $grid-row-space-map
         &#{$size}
           +mq-both-adaptive
-            --grid-cell-space-half: #{$value / 2}
+            --grid-cell-space-half: math.div($value, 2)
+
