@@ -2,7 +2,7 @@
   $font-size: map-get($type-font-size-map, $size)
   $fit: map-get($type-font-size-map, $fit-size) * map-get($type-line-height-map, $fit-line)
 
-  @return rut-floor($fit) / $font-size
+  @return div(rut-floor($fit), $font-size)
 
 @mixin type-line($size: 'body', $line: 'body', $fit-size: $size, $fit-line: $line)
   font-size: var(--type-font-size-#{$size})
