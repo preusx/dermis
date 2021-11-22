@@ -1,8 +1,10 @@
+@use "sass:math"
+
 @function rut-ceil($size)
-  @return ceil($size / $rut-base) * $rut-base
+  @return ceil(math.div($size, $rut-base)) * $rut-base
 
 @function rut-floor($size)
-  @return floor($size / $rut-base) * $rut-base
+  @return floor(math.div($size, $rut-base)) * $rut-base
 
 @function rut-round($size)
-  @return round($size / $rut-base) * $rut-base
+  @return round(math.div($size, $rut-base)) * $rut-base

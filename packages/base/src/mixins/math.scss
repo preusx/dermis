@@ -1,3 +1,5 @@
+@use "sass:math";
+
 //
 // By drtimofey, script based on script by davidkpiano, see these links:
 // https://github.com/thoughtbot/bitters/issues/167
@@ -20,7 +22,7 @@
   }
   @else if $exp < 0 {
     @for $i from 1 through -$exp {
-      $value: $value / $number;
+      $value: math.div($value, $number);
     }
   }
 
@@ -52,7 +54,7 @@
 }
 
 @function math-exp-maclaurin($x, $n) {
-  $result: math-pow($x, $n) / math-factorial($n);
+  $result: math.div(math-pow($x, $n), math-factorial($n));
   @return $result;
 }
 @function math-exp($value) {
@@ -61,7 +63,7 @@
 }
 
 @function math-ln-maclaurin($x, $n) {
-  $result: (math-pow(-1, $n + 1) / $n) * (math-pow($x - 1, $n));
+  $result: math.div(math-pow(-1, $n + 1), $n) * (math-pow($x - 1, $n));
   @return $result;
 }
 
@@ -73,7 +75,7 @@
     $ten-exp: $ten-exp + 1;
   }
 
-  $value: $value / math-pow(10, $ten-exp);
+  $value: math.div($value, math-pow(10, $ten-exp));
 
   $result: math-summation(math-ln-maclaurin, $value, 1, 100);
 
@@ -86,10 +88,10 @@
 
 @function rad($angle) {
   $unit: unit($angle);
-  $unitless: $angle / ($angle * 0 + 1);
+  $unitless: math.div($angle, $angle * 0 + 1);
   // If the angle has 'deg' as unit, convert to radians.
   @if $unit == deg {
-    $unitless: $unitless / 180 * pi();
+    $unitless: math.div($unitless, 180) * pi();
   }
   @return $unitless;
 }
@@ -99,7 +101,7 @@
   $angle: rad($angle);
   // Iterate a bunch of times.
   @for $i from 0 through 10 {
-    $sin: $sin + math-pow(-1, $i) * math-pow($angle, (2 * $i + 1)) / math-factorial(2 * $i + 1);
+    $sin: $sin + math.div(math-pow(-1, $i) * math-pow($angle, (2 * $i + 1)), math-factorial(2 * $i + 1));
   }
   @return $sin;
 }
@@ -109,11 +111,11 @@
   $angle: rad($angle);
   // Iterate a bunch of times.
   @for $i from 0 through 10 {
-    $cos: $cos + math-pow(-1, $i) * math-pow($angle, 2 * $i) / math-factorial(2 * $i);
+    $cos: $cos + math.div(math-pow(-1, $i) * math-pow($angle, 2 * $i), math-factorial(2 * $i));
   }
   @return $cos;
 }
 
 @function tan($angle) {
-  @return sin($angle) / cos($angle);
+  @return math.div(sin($angle), cos($angle));
 }
