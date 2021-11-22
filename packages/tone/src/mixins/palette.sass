@@ -1,3 +1,5 @@
+@use "sass:math"
+
 @function tone-color-palette-range($marks, $specs: ())
   $result: ()
 
@@ -86,7 +88,7 @@
       @each $index in $path
         $current-mark: nth($marks, $index)
         $current-shift: $current-mark - $start-shift
-        $value: map-merge($value, ($current-mark: mix($finish, $start, ($current-mark - $start-shift) / $shift * 100%)))
+        $value: map-merge($value, ($current-mark: mix($finish, $start, math.div(($current-mark - $start-shift), $shift) * 100%)))
 
       $path: ()
 

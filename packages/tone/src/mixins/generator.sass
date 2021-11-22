@@ -1,3 +1,5 @@
+@use "sass:math"
+
 // Algorithm from https://www.colorbox.io/
 
 @function tone-range-value($value, $base, $current)
@@ -5,12 +7,12 @@
   $base-diff: nth($base, 2) - nth($base, 1)
   $current-diff: nth($current, 2) - nth($current, 1)
 
-  $result: nth($current, 1) + $shift / $base-diff * $current-diff
+  $result: nth($current, 1) + math.div($shift, $base-diff) * $current-diff
 
   @return min(max($result, nth($current, 1)), nth($current, 2))
 
 @function tone-color-from-range($mark, $specs: ())
-  $position: $mark / 100
+  $position: math.div($mark, 100)
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
   $saturation-rate: map-get($specs, saturation-rate)
 
@@ -23,7 +25,7 @@
   $position-brightness: call(get-function(map-get($specs, 'brightness-curve')), 1 - $position)
 
   $hue-current: tone-range-value($position-hue, 0 1, $hue-range)
-  $saturation-current: tone-range-value($position-saturation, 0 1, $saturation-range) * $saturation-rate / 100
+  $saturation-current: tone-range-value($position-saturation, 0 1, $saturation-range) * math.div($saturation-rate, 100)
   $brightness-current: tone-range-value($position-brightness, 0 1, $brightness-range)
 
   @return hsl(hsv-to-hsl($hue-current, $saturation-current, $brightness-current)...)
@@ -32,7 +34,7 @@
   $specs: map-merge($TONE_DEFAULT_SPECS, $specs)
   $way: if($shift >= 0, 1 , -1)
   $opposite: if($shift >= 0, -1 , 1)
-  $shift: (50 + $shift) / 100
+  $shift: (50 + $shift) * 0.01
   $hsb: hsl-to-hsv(hue($color), saturation($color), lightness($color))
 
   $shift-hue: call(get-function(map-get($specs, hue-curve)), $shift)

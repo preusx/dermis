@@ -1,17 +1,19 @@
+@use "sass:math"
+
 @function hsv-to-hsl($hue, $saturation, $brightness)
-  $lightness: (200 - $saturation) * $brightness / 100
+  $lightness: (200 - $saturation) * math.div($brightness, 100)
 
   @if not ($lightness == 0 or $lightness == 200)
-    $saturation: $saturation * $brightness / if($lightness <= 100, $lightness, 200 - $lightness)
+    $saturation: $saturation * math.div($brightness, if($lightness <= 100, $lightness, 200 - $lightness))
   @else
     $saturation: 0
 
-  @return $hue $saturation $lightness * 5 / 10
+  @return $hue $saturation * 1% $lightness * math.div(5, 10) * 1%
 
 @function hsl-to-hsv($hue, $saturation, $lightness)
-  $saturation: strip-unit($saturation / 100 * if($lightness < 50, $lightness, 100 - $lightness))
+  $saturation: strip-unit(math.div($saturation, 100) * if($lightness < 50, $lightness, 100 - $lightness))
 
-  @return strip-unit($hue) strip-unit(2 * $saturation / ($lightness + $saturation) * 100) strip-unit($lightness + $saturation)
+  @return strip-unit($hue) strip-unit(2 * math.div($saturation, ($lightness + $saturation)) * 100) strip-unit($lightness + $saturation)
 
 // Relative color luminance: https://en.wikipedia.org/wiki/Relative_luminance
 @function luminance($color)
@@ -22,12 +24,12 @@
   @return $red * 0.299 + $green * 0.587 + $blue * 0.114
 
 @function luminance-rgb-chanel-adgust($value)
-  $value: $value / 255
+  $value: math.div($value, 255)
 
   @if $value < 0.03928
-    $value: $value / 12.92
+    $value: math.div($value, 12.92)
   @else
-    $value: math-pow(($value + .055) / 1.055, 2)
+    $value: math-pow(math.div(($value + .055), 1.055), 2)
 
   @return $value * 10
 

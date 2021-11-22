@@ -1,3 +1,7 @@
+@use "sass:math"
+
+$HALF-PI: math.div(pi(), 2)
+
 @function linear($step)
   @return $step
 
@@ -11,10 +15,10 @@
   @return if($step < 0.5, 2 * $step * $step, (4 - 2 * $step) * $step - 1)
 
 @function ease-out-sine($step)
-  @return sin(pi() / 2 * $step)
+  @return sin($HALF-PI * $step)
 
 @function ease-in-sine($step)
-  @return 1 + sin(pi() / 2 * $step - pi() / 2)
+  @return 1 + sin($HALF-PI * $step - $HALF-PI)
 
 @function ease-in-out-sine($step)
-  @return (1 + sin(pi() * $step - pi() / 2)) / 2
+  @return math.div(1 + sin(pi() * $step - $HALF-PI), 2)
